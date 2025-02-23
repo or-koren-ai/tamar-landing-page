@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =======================================
+   GLOBAL UTILITIES & ANIMATIONS
+======================================= */
+
+/* Right-to-left scrolling animation */
+@layer utilities {
+  .animate-scroll-rtl {
+    display: flex;
+    gap: 20px;
+    animation: scrollRTL 10s linear infinite;
+  }
+
+  @keyframes scrollRTL {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Pause scrolling on hover */
+  .animate-scroll-rtl:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* =======================================
+   GENERAL HOVER & TRANSITION EFFECTS
+======================================= */
+
+@layer utilities {
+  /* Smooth hover transformations */
+  .hover-transform {
+    @apply transition-all duration-500;
+  }
+  
+  .hover-transform:hover {
+    @apply rotate-12 scale-110;
+  }
+
+  /* Glass morphism effect on hover */
+  .hover-glass {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glass:hover {
+    @apply backdrop-blur-sm shadow-lg;
+  }
+}
+
+/* =======================================
+   CLINIC SERVICES - HOVER EXPANSION
+======================================= */
+
+/* 
+  Base style for the service cards.
+  Increased the min-height to help prevent text overflow.
+  Using a smooth transition for scale and box-shadow on hover.
+*/
+.clinic-service-card {
+  min-height: 350px;
+  position: relative;
+  transition: all 0.3s ease;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 300px; /* Fixed width */
+  margin: 0; /* Remove margin to prevent gaps */
+}
+
+/* Remove any margin/padding that might cause gaps */
+.embla__container {
+  display: flex;
+  gap: 0;
+  padding: 0;
+}
+
+/* Ensure smooth transitions */
+.embla__slide {
+  flex: 0 0 auto;
+  min-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.default-content {
+  /* Removed fixed height; let the content size naturally.
+     We'll still hide it on hover with opacity. */
+  transition: opacity 0.3s ease;
+}
+
+.hover-content {
+  /* Changed top: 50% to top: 0 and inset: 0 to let the card expand properly */
+  position: absolute;
+  inset: 0;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 50;
+  transform: scale(0.9); /* Start slightly smaller */
+}
+
+/* When hovering, show the hover content, hide the default content */
+.clinic-service-card:hover .hover-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.1); /* Slight enlarge on hover */
+}
+
+.clinic-service-card:hover .default-content {
+  opacity: 0;
+}
+
+/* =======================================
+   CLINIC SERVICES - HOVER EXPANSION (TAILWIND LAYER)
+======================================= */
+@layer utilities {
+  /* 
+    If you're also using these Tailwind classes for the same cards,
+    here is the extended styling with scale and transitions.
+  */
+
+  /* Service card - Default state */
+  .clinic-service-card {
+    @apply bg-white p-6 rounded-xl shadow-md w-[300px] flex-shrink-0 
+      transform transition-all duration-500 relative cursor-pointer backdrop-blur-md;
+  }
+
+  /* Hover Effect - Expands the Card */
+  .clinic-service-card:hover {
+    @apply scale-110 shadow-xl;
+  }
+
+  /* Default Content (Short Description) */
+  .default-content {
+    @apply transition-opacity duration-500 opacity-100;
+    /* If you prefer absolute positioning, uncomment below:
+       @apply absolute inset-0 flex flex-col justify-center items-center; 
+       but that can cut text if the card is too short.
+    */
+  }
+
+  /* Expanded Content (Long Description) */
+  .hover-content {
+    @apply transition-opacity duration-500 opacity-0 scale-90;
+    /* If you prefer absolute positioning, keep:
+       @apply absolute inset-0 flex flex-col justify-center items-center bg-white rounded-xl;
+    */
+  }
+
+  /* On hover, hide default content & show expanded content */
+  .clinic-service-card:hover .default-content {
+    @apply opacity-0;
+  }
+  .clinic-service-card:hover .hover-content {
+    @apply opacity-100 scale-100;
+  }
+}
+
+/* Add new service tile styles */
+@layer components {
+  .service-tile {
+    @apply bg-white 
+           rounded-xl 
+           shadow-md 
+           p-8 
+           transition-all 
+           duration-300 
+           cursor-pointer
+           backdrop-blur-sm
+           bg-opacity-90;
+  }
+
+  .service-tile:hover {
+    @apply shadow-xl 
+           scale-105 
+           bg-opacity-100;
+  }
+
+  /* Optional: add a subtle background pattern */
+  .service-tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(133, 154, 133, 0.1) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
