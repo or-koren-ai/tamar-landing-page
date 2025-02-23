@@ -6,6 +6,7 @@
    GLOBAL UTILITIES & ANIMATIONS
 ======================================= */
 
+
 /* Right-to-left scrolling animation */
 @layer utilities {
   .animate-scroll-rtl {
