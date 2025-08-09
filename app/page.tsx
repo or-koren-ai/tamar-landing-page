@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
@@ -16,12 +15,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-light" dir="rtl">
+    <div id="top" className="min-h-screen bg-white text-gray-800 font-light" dir="rtl">
       <header className="py-4 bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
-              <Link href="/">
+              <a href="#top">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dr.%20Tamar%20Koren-U0hIz1F6EsNKraH3b9qex4H5pIyU6c.png"
                   alt="ד״ר תמר קורן"
@@ -30,7 +29,7 @@ export default function Home() {
                   className="h-auto w-auto max-w-[200px]"
                   priority
                 />
-              </Link>
+              </a>
             </div>
             <div className="flex items-center gap-4">
               <Navigation />
