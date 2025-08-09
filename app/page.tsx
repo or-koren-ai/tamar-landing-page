@@ -159,7 +159,7 @@ export default function Home() {
             </div>
 
             <p className="mt-8 text-sm text-center text-gray-500">
-              מקור הביקורות -{' '}
+              לעוד ביקורות -{' '}
               <a
                 href={SITE.socials.medreviews}
                 target="_blank"
@@ -187,6 +187,10 @@ export default function Home() {
                     <li>
                       <strong className="text-gray-800">וואטסאפ:</strong>{' '}
                       <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline" dir="ltr">{SITE.whatsapp.display}</a>
+                    </li>
+                    <li>
+                      <strong className="text-gray-800">מייל:</strong>{' '}
+                      <a href="mailto:office@mchc.co.il" className="underline" dir="ltr">office@mchc.co.il</a>
                     </li>
                     <li>
                       <strong className="text-gray-800">כתובת:</strong>{' '}
