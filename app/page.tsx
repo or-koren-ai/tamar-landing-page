@@ -40,16 +40,16 @@ export default function Home() {
       </header>
 
       <main className="pb-24 md:pb-0">
-        <section className="py-12 sm:py-20 text-center bg-[#e8f0e8] bg-opacity-30">
-          <h1 className="text-3xl sm:text-5xl font-thin mb-3 sm:mb-4 text-[#6b8e6b]">
+        <section className="py-12 md:py-16 text-center bg-[#e8f0e8] bg-opacity-30">
+          <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b]">
             ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה
           </h1>
-          <p className="text-base sm:text-lg mb-6 text-gray-900">
+          <p className="text-base md:text-lg mb-6 text-gray-900">
             קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים
           </p>
         </section>
 
-        <section id="אודות" className="py-14" aria-labelledby="about-title">
+        <section id="אודות" className="py-12 md:py-16" aria-labelledby="about-title">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <Image
@@ -62,7 +62,7 @@ export default function Home() {
               />
             </div>
             <div className="md:w-1/2 md:pr-8">
-              <h2 id="about-title" className="text-4xl font-light mb-6 text-[#6b8e6b] text-right">אודות</h2>
+              <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-8 text-[#6b8e6b] text-center md:text-right">אודות</h2>
               <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
                 ד״ר תמר קורן היא מומחית לרפואת עור ומין, בעלת ניסיון בטיפול בילדים ומבוגרים. 
                 בוגרת הפקולטה לרפואה בטכניון והתמחתה ברפואת עור בבית החולים העמק.
@@ -79,16 +79,16 @@ export default function Home() {
         </section>
 
 
-        <section id="שירותי-המרפאה" className="py-16 bg-[#dce7dc] bg-opacity-60 relative">
+        <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
-            <h2 className="text-5xl font-light mb-24 text-center text-[#859a85]">שירותי המרפאה</h2>
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
             <ServicesGrid />
           </div>
         </section>
 
-        <section id="ביקורות" className="py-16">
+        <section id="ביקורות" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-light mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
                 <p className="text-gray-700 text-right">
@@ -106,7 +106,7 @@ export default function Home() {
                 <p className="text-gray-700 text-right">
                   ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- ר.</p>
+                <p className="mt-auto font-light text-[#859a85] text-right">ר.ב הרצליה</p>
               </div>
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
@@ -116,9 +116,9 @@ export default function Home() {
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">
                 <p className="text-gray-700 text-left">
-                  "One of the kindest and most professional doctors I’ve met. Clear explanations, patient and thorough. Highly recommended."
+                  "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- Patient</p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- Wayne Shepherd, Haifa</p>
               </div>
             </div>
 
@@ -136,10 +136,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="קביעת-תור" className="scroll-mt-24 py-24 bg-[#c6d5c6] bg-opacity-20">
+        <section id="קביעת-תור" className="scroll-mt-24 py-12 md:py-16 bg-[#c6d5c6] bg-opacity-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-light mb-12 text-center text-[#859a85]">קביעת תור</h2>
-            <div className="flex flex-col md:flex-row gap-12">
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-12">
               <div className="md:w-1/2">
                 <div className="text-right space-y-2">
                   <p className="text-gray-700 text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
@@ -206,18 +206,8 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="bg-[#859a85] text-white py-6 text-center font-light">
+      <footer className="bg-[#859a85] text-white py-4 text-center font-light">
         <p>&copy; {new Date().getFullYear()} ד״ר תמר קורן. כל הזכויות שמורות.</p>
-        <p className="text-sm mt-2">
-          <a 
-            href="https://www.flaticon.com/free-icons/hair-follicle" 
-            title="hair follicle icons"
-            className="text-white hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-        </p>
       </footer>
       <script
           type="application/ld+json"
