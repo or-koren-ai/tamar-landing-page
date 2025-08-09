@@ -6,88 +6,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { Stethoscope, Fingerprint, Scissors, Search, Sparkles, Palette, Video, Hand } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import React from "react"
-import { HairIcon } from '@/components/icons/HairIcon'
-import { AcneIcon } from '@/components/icons/AcneIcon'
+import ServicesGrid from "@/components/ServicesGrid"
 
 export const metadata: Metadata = {
   title: "ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה",
   description: "קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים",
 }
 
-const services = [
-  {
-    title: "אבחון וטיפול של כלל מחלות העור",
-    icon: Stethoscope,
-    description: "אבחון מקצועי ומדויק של מחלות עור שונות והתאמת טיפול אישי",
-    longDescription:
-      'המרפאה מציעה אבחון מקיף ומדויק של מגוון רחב של מחלות עור. ד"ר קורן משתמשת בידע ובניסיון הרב שלה כדי להתאים טיפול אישי לכל מטופל, תוך התחשבות בגורמים הייחודיים של כל מקרה.',
-  },
-  {
-    title: "מחלות ושינויים בציפורניים",
-    icon: Hand,
-    description: "טיפול בבעיות ציפורניים ושינויים פתולוגיים",
-    longDescription:
-      "אנו מטפלים במגוון רחב של בעיות ציפורניים, כולל פטרת, שינויים בצורה ובצבע, ובעיות אחרות. הטיפול מותאם אישית לכל מטופל ומשלב טכניקות מתקדמות לשיפור בריאות הציפורניים.",
-  },
-  {
-    title: "מחלות ונשירת שיער",
-    icon: HairIcon,
-    description: "אבחון וטיפול בנשירת שיער ובעיות קרקפת",
-    longDescription:
-      "המרפאה מתמחה באבחון וטיפול בבעיות שיער וקרקפת. אנו מציעים פתרונות מקיפים לנשירת שיער, קרחות, ובעיות קרקפת שונות, תוך שימוש בשיטות הטיפול המתקדמות ביותר.",
-  },
-  {
-    title: "בדיקת שומות, אבחון נגעים שפירים וסרטני עור",
-    icon: Search,
-    description: "בדיקה יסודית ומעקב אחר שומות ונגעי עור",
-    longDescription:
-      "אנו מבצעים בדיקות מקיפות של שומות ונגעי עור, תוך שימוש בטכנולוגיות מתקדמת לאבחון מוקדם של סרטן העור. המרפאה מציעה מעקב שוטף ומדויק אחר שינויים בעור לאורך זמן.",
-  },
-  {
-    title: "התאמת טיפול אישי ומדוייק לאקנה",
-    icon: AcneIcon,
-    description: "טיפול באקנה והתאמת שגרת טיפוח יומיומית",
-    longDescription:
-      "אנו מציעים טיפול מקיף באקנה, המותאם אישית לכל מטופל. הטיפול כולל אבחון מדויק של סוג האקנה, התאמת טיפול תרופתי במידת הצורך, וייעוץ מקיף לגבי שגרת טיפוח יומיומית לשיפור מצב העור.",
-  },
-  {
-    title: "טיפול בפיגמנטציה ואסטטיקה",
-    icon: Palette,
-    description: "טיפולים אסתטיים מתקדמים והבהרת כתמי עור",
-    longDescription:
-      "המרפאה מציעה מגוון טיפולים אסתטיים מתקדמים, כולל טיפול בכתמי עור ופיגמנטציה. אנו משתמשים בטכנולוגיות חדישות להבהרת העור ושיפור מראהו הכללי, תוך שמירה על בריאותו.",
-  },
-  {
-    title: "יעוץ אונליין מרחוק",
-    icon: Video,
-    description: "ייעוץ מקצועי נוח ונגיש מכל מקום",
-    longDescription:
-      "אנו מציעים שירות ייעוץ אונליין, המאפשר למטופלים לקבל חוות דעת מקצועית מבלי לצאת מהבית. השירות כולל הערכה ראשונית, מעקב אחר טיפולים, ומתן המלצות מותאמות אישית.",
-  },
-]
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800 font-light" dir="rtl">
       <header className="py-4 bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div className="w-[200px]">
+          <div className="flex items-center justify-between">
+            <div className="flex-shrink-0">
               <Link href="/">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dr.%20Tamar%20Koren-U0hIz1F6EsNKraH3b9qex4H5pIyU6c.png"
                   alt="ד״ר תמר קורן"
                   width={200}
                   height={50}
-                  className="object-contain"
+                  className="h-auto w-auto max-w-[200px]"
                   priority
                 />
               </Link>
             </div>
-            <Navigation />
-            <Button className="md:hidden bg-[#859a85] text-white hover:bg-[#A27B5C]">תפריט</Button>
+            <div className="flex items-center gap-4">
+              <Navigation />
+              <Button className="md:hidden bg-[#859a85] text-white hover:bg-[#A27B5C]">תפריט</Button>
+            </div>
           </div>
         </div>
       </header>
@@ -102,34 +50,31 @@ export default function Home() {
           </p>
         </section>
 
-        <section id="about" className="py-14">
+        <section id="אודות" className="py-14" aria-labelledby="about-title">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A51A8218.jpg-Jm1XM2fGyqHdDeohR1Ocu3BEtIVZSx.jpeg"
-                alt="ד״ר תמר קורן"
+                alt="ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה"
                 width={600}
                 height={900}
                 className="rounded-3xl shadow-lg w-full max-w-md mx-auto"
-                priority
+                loading="lazy"
               />
             </div>
             <div className="md:w-1/2 md:pr-8">
-              <h2 className="text-4xl font-light mb-6 text-[#6b8e6b] text-right">
-              אודות
-              </h2>
-                <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
-                  ד״ר תמר קורן היא מומחית לרפואת עור ומין, בעלת ניסיון בטיפול בילדים ומבוגרים. 
-                  בוגרת הפקולטה לרפואה בטכניון והתמחתה ברפואת עור בבית החולים העמק.
-                </p>
-                <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
-                  בעלת פרסום מאמרים מדעיים, מדריכה סטודנטים לרפואה בטכניון
-                  ומתנדבת בעמותת 'למענם' המסייעת רפואית לניצולי שואה.
-                </p>
-                <p className="text-xl text-gray-500 leading-relaxed text-right">
-                  ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל, תוך הקפדה על מקצועיות, גישה קשובה ואכפתית.
-                </p>
-
+              <h2 id="about-title" className="text-4xl font-light mb-6 text-[#6b8e6b] text-right">אודות</h2>
+              <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
+                ד״ר תמר קורן היא מומחית לרפואת עור ומין, בעלת ניסיון בטיפול בילדים ומבוגרים. 
+                בוגרת הפקולטה לרפואה בטכניון והתמחתה ברפואת עור בבית החולים העמק.
+              </p>
+              <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
+                בעלת פרסום מאמרים מדעיים, מדריכה סטודנטים לרפואה בטכניון
+                ומתנדבת בעמותת 'למענם' המסייעת רפואית לניצולי שואה.
+              </p>
+              <p className="text-xl text-gray-500 leading-relaxed text-right">
+                ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל, תוך הקפדה על מקצועיות, גישה קשובה ואכפתית.
+              </p>
             </div>
           </div>
         </section>
@@ -138,23 +83,7 @@ export default function Home() {
         <section id="שירותי-המרפאה" className="py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
             <h2 className="text-5xl font-light mb-24 text-center text-[#859a85]">שירותי המרפאה</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {services.map((service, i) => (
-                <div
-                  key={`service-${i}`}
-                  className="service-tile bg-white rounded-xl shadow-md p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-opacity-100"
-                >
-                  <div className="flex flex-col items-center text-center gap-6">
-                    <div className="bg-[#A27B5C] p-4 rounded-full transition-transform duration-300 hover:rotate-12">
-                      <service.icon className="w-10 h-10 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-[#859a85]">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ServicesGrid />
           </div>
         </section>
 
@@ -233,6 +162,29 @@ export default function Home() {
           </a>
         </p>
       </footer>
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Physician",
+              name: "ד״ר תמר קורן",
+              description: "מומחית לרפואת עור ומין בחיפה. טיפול אישי ומקצועי לילדים ולמבוגרים.",
+              telephone: "+972525280650",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "מוריה 84",
+                addressLocality: "חיפה",
+                addressCountry: "IL",
+              },
+              areaServed: "חיפה",
+              url: "https://your-site.example",
+              sameAs: [
+                "https://www.medreviews.co.il/provider/dr-koren-tamar",
+              ],
+            }),
+          }}
+        />
     </div>
   )
 }

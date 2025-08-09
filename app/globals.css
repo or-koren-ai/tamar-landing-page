@@ -31,6 +31,31 @@
 }
 
 /* =======================================
+   MODAL + TILT ANIMATIONS
+======================================= */
+@layer utilities {
+  @keyframes modalIn {
+    0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-modal-in {
+    animation: modalIn 300ms ease-out both;
+  }
+
+  @keyframes tiltWobble {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(4deg); }
+  }
+  .animate-tilt {
+    animation: tiltWobble 1.2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-modal-in, .animate-tilt { animation: none; }
+  }
+}
+
+/* =======================================
    GENERAL HOVER & TRANSITION EFFECTS
 ======================================= */
 
@@ -172,32 +197,46 @@
     @apply bg-white 
            rounded-xl 
            shadow-md 
-           p-8 
            transition-all 
            duration-300 
            cursor-pointer
-           backdrop-blur-sm
-           bg-opacity-90;
+           ring-1 ring-black/5;
   }
 
   .service-tile:hover {
-    @apply shadow-xl 
-           scale-105 
-           bg-opacity-100;
+    @apply md:shadow-xl md:scale-105;
   }
 
-  /* Optional: add a subtle background pattern */
+  /* Remove background pattern for a cleaner look */
   .service-tile::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-      circle at 2px 2px,
-      rgba(133, 154, 133, 0.1) 1px,
-      transparent 0
-    );
-    background-size: 24px 24px;
-    opacity: 0.5;
-    z-index: -1;
+    content: none;
+  }
+}
+
+/* Utility: multi-line clamp without plugin */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* Hide default marker of summary in all browsers */
+  .no-marker::-webkit-details-marker { display: none; }
+  .no-marker::marker { content: ""; }
+}
+
+@keyframes tilt {
+  0% { transform: rotate(0deg) scale(1); }
+  60% { transform: rotate(18deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@layer utilities {
+  .animate-tilt {
+    animation: tilt 350ms ease-out both;
   }
 }

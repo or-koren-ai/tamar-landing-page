@@ -1,0 +1,49 @@
+Visual and interaction concept
+Grid of square tiles (aspect-square): icon + title centered.
+Tap/click a tile → it expands in place to reveal 2–4 lines of context and a small inline link “לקביעת תור”.
+Mobile-first: 1 column on small screens, then 2/3/4 on larger screens.
+Light micro‑interaction: subtle shadow/scale on hover; smooth expand/collapse.
+Theme: white tiles, soft shadow, accent colors you already use (#A27B5C, #859a85).
+Why this approach
+Minimal, fast, and accessible.
+Matches RTL and your palette.
+Avoids complex JS; keeps bundle small and layout stable.
+Implementation plan (no code yet)
+Content
+Use existing services array.
+For each service: show icon + title.
+Expanded area: short description + 1–3 concise lines from longDescription.
+Add small inline link: “לקביעת תור” → #קביעת-תור.
+Markup
+Replace the current tiles with native HTML details/summary per tile:
+summary: icon + title (acts like a button).
+Expanded content: short paragraph and bullets + tiny CTA link.
+Each tile uses h3 for the title for SEO.
+Styling (Tailwind utilities)
+Grid: grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4.
+Tile: details styled as a card: rounded-xl bg-white shadow-md p-6 transition hover:shadow-lg.
+Square look: aspect-square for the closed state; when opened, it grows naturally.
+Text/RTL: text-right, logical paddings, consistent icon sizing.
+Interaction
+Rely on <details>’ built-in toggle. It’s keyboard-accessible and screen‑reader friendly by default.
+Add aria-expanded cosmetic class hooks if we need custom states (optional).
+Smooth expand: transition opacity/transform for the inner content; avoid animating height directly.
+Accessibility
+summary is focusable and announces state.
+h3 inside summary, label in Hebrew.
+Ensure focus ring visible; no color-only indicators.
+Performance
+No extra deps.
+Icons only (no new images).
+Avoid expensive animations; just opacity/transform.
+Keep content short to reduce layout shift when expanding.
+SEO/LLM
+Each card title in an h3.
+Short, factual descriptions; avoid fluff.
+On-page facts remain consistent with JSON‑LD.
+
+
+EDITOR NOTES : 
+ start implementation , (including generation of mockup text in the description)
+do not Add small inline link: “לקביעת תור” → #קביעת-תור.
+make sure the Smooth expand works
