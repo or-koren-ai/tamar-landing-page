@@ -27,7 +27,7 @@ export const generateMetadata = () => ({
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-white text-gray-800 font-light" dir="rtl">
+    <div id="top" className="min-h-screen bg-white text-gray-800 font-extralight" dir="rtl">
       <header className="py-4 bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
@@ -82,12 +82,12 @@ export default function Home() {
       </header>
 
       <main className="pb-28 md:pb-0">
-        <section className="py-12 md:py-16 text-center bg-[#e8f0e8] bg-opacity-30">
+        <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b] px-4 md:px-0">
+            <h1 className="text-3xl md:text-5xl font-thin mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0">
               {SITE.hero.title}
             </h1>
-            <p className="text-base md:text-lg mb-6 text-gray-900 px-4 md:px-0">
+            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0">
               {SITE.hero.subtitle}
             </p>
           </div>
@@ -125,14 +125,14 @@ export default function Home() {
 
         <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
+            <h2 className="text-3xl md:text-4xl font-extralight mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
             <ServicesGrid />
           </div>
         </section>
 
         <section id="ביקורות" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <h2 className="text-3xl md:text-4xl font-extralight mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
                 <p className="text-gray-700 text-right italic">
@@ -177,7 +177,7 @@ export default function Home() {
 
         <section id="קביעת-תור" className="scroll-mt-24 py-12 md:py-16 bg-[#c6d5c6] bg-opacity-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
+            <h2 className="text-3xl md:text-4xl font-extralight mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
             <div className="flex flex-col md:flex-row gap-10 md:gap-12">
               <div className="md:w-1/2">
                 <div className="text-right space-y-2">

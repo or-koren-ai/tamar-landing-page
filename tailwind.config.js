@@ -18,7 +18,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['"Arial Hebrew Light"', "Arial", "sans-serif"],
+        // Body text (Hebrew-first stack similar to sites like drdkushnir.com)
+        sans: ["Heebo", "Assistant", "Arial", "sans-serif"],
+        // Headings can explicitly use the same stack; apply via class "font-heading" if desired
+        heading: ["Heebo", "Assistant", "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
