@@ -6,6 +6,7 @@ import { Navigation } from "@/components/Navigation"
 import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
 import { SITE } from "@/lib/site-config"
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 
 export const metadata: Metadata = {
   title: "ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה",
@@ -32,7 +33,37 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               <Navigation />
-              <Button className="md:hidden bg-[#859a85] text-white hover:bg-[#A27B5C]">תפריט</Button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button className="md:hidden bg-[#859a85] text-white hover:bg-[#A27B5C]">תפריט</Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="bg-white">
+                  <nav className="mt-8">
+                    <ul className="flex flex-col items-end gap-4 text-right">
+                      <li>
+                        <SheetClose asChild>
+                          <a href="#אודות" className="text-lg text-[#859a85] hover:underline">אודות</a>
+                        </SheetClose>
+                      </li>
+                      <li>
+                        <SheetClose asChild>
+                          <a href="#שירותי-המרפאה" className="text-lg text-[#859a85] hover:underline">שירותי המרפאה</a>
+                        </SheetClose>
+                      </li>
+                      <li>
+                        <SheetClose asChild>
+                          <a href="#ביקורות" className="text-lg text-[#859a85] hover:underline">ביקורות</a>
+                        </SheetClose>
+                      </li>
+                      <li>
+                        <SheetClose asChild>
+                          <a href="#קביעת-תור" className="text-lg text-[#859a85] hover:underline">קביעת תור</a>
+                        </SheetClose>
+                      </li>
+                    </ul>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
