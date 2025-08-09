@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { SITE } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  alternates: { canonical: "/" },
+  metadataBase: new URL(SITE.baseUrl),
+  alternates: { canonical: '/' },
 }
 
 export default function RootLayout({

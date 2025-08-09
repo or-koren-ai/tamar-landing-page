@@ -9,8 +9,8 @@ import { SITE } from "@/lib/site-config"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 
 export const metadata: Metadata = {
-  title: "ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה",
-  description: "קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים",
+  title: SITE.hero.title,
+  description: SITE.hero.subtitle,
 }
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
               <a href="#top">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dr.%20Tamar%20Koren-U0hIz1F6EsNKraH3b9qex4H5pIyU6c.png"
-                  alt="ד״ר תמר קורן"
+                  alt={SITE.name}
                   width={200}
                   height={50}
                   className="h-auto w-auto max-w-[200px]"
@@ -72,10 +72,10 @@ export default function Home() {
       <main className="pb-24 md:pb-0">
         <section className="py-12 md:py-16 text-center bg-[#e8f0e8] bg-opacity-30">
           <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b]">
-            ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה
+            {SITE.hero.title}
           </h1>
           <p className="text-base md:text-lg mb-6 text-gray-900">
-            קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים
+            {SITE.hero.subtitle}
           </p>
         </section>
 
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="md:w-1/2 mb-8 md:mb-0">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A51A8218.jpg-Jm1XM2fGyqHdDeohR1Ocu3BEtIVZSx.jpeg"
-                alt="ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה"
+                alt={SITE.hero.title}
                 width={600}
                 height={900}
                 className="rounded-3xl shadow-lg w-full max-w-md mx-auto"
@@ -139,11 +139,6 @@ export default function Home() {
                 <p className="mt-auto font-light text-[#859a85] text-right">ר.ב הרצליה</p>
               </div>
 
-              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right">״דר׳ קורן נעימה, סבלנית, יסודית ומקצועית. עזרה לי מאוד בנושא פיגמנטציה הפנים ועוד. ממליצה בחום.״</p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- ונגרקו ענת, קרית אתא</p>
-              </div>
-
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">
                 <p className="text-gray-700 text-left">
                   "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
@@ -155,7 +150,7 @@ export default function Home() {
             <p className="mt-8 text-sm text-center text-gray-500">
               מקור הביקורות -{' '}
               <a
-                href="https://www.medreviews.co.il/provider/dr-koren-tamar"
+                href={SITE.socials.medreviews}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-[#859a85]"
@@ -184,7 +179,7 @@ export default function Home() {
                     </li>
                     <li>
                       <strong className="text-gray-800">כתובת:</strong>{' '}
-                      <address className="not-italic inline">מוריה 84, חיפה</address>
+                      <address className="not-italic inline">{SITE.address.streetAddress}, {SITE.address.locality}</address>
                     </li>
                   </ul>
                 </div>
@@ -213,14 +208,14 @@ export default function Home() {
               </div>
               <div className="md:w-1/2 h-80 md:h-[450px] rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5">
                 <iframe
-                  src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=he&amp;q=מוריה%2084%20חיפה+(מרפאת%20מומחים%20ד״ר%20תמר%20קורן)&amp;t=k&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src={SITE.map.embedSrc}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="מפת הקליניקה — מוריה 84, חיפה"
+                  title={`מפת הקליניקה — ${SITE.address.streetAddress}, ${SITE.address.locality}`}
                 ></iframe>
               </div>
             </div>
@@ -237,7 +232,8 @@ export default function Home() {
       </main>
 
       <footer className="bg-[#859a85] text-white py-4 text-center font-light">
-        <p>&copy; {new Date().getFullYear()} ד״ר תמר קורן. כל הזכויות שמורות.</p>
+        <p>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות.</p>
+
       </footer>
       <script
           type="application/ld+json"
@@ -245,21 +241,19 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Physician",
-              name: "ד״ר תמר קורן",
-              description: "מומחית לרפואת עור ומין בחיפה. טיפול אישי ומקצועי לילדים ולמבוגרים.",
+              name: SITE.name,
+              description: SITE.hero.subtitle,
               telephone: SITE.clinicPhone.e164,
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "מוריה 84",
-                addressLocality: "חיפה",
-                addressCountry: "IL",
+                streetAddress: SITE.address.streetAddress,
+                addressLocality: SITE.address.locality,
+                addressCountry: SITE.address.countryCode,
               },
-              areaServed: "חיפה",
-              url: "https://drkoren.skin",
-              hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
-              sameAs: [
-                "https://www.medreviews.co.il/provider/dr-koren-tamar",
-              ],
+              areaServed: SITE.city,
+              url: SITE.baseUrl,
+              hasMap: SITE.map.url,
+              sameAs: [SITE.socials.medreviews, SITE.socials.instagram],
               contactPoint: [
                 {
                   "@type": "ContactPoint",
