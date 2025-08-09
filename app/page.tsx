@@ -82,12 +82,14 @@ export default function Home() {
 
       <main className="pb-24 md:pb-0">
         <section className="py-12 md:py-16 text-center bg-[#e8f0e8] bg-opacity-30">
-          <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b]">
-            {SITE.hero.title}
-          </h1>
-          <p className="text-base md:text-lg mb-6 text-gray-900">
-            {SITE.hero.subtitle}
-          </p>
+          <div className="container mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b] px-4 md:px-0">
+              {SITE.hero.title}
+            </h1>
+            <p className="text-base md:text-lg mb-6 text-gray-900 px-4 md:px-0">
+              {SITE.hero.subtitle}
+            </p>
+          </div>
         </section>
 
         <section id="אודות" className="py-12 md:py-16" aria-labelledby="about-title">
@@ -277,7 +279,12 @@ export default function Home() {
                  'פיגמנטציה וכתמי עור',
                  'ויטיליגו',
                  'רוזציאה',
-                 'בוטוקס'
+                 'בוטוקס',
+                 'יבלות',
+                 'יבלות וירליות ',
+                 'מולוסקום',
+                 'פטרות ציפורניים',
+                 'סרחי עור'
                ],
                contactPoint: [
                  {
