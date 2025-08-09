@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ד״ר תמר קורן',
-  description: 'ד״ר תמר קורן - רופאת עור ומין',
-  generator: 'v0.dev',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  alternates: { canonical: "/" },
 }
 
 export default function RootLayout({
@@ -13,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="he-IL" dir="rtl">
       <body>{children}</body>
     </html>
   )

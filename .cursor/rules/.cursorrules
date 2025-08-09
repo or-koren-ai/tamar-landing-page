@@ -1,0 +1,91 @@
+Project: Dr. Tamar Koren — Private Clinic Landing Page (Haifa, Israel)
+
+Primary goals
+- Rank highly on Google and be LLM-friendly (clear facts and structured data). 
+- Convert visitors with strong, repeated calls-to-action (CTA).
+- Mobile-first experience; desktop must also be excellent.
+- Keep code simple and maintainable; minimal changes to current visual direction.
+
+Assumptions
+- Primary locale: he-IL (Hebrew). If incorrect, adjust to the actual target locale(s).
+- Default deployment target: Vercel.
+
+Hebrew-first and RTL policy
+- Default content language is Hebrew. All UI copy, headings, and metadata (titles/descriptions) are written in Hebrew.
+- Set HTML attributes globally: `lang="he-IL"` and `dir="rtl"` in `app/layout.tsx`.
+- Prefer Tailwind logical utilities for RTL safety: `ps-*/pe-*` (padding start/end), `ms-*/me-*` (margin start/end), `text-start/text-end`. Avoid left/right-specific classes unless necessary.
+- URLs: Prefer stable, transliterated English slugs for compatibility. If Hebrew slugs are required, keep them consistent and tested.
+- Typography: choose a Hebrew-friendly font via `next/font` with appropriate Hebrew-supporting fallbacks.
+- Formatting: display Israeli phone format; clickable links use `tel:+972...`. Dates/times follow local conventions.
+- Structured data values (e.g., `name`, `description`, `address`) appear in Hebrew. Schema types/keys remain standard (English) JSON-LD.
+- Accessibility: `aria-label` and form labels in Hebrew. Ensure screen-reader clarity in Hebrew.
+- Internationalization (future): if adding English later, set Next.js i18n with default `he`, add `hreflang` alternates, and mirror facts.
+
+Stack and constraints
+- Next.js 14 App Router, TypeScript, TailwindCSS, Radix UI components already present.
+- Prefer Server Components by default; use Client Components only for interaction/state.
+- Use existing `components/ui` and patterns; avoid introducing new UI libraries.
+- No logs unless explicitly requested. Keep implementations straightforward.
+- Avoid adding dependencies unless necessary for SEO/analytics/mission-critical features.
+
+SEO and LLM requirements
+- Metadata per page: concise title (<= 60 chars), compelling description (140–160 chars), canonical URL, Open Graph + Twitter Card.
+- Technical SEO: `app/sitemap.ts`, `app/robots.ts`, canonical link, clean URL structure, 404/500 pages, proper status codes.
+- Structured data (JSON-LD):
+  - Organization/LocalBusiness (Physician/MedicalClinic) with NAP, geo (Haifa), opening hours, phone, `sameAs` links, `hasMap`.
+  - WebSite with SearchAction, BreadcrumbList for key pages, FAQPage for common questions.
+  - Article schema for any content posts (optional blog/articles).
+- LLM-readiness: include a concise “About Dr. Tamar Koren” fact section with unambiguous facts (name, specialty, city, phone, clinic address, services). Ensure facts mirror JSON-LD.
+- Images: descriptive `alt`, relevant file names; use `next/image` with appropriate sizes.
+- Performance for SEO: mobile Lighthouse SEO >= 95, Performance >= 90. LCP <= 2.5s on mid-range mobile.
+
+UX and content principles
+- Mobile-first layout; ensure sticky/always-visible CTA on mobile (call/WhatsApp/appointment).
+- Repeat CTA at: hero, mid-page, footer; include click-to-call and WhatsApp (if applicable).
+- Clear information architecture:
+  - Hero (value prop + CTA)
+  - Services/Conditions
+  - About (credentials, education, memberships)
+  - Testimonials (if available and compliant)
+  - FAQ (with schema)
+  - Location/Hours/Insurance/Fees (as applicable)
+  - Contact/Appointment form (server action/API, spam protection without heavy libs)
+- Accessibility: semantic HTML, focus states, keyboard access, color contrast, proper labels.
+
+Performance and delivery
+- Fonts via `next/font` with display strategy and preload; avoid external blocking font CDNs.
+- Images: `next/image`, responsive sizes, lazy loading, priority for LCP hero image only.
+- Code splitting: keep client bundles small; no unnecessary client state.
+- Rendering: prefer SSG with a reasonable revalidation (e.g., revalidate: 86400) where content is static.
+
+Analytics and compliance
+- GA4 or privacy-friendly analytics (optional). Only add cookie consent if tracking requires it.
+- Track conversions: phone click, WhatsApp click, form submit.
+
+File and implementation conventions
+- Pages live under `app/` with segment-based routing. Use `generateMetadata` for per-page SEO.
+- Set global HTML attributes in `app/layout.tsx`: `lang="he-IL"`, `dir="rtl"`. Defaults must be Hebrew-first.
+- Centralize SEO helpers in `lib/seo.ts` (titles, descriptions, URL helpers, JSON-LD builders).
+- Place structured data injection via dedicated component (e.g., `components/seo/JsonLd.tsx`).
+- Create `app/sitemap.ts` and `app/robots.ts` for discovery.
+- Use `public/` for static images/icons; add meaningful filenames.
+
+Hard rules for changes
+- Do not add logs unless explicitly asked.
+- Keep code simple, readable, and minimal; avoid premature abstraction.
+- Match existing style and formatting; prefer Tailwind utility-first patterns already used.
+- Maintain accessibility and SEO in every edit (titles, headings, alt, labels, contrast).
+
+Definition of done for features/pages
+- Page renders on mobile and desktop without layout issues.
+- Metadata present and correct; canonical, OG/Twitter tags, JSON-LD where applicable.
+- LCP image optimized; images lazy-loaded; fonts optimized.
+- CTA visible and interactive; form submits with server action/API (no heavy client libs).
+- Content proofed for clarity and E-E-A-T; facts match JSON-LD.
+- Lighthouse (mobile) SEO >= 95, Performance >= 90.
+
+Requested workflow for the assistant
+- When implementing: update code directly with minimal unrelated changes.
+- Always ensure SEO/accessibility/performance guards in the same edit.
+- After substantive edits: run dev/build locally and fix errors before concluding.
+- Provide short, high-signal summaries; no verbose narration.
