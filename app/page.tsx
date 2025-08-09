@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { Stethoscope, Fingerprint, Scissors, Search, Sparkles, Palette, Video, Hand } from "lucide-react"
+import { MessageCircle, Phone } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
 import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
+import { SITE } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה",
@@ -40,16 +39,16 @@ export default function Home() {
       </header>
 
       <main className="pb-24 md:pb-0">
-        <section className="py-12 sm:py-20 text-center bg-[#e8f0e8] bg-opacity-30">
-          <h1 className="text-3xl sm:text-5xl font-thin mb-3 sm:mb-4 text-[#6b8e6b]">
+        <section className="py-12 md:py-16 text-center bg-[#e8f0e8] bg-opacity-30">
+          <h1 className="text-3xl md:text-5xl font-thin mb-3 md:mb-4 text-[#6b8e6b]">
             ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה
           </h1>
-          <p className="text-base sm:text-lg mb-6 text-gray-900">
+          <p className="text-base md:text-lg mb-6 text-gray-900">
             קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים
           </p>
         </section>
 
-        <section id="אודות" className="py-14" aria-labelledby="about-title">
+        <section id="אודות" className="py-12 md:py-16" aria-labelledby="about-title">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <Image
@@ -62,7 +61,7 @@ export default function Home() {
               />
             </div>
             <div className="md:w-1/2 md:pr-8">
-              <h2 id="about-title" className="text-4xl font-light mb-6 text-[#6b8e6b] text-right">אודות</h2>
+              <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-8 text-[#6b8e6b] text-center md:text-right">אודות</h2>
               <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
                 ד״ר תמר קורן היא מומחית לרפואת עור ומין, בעלת ניסיון בטיפול בילדים ומבוגרים. 
                 בוגרת הפקולטה לרפואה בטכניון והתמחתה ברפואת עור בבית החולים העמק.
@@ -79,59 +78,118 @@ export default function Home() {
         </section>
 
 
-        <section id="שירותי-המרפאה" className="py-16 bg-[#dce7dc] bg-opacity-60 relative">
+        <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
-            <h2 className="text-5xl font-light mb-24 text-center text-[#859a85]">שירותי המרפאה</h2>
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
             <ServicesGrid />
           </div>
         </section>
 
-        <section id="ביקורות" className="py-16">
+        <section id="ביקורות" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-light mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[1, 2].map((_, index) => (
-                <div key={index} className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md">
-                  <p className="text-gray-600 mb-4 text-right">
-                    ״השירות של ד״ר קורן היה מעולה. היא הקשיבה לצרכים שלי והציעה טיפול מותאם אישית.״
-                  </p>
-                  <p className="font-light text-[#859a85] text-right">- לקוח מרוצה</p>
-                </div>
-              ))}
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
+                <p className="text-gray-700 text-right">
+                  ״תודה לך ד״ר תמר על מקצועיות, הקשבה ואכפתיות. את נותנת תחושת ביטחון, מסבירה בצורה ברורה על תהליכים רפואיים, ומקדישה זמן אמיתי למטופלים. הרגשתי שמקשיבים לי ושהטיפול נעשה בגישה אנושית ומכילה.״
+                </p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- אופיר, חיפה</p>
+              </div>
+
+              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
+                <p className="text-gray-700 text-right">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- אביבית שמואל נסים, קריית אתא</p>
+              </div>
+
+              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
+                <p className="text-gray-700 text-right">
+                  ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
+                </p>
+                <p className="mt-auto font-light text-[#859a85] text-right">ר.ב הרצליה</p>
+              </div>
+
+              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
+                <p className="text-gray-700 text-right">״דר׳ קורן נעימה, סבלנית, יסודית ומקצועית. עזרה לי מאוד בנושא פיגמנטציה הפנים ועוד. ממליצה בחום.״</p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- ונגרקו ענת, קרית אתא</p>
+              </div>
+
+              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">
+                <p className="text-gray-700 text-left">
+                  "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
+                </p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- Wayne Shepherd, Haifa</p>
+              </div>
             </div>
+
+            <p className="mt-8 text-sm text-center text-gray-500">
+              מקור הביקורות -{' '}
+              <a
+                href="https://www.medreviews.co.il/provider/dr-koren-tamar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#859a85]"
+              >
+                MedReviews
+              </a>
+            </p>
           </div>
         </section>
 
-        <section id="קביעת-תור" className="py-24 bg-[#c6d5c6] bg-opacity-20">
+        <section id="קביעת-תור" className="scroll-mt-24 py-12 md:py-16 bg-[#c6d5c6] bg-opacity-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-light mb-12 text-center text-[#859a85]">קביעת תור</h2>
-            <div className="flex flex-col md:flex-row gap-12">
+            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-12">
               <div className="md:w-1/2">
-                <p className="mb-8 text-xl text-gray-600 text-right">לקביעת תור ופרטים נוספים:</p>
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faWhatsapp} className="text-[#25D366] w-5 h-5" />
-                    <span className="text-xl text-[#A27B5C]">וואטסאפ: 0525-280650</span>
-                  </div>
-                  <div>
-                    <span className="text-xl text-gray-600">כתובת: מוריה 84, חיפה</span>
-                  </div>
+                <div className="text-right space-y-2">
+                  <p className="text-gray-700 text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
+                  <ul className="list-none space-y-1 text-gray-700">
+                    <li>
+                      <strong className="text-gray-800">טלפון למרפאה:</strong>{' '}
+                      <a href={SITE.clinicPhone.link} className="underline" dir="ltr">{SITE.clinicPhone.display}</a>
+                    </li>
+                    <li>
+                      <strong className="text-gray-800">וואטסאפ:</strong>{' '}
+                      <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline" dir="ltr">{SITE.whatsapp.display}</a>
+                    </li>
+                    <li>
+                      <strong className="text-gray-800">כתובת:</strong>{' '}
+                      <address className="not-italic inline">מוריה 84, חיפה</address>
+                    </li>
+                  </ul>
                 </div>
-                <a href="https://wa.me/972525280650" target="_blank" rel="noopener noreferrer" className="inline-block">
-                  <Button className="bg-[#A27B5C] text-white hover:bg-[#859a85] transition-colors font-light text-lg py-3 px-6">
-                    קבע תור עכשיו
-                  </Button>
-                </a>
+
+                <div className="mt-5 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+                  <a
+                    href={SITE.whatsapp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`יצירת קשר בוואטסאפ לקביעת תור ${SITE.whatsapp.display}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] text-[#25D366] bg-white hover:bg-[#25D366] hover:text-white transition-colors px-4 py-2 text-sm"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span className="font-medium">קבע/י תור בוואטצאפ</span>
+                  </a>
+
+                  <a
+                    href={SITE.clinicPhone.link}
+                    aria-label={`חיוג למרפאה לקביעת תור ${SITE.clinicPhone.display}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#A27B5C] text-white hover:bg-[#859a85] transition-colors px-4 py-2 text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span className="font-medium">התקשר/י למרפאה</span>
+                  </a>
+                </div>
               </div>
-              <div className="md:w-1/2 h-[800px] md:h-[400px]">
+              <div className="md:w-1/2 h-80 md:h-[450px] rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5">
                 <iframe
-                  src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=מוריה%2084%20חיפה+(מרפאת%20מומחים%20ד״ר%20תמר%20קורן)&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=he&amp;q=מוריה%2084%20חיפה+(מרפאת%20מומחים%20ד״ר%20תמר%20קורן)&amp;t=k&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={false}
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="מפת הקליניקה — מוריה 84, חיפה"
                 ></iframe>
               </div>
             </div>
@@ -147,19 +205,8 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="bg-[#859a85] text-white py-6 text-center font-light">
+      <footer className="bg-[#859a85] text-white py-4 text-center font-light">
         <p>&copy; {new Date().getFullYear()} ד״ר תמר קורן. כל הזכויות שמורות.</p>
-        <p className="text-sm mt-2">
-          <a 
-            href="https://www.flaticon.com/free-icons/hair-follicle" 
-            title="hair follicle icons"
-            className="text-white hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Hair follicle icons created by Freepik - Flaticon
-          </a>
-        </p>
       </footer>
       <script
           type="application/ld+json"
@@ -169,7 +216,7 @@ export default function Home() {
               "@type": "Physician",
               name: "ד״ר תמר קורן",
               description: "מומחית לרפואת עור ומין בחיפה. טיפול אישי ומקצועי לילדים ולמבוגרים.",
-              telephone: "+972525280650",
+              telephone: SITE.clinicPhone.e164,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "מוריה 84",
@@ -177,9 +224,23 @@ export default function Home() {
                 addressCountry: "IL",
               },
               areaServed: "חיפה",
-              url: "https://your-site.example",
+              url: "https://drkoren.skin",
+              hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
               sameAs: [
                 "https://www.medreviews.co.il/provider/dr-koren-tamar",
+              ],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  contactType: "appointment",
+                  telephone: SITE.clinicPhone.e164,
+                },
+                {
+                  "@type": "ContactPoint",
+                  contactType: "whatsapp",
+                  telephone: SITE.whatsapp.e164,
+                  url: SITE.whatsapp.link,
+                },
               ],
             }),
           }}
