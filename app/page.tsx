@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,11 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import React from "react"
 import { HairIcon } from '@/components/icons/HairIcon'
 import { AcneIcon } from '@/components/icons/AcneIcon'
+
+export const metadata: Metadata = {
+  title: "ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה",
+  description: "קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים",
+}
 
 const services = [
   {
@@ -86,12 +92,26 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
-        <section className="py-20 text-center bg-[#e8f0e8] bg-opacity-30">
-          <h2 className="text-4xl font-thin mb-4 text-[#6b8e6b]">ד״ר תמר קורן – מומחית לרפואת עור ומין</h2>
-          <p className="text-lg mb-8 text-gray-900">טיפול אישי ומקצועי לילדים ולמבוגרים</p>
+      <main className="pb-24 md:pb-0">
+        <section className="py-12 sm:py-20 text-center bg-[#e8f0e8] bg-opacity-30">
+          <h1 className="text-3xl sm:text-5xl font-thin mb-3 sm:mb-4 text-[#6b8e6b]">
+            ד״ר תמר קורן – מומחית לרפואת עור ומין בחיפה
+          </h1>
+          <p className="text-base sm:text-lg mb-6 text-gray-900">
+            קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים
+          </p>
+          <div className="flex justify-center gap-2 sm:gap-3">
+            <Button asChild className="bg-[#A27B5C] hover:bg-[#859a85]">
+              <a href="tel:+972525280650" aria-label="התקשר לד״ר תמר קורן">התקשר/י</a>
+            </Button>
+            <Button asChild className="bg-[#25D366] hover:bg-[#1fb558]">
+              <a href="https://wa.me/972525280650" target="_blank" rel="noopener noreferrer" aria-label="שליחת וואטסאפ לד״ר תמר קורן">וואטסאפ</a>
+            </Button>
+            <Button asChild className="bg-[#859a85] hover:bg-[#6b8e6b]">
+              <a href="#קביעת-תור" aria-label="קביעת תור">קבע/י תור</a>
+            </Button>
+          </div>
         </section>
-
 
         <section id="about" className="py-14">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -200,6 +220,20 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-2">
+            <Button asChild className="flex-1 bg-[#A27B5C] hover:bg-[#859a85]">
+              <a href="tel:+972525280650" aria-label="התקשר לד״ר תמר קורן">התקשר/י</a>
+            </Button>
+            <Button asChild className="flex-1 bg-[#25D366] hover:bg-[#1fb558]">
+              <a href="https://wa.me/972525280650" target="_blank" rel="noopener noreferrer" aria-label="שליחת וואטסאפ">וואטסאפ</a>
+            </Button>
+            <Button asChild className="flex-1 bg-[#859a85] hover:bg-[#6b8e6b]">
+              <a href="#קביעת-תור" aria-label="קביעת תור">תור</a>
+            </Button>
+          </div>
+        </div>
       </main>
 
       <footer className="bg-[#859a85] text-white py-6 text-center font-light">
