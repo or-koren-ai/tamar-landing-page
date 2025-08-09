@@ -136,7 +136,7 @@ export default function Home() {
                 <p className="text-gray-700 text-right">
                   ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">ר.ב הרצליה</p>
+                <p className="mt-auto font-light text-[#859a85] text-right">- ר.ב הרצליה</p>
               </div>
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">

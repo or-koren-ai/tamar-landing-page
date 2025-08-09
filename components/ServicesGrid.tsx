@@ -2,19 +2,22 @@
 
 import React from "react"
 import { services, type ServiceItem } from "@/lib/services"
-import { Stethoscope, Search, Palette, Video, Hand } from "lucide-react"
+import { Stethoscope, Search, Video } from "lucide-react"
 import { HairIcon } from "@/components/icons/HairIcon"
 import { AcneIcon } from "@/components/icons/AcneIcon"
+import { MolesIcon } from "@/components/icons/MolesIcon"
+import { FingernailIcon } from "@/components/icons/FingernailIcon"
+import { SparklesIcon } from "@/components/icons/SparklesIcon"
 
 type IconComponent = React.ComponentType<{ className?: string }>
 
 const iconMap: Record<ServiceItem["iconKey"], IconComponent> = {
   stethoscope: Stethoscope,
-  hand: Hand,
+  hand: FingernailIcon,
   hair: HairIcon,
-  search: Search,
+  search: MolesIcon,
   acne: AcneIcon,
-  palette: Palette,
+  palette: SparklesIcon,
   video: Video,
 }
 
@@ -126,15 +129,15 @@ export default function ServicesGrid() {
               key={s.key}
               type="button"
               onClick={() => setOpenKey(s.key)}
-              className="group bg-white rounded-xl shadow-md p-6 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] text-right"
+              className="group bg-white rounded-xl shadow-md p-6 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] text-right h-full min-h-[180px]"
               aria-haspopup="dialog"
               aria-expanded={isOpen}
             >
               <div className="flex flex-col items-center text-center gap-4">
-                <div className="bg-[#A27B5C] p-4 rounded-full transition-transform duration-300 group-active:rotate-12 group-active:scale-110">
-                  <Icon className="w-10 h-10 text-white" />
+                <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center transition-transform duration-300 group-active:rotate-12 group-active:scale-110">
+                  <Icon className="w-10 h-10 shrink-0 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#859a85]">{s.title}</h3>
+                <h3 className="text-xl font-semibold text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug">{s.title}</h3>
               </div>
             </button>
           )
