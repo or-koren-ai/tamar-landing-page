@@ -132,26 +132,26 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right">
+                <p className="text-gray-700 text-right italic">
                   ״תודה לך ד״ר תמר על מקצועיות, הקשבה ואכפתיות. את נותנת תחושת ביטחון, מסבירה בצורה ברורה על תהליכים רפואיים, ומקדישה זמן אמיתי למטופלים. הרגשתי שמקשיבים לי ושהטיפול נעשה בגישה אנושית ומכילה.״
                 </p>
                 <p className="mt-auto font-light text-[#859a85] text-right">- אופיר, חיפה</p>
               </div>
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
+                <p className="text-gray-700 text-right italic">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
                 <p className="mt-auto font-light text-[#859a85] text-right">- אביבית שמואל נסים, קריית אתא</p>
               </div>
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right">
+                <p className="text-gray-700 text-right italic">
                   ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
                 </p>
                 <p className="mt-auto font-light text-[#859a85] text-right">- ר.ב הרצליה</p>
               </div>
 
               <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">
-                <p className="text-gray-700 text-left">
+                <p className="text-gray-700 text-left italic">
                   "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
                 </p>
                 <p className="mt-auto font-light text-[#859a85] text-right">- Wayne Shepherd, Haifa</p>
