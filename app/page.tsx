@@ -100,17 +100,6 @@ export default function Home() {
           <p className="text-base sm:text-lg mb-6 text-gray-900">
             קליניקה פרטית בחיפה — טיפול אישי ומקצועי לילדים ולמבוגרים
           </p>
-          <div className="flex justify-center gap-2 sm:gap-3">
-            <Button asChild className="bg-[#A27B5C] hover:bg-[#859a85]">
-              <a href="tel:+972525280650" aria-label="התקשר לד״ר תמר קורן">התקשר/י</a>
-            </Button>
-            <Button asChild className="bg-[#25D366] hover:bg-[#1fb558]">
-              <a href="https://wa.me/972525280650" target="_blank" rel="noopener noreferrer" aria-label="שליחת וואטסאפ לד״ר תמר קורן">וואטסאפ</a>
-            </Button>
-            <Button asChild className="bg-[#859a85] hover:bg-[#6b8e6b]">
-              <a href="#קביעת-תור" aria-label="קביעת תור">קבע/י תור</a>
-            </Button>
-          </div>
         </section>
 
         <section id="about" className="py-14">
@@ -222,15 +211,9 @@ export default function Home() {
         </section>
 
         <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-2">
-            <Button asChild className="flex-1 bg-[#A27B5C] hover:bg-[#859a85]">
-              <a href="tel:+972525280650" aria-label="התקשר לד״ר תמר קורן">התקשר/י</a>
-            </Button>
-            <Button asChild className="flex-1 bg-[#25D366] hover:bg-[#1fb558]">
-              <a href="https://wa.me/972525280650" target="_blank" rel="noopener noreferrer" aria-label="שליחת וואטסאפ">וואטסאפ</a>
-            </Button>
-            <Button asChild className="flex-1 bg-[#859a85] hover:bg-[#6b8e6b]">
-              <a href="#קביעת-תור" aria-label="קביעת תור">תור</a>
+          <div className="container mx-auto px-4 py-3">
+            <Button asChild className="w-full bg-[#859a85] hover:bg-[#6b8e6b] text-white text-lg py-4 font-medium shadow-lg">
+              <a href="#קביעת-תור" aria-label="לקביעת תור">לקביעת תור</a>
             </Button>
           </div>
         </div>
