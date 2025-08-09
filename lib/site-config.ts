@@ -40,6 +40,6 @@ export const SITE = {
 
   socials: {
     medreviews: "https://www.medreviews.co.il/provider/dr-koren-tamar",
-    instagram: "https://www.instagram.com/dr.tamar_koren?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    instagram: "https://www.instagram.com/dr.tamar_koren",
   },
 } as const; 

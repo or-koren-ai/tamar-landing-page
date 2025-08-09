@@ -8,10 +8,21 @@ import ServicesGrid from "@/components/ServicesGrid"
 import { SITE } from "@/lib/site-config"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 
-export const metadata: Metadata = {
-  title: SITE.hero.title,
-  description: SITE.hero.subtitle,
-}
+export const generateMetadata = () => ({
+  title: 'ד״ר תמר קורן – רופאת עור מומחית בחיפה | קביעת תור',
+  description:
+    'רופאת עור בחיפה. אבחון וטיפול באקנה, בדיקת שומות וסרטן עור, נשירת שיער, פטרת ציפורניים ועוד. קביעת תור ב‑WhatsApp או בטלפון.',
+  alternates: { canonical: 'https://drkoren.skin/' },
+  openGraph: {
+    title: 'ד״ר תמר קורן – רופאת עור חיפה',
+    description:
+      'אבחון וטיפול באקנה, שומות, סרטן עור, נשירת שיער ועוד. קביעת תור מהירה.',
+    url: 'https://drkoren.skin/',
+    locale: 'he_IL',
+    images: ['/og.jpg'],
+  },
+  twitter: { card: 'summary_large_image' },
+})
 
 export default function Home() {
   return (
@@ -236,40 +247,50 @@ export default function Home() {
 
       </footer>
       <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Physician",
-              name: SITE.name,
-              description: SITE.hero.subtitle,
-              telephone: SITE.clinicPhone.e164,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: SITE.address.streetAddress,
-                addressLocality: SITE.address.locality,
-                addressCountry: SITE.address.countryCode,
-              },
-              areaServed: SITE.city,
-              url: SITE.baseUrl,
-              hasMap: SITE.map.url,
-              sameAs: [SITE.socials.medreviews, SITE.socials.instagram],
-              contactPoint: [
-                {
-                  "@type": "ContactPoint",
-                  contactType: "appointment",
-                  telephone: SITE.clinicPhone.e164,
-                },
-                {
-                  "@type": "ContactPoint",
-                  contactType: "whatsapp",
-                  telephone: SITE.whatsapp.e164,
-                  url: SITE.whatsapp.link,
-                },
-              ],
-            }),
-          }}
-        />
+           type="application/ld+json"
+           dangerouslySetInnerHTML={{
+             __html: JSON.stringify({
+               "@context": "https://schema.org",
+               "@type": "Physician",
+               name: SITE.name,
+               description: 'רופאת עור מומחית בחיפה',
+               areaServed: 'חיפה והסביבה',
+               telephone: SITE.clinicPhone.e164,
+               hasMap: SITE.map.url,
+               url: 'https://drkoren.skin',
+               sameAs: [
+                 'https://www.medreviews.co.il/provider/dr-koren-tamar',
+                 'https://www.instagram.com/dr.tamar_koren'
+               ],
+               knowsAbout: [
+                 'אקנה',
+                 'בדיקת שומות ודרמוסקופיה',
+                 'סרטן העור',
+                 'פסוריאזיס',
+                 'אקזמה / אטופיק דרמטיטיס',
+                 'נשירת שיער / אלופציה',
+                 'פטרת ציפורניים',
+                 'פיגמנטציה וכתמי עור',
+                 'ויטיליגו',
+                 'רוזציאה',
+                 'בוטוקס'
+               ],
+               contactPoint: [
+                 {
+                   "@type": "ContactPoint",
+                   contactType: "appointment",
+                   telephone: SITE.clinicPhone.e164,
+                 },
+                 {
+                   "@type": "ContactPoint",
+                   contactType: "whatsapp",
+                   telephone: SITE.whatsapp.e164,
+                   url: SITE.whatsapp.link,
+                 },
+               ],
+             }),
+           }}
+         />
     </div>
   )
 }

@@ -1,0 +1,246 @@
+
+### Quick audit of your code (what’s already good)
+- lang/dir: `he-IL`, `dir="rtl"` in `app/layout.tsx` ✔
+- Clean sectioning: single `h1` on Home, `h2` per block ✔
+- Images: hero and about have descriptive `alt` ✔
+- JSON‑LD: Physician block exists on Home (good start) ✔
+
+### Gaps to address
+- Home metadata is generic; missing strong keywords, canonical, OG/Twitter.
+- No service pages (URLs) for “service + חיפה” intent.
+- No sitemap/robots.
+- JSON‑LD not leveraging knowsAbout/FAQ/Breadcrumbs.
+- Internal links don’t use keyword‑rich anchors.
+- Missing FAQ content/questions that match common queries.
+
+### Implementation plan (phased, minimal changes first)
+
+1) Strong Home metadata (keywords baked in)
+- Replace static `metadata` in `app/page.tsx` with `generateMetadata` to set title, description, canonical, OG/Twitter.
+
+2) Services as real pages (URLs)
+- Add short slugs and create `app/services/[slug]/page.tsx` for each service (content + metadata).
+- Link service tiles to these pages with keyword‑rich anchors (not just open a modal).
+
+3) Structured data upgrades
+- Expand Physician JSON‑LD with `knowsAbout` (your service list), keep `sameAs`, `areaServed`.
+- On each service page: add `BreadcrumbList` and `FAQPage` JSON‑LD.
+
+4) Discoverability plumbing
+- Add `app/sitemap.ts` (dynamic from your services list).
+- Add `app/robots.ts` (allow all, add sitemap).
+- Ensure `<link rel="canonical">` per page.
+
+5) Content tweaks for LLM + SEO
+- First screen: include one line with 2–3 primary keywords naturally (“רופאת עור מומחית בחיפה … קביעת תור”).
+- Each service page: short intro 60–80 words with “שירות + חיפה”, then bullet list (symptoms/treatments), then tiny CTA.
+- Add a small FAQ section with the suggested questions (exact phrasing).
+
+6) Alt text and anchors
+- Icons are decorative: keep `aria-hidden` on SVGs; use descriptive `alt` only on photos.
+- Internal links: use exact‑match anchors (examples below).
+
+---
+
+### Copy‑paste edits
+
+1) Home metadata (replace in `app/page.tsx`)
+```ts
+// app/page.tsx
+export const generateMetadata = () => ({
+  title: 'ד״ר תמר קורן – רופאת עור מומחית בחיפה | קביעת תור',
+  description:
+    'רופאת עור בחיפה. אבחון וטיפול באקנה, בדיקת שומות וסרטן עור, נשירת שיער, פטרת ציפורניים ועוד. קביעת תור ב‑WhatsApp או בטלפון.',
+  alternates: { canonical: 'https://drkoren.skin/' },
+  openGraph: {
+    title: 'ד״ר תמר קורן – רופאת עור חיפה',
+    description:
+      'אבחון וטיפול באקנה, שומות, סרטן עור, נשירת שיער ועוד. קביעת תור מהירה.',
+    url: 'https://drkoren.skin/',
+    locale: 'he_IL',
+    images: ['/og.jpg'],
+  },
+  twitter: { card: 'summary_large_image' },
+})
+```
+
+2) Services data with slugs (extend `lib/services.ts`)
+```ts
+export type ServiceItem = {
+  key: string
+  slug: string // NEW: short slug
+  title: string
+  iconKey: 'stethoscope' | 'hand' | 'hair' | 'search' | 'acne' | 'palette' | 'video'
+  description: string
+  longDescription: string
+}
+
+export const services: ServiceItem[] = [
+  { key: 'acne', slug: 'acne', title: 'טיפול באקנה בחיפה', iconKey: 'acne', ... },
+  { key: 'moles', slug: 'mole-check', title: 'בדיקת שומות ודרמוסקופיה בחיפה', iconKey: 'search', ... },
+  { key: 'skin-cancer', slug: 'skin-cancer', title: 'בדיקות סרטן העור ומעקב', iconKey: 'stethoscope', ... },
+  { key: 'hair', slug: 'hair-loss', title: 'נשירת שיער והתקרחות', iconKey: 'hair', ... },
+  { key: 'nails', slug: 'nails-fungus', title: 'פטרת ציפורניים', iconKey: 'hand', ... },
+  { key: 'eczema-psoriasis', slug: 'eczema-psoriasis', title: 'פסוריאזיס / אקזמה / סבוראה', iconKey: 'palette', ... },
+  { key: 'pigmentation', slug: 'pigmentation', title: 'פיגמנטציה וכתמי עור', iconKey: 'palette', ... },
+]
+```
+
+3) Service pages (create dynamic route)
+```ts
+// app/services/[slug]/page.tsx
+import { services } from '@/lib/services'
+import type { Metadata } from 'next'
+
+export async function generateStaticParams() {
+  return services.map(s => ({ slug: s.slug }))
+}
+
+export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
+  const svc = services.find(s => s.slug === params.slug)!
+  return {
+    title: `${svc.title} – ד״ר תמר קורן`,
+    description: `${svc.title} — אבחון וטיפול מותאם. קביעת תור בחיפה.`,
+    alternates: { canonical: `https://drkoren.skin/services/${svc.slug}` },
+  }
+}
+
+export default function ServicePage({ params }: { params: { slug: string } }) {
+  const svc = services.find(s => s.slug === params.slug)!
+  return (
+    <main className="container mx-auto px-4 py-12 text-right">
+      <h1 className="text-3xl md:text-4xl text-[#6b8e6b]">{svc.title}</h1>
+      <p className="mt-4 text-gray-700">
+        רופאת עור בחיפה — אבחון וטיפול ב{svc.title.replace('חיפה','')}.
+        קביעת תור ב‑WhatsApp או בטלפון.
+      </p>
+      <ul className="mt-4 list-disc pr-5 text-gray-700">
+        <li>אבחון מדויק ודרכי טיפול מקובלות</li>
+        <li>מתי לפנות לרופאה ומה להביא לפגישה</li>
+        <li>מניעה ומעקב</li>
+      </ul>
+      {/* CTA */}
+      <a href="#קביעת-תור" className="underline text-[#859a85] mt-6 inline-block">
+        קביעת תור לרופאת עור בחיפה
+      </a>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: svc.title,
+            breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'דף הבית', item: 'https://drkoren.skin/' },
+              { '@type': 'ListItem', position: 2, name: svc.title, item: `https://drkoren.skin/services/${svc.slug}` },
+            ]},
+            mainEntity: {
+              '@type': 'FAQPage',
+              mainEntity: [
+                { '@type': 'Question', name: 'מתי לפנות לרופאת עור לאקנה?', acceptedAnswer: { '@type': 'Answer', text: 'כאשר יש פצעונים דלקתיים...' } },
+                { '@type': 'Question', name: 'כל כמה זמן מומלץ לבצע בדיקת שומות?', acceptedAnswer: { '@type': 'Answer', text: 'בדרך כלל פעם בשנה...' } },
+              ],
+            },
+          }),
+        }}
+      />
+    </main>
+  )
+}
+```
+
+4) Link the cards to pages (keyword anchors)
+```tsx
+// components/ServicesGrid.tsx (inside the map)
+import Link from 'next/link'
+// ...
+<Link
+  href={`/services/${s.slug}`}
+  className="group bg-white rounded-xl shadow-md p-6 hover:shadow-lg text-right h-full min-h-[180px]"
+  aria-label={`${s.title} – קביעת תור`}
+>
+  {/* badge + title ... */}
+</Link>
+```
+
+5) Sitemap and robots
+```ts
+// app/sitemap.ts
+import { services } from '@/lib/services'
+export default function sitemap() {
+  const base = 'https://drkoren.skin'
+  const now = new Date().toISOString()
+  return [
+    { url: `${base}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    ...services.map(s => ({
+      url: `${base}/services/${s.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    })),
+  ]
+}
+
+// app/robots.ts
+export default function robots() {
+  return {
+    rules: [{ userAgent: '*', allow: '/' }],
+    sitemap: 'https://drkoren.skin/sitemap.xml',
+    host: 'https://drkoren.skin',
+  }
+}
+```
+
+6) Physician JSON‑LD upgrade (on Home)
+Replace your current block with:
+```tsx
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Physician',
+      name: 'ד״ר תמר קורן',
+      description: 'רופאת עור מומחית בחיפה',
+      areaServed: 'חיפה והסביבה',
+      telephone: '+97248340280',
+      hasMap: 'https://maps.google.com/?q=מוריה 84 חיפה',
+      sameAs: [
+        'https://www.medreviews.co.il/provider/dr-koren-tamar',
+        'https://www.instagram.com/dr.tamar_koren',
+      ],
+      knowsAbout: [
+        'אקנה', 'בדיקת שומות ודרמוסקופיה', 'סרטן העור',
+        'פסוריאזיס', 'אקזמה / אטופיק דרמטיטיס', 'נשירת שיער / אלופציה',
+        'פטרת ציפורניים', 'פיגמנטציה וכתמי עור', 'ויטיליגו', 'רוזציאה'
+      ],
+      contactPoint: [
+        { '@type': 'ContactPoint', contactType: 'appointment', telephone: '+97248340280' },
+        { '@type': 'ContactPoint', contactType: 'whatsapp', telephone: '+972525280650', url: 'https://wa.me/972525280650' }
+      ],
+    }),
+  }}
+/>
+```
+
+### Internal links (anchor text)
+- From Home card “אקנה” → link text: “טיפול באקנה בחיפה”.
+- From “בדיקת שומות” text → “דרמוסקופיה בחיפה”.
+- From footer/CTA → “קביעת תור רופאת עור חיפה”.
+
+### Alt text (photos only)
+- Hero/about: keep descriptive. Examples:
+  - alt="בדיקת שומות בחיפה אצל ד״ר תמר קורן"
+  - alt="טיפול באקנה למבוגרים בחיפה"
+
+### Optional polish
+- Add `/og.jpg` (1200×630) matching brand.
+- Add Breadcrumbs UI on service pages.
+- If you keep modals, ensure each card also links to its canonical service URL for crawlers.
+
+### Note on your start error
+If you see “Cannot find module './vendor-chunks/next.js'” when running `next start`:
+- Remove `.next` directory, then `npm run build && npm run start`. This clears stale build artifacts.
+
+- Implemented: Provided precise metadata, routes, JSON‑LD, sitemap/robots, and anchor/alt guidance. This plan will align the site with the keyword strategy and make content clearer for crawlers and LLMs while keeping your current design.

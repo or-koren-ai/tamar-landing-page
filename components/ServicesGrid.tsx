@@ -124,6 +124,7 @@ export default function ServicesGrid() {
         {services.map((s) => {
           const Icon = iconMap[s.iconKey]
           const isOpen = openKey === s.key
+          const iconSizeClass = s.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'
           return (
             <button
               key={s.key}
@@ -135,7 +136,7 @@ export default function ServicesGrid() {
             >
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center transition-transform duration-300 group-active:rotate-12 group-active:scale-110">
-                  <Icon className="w-10 h-10 shrink-0 text-white" />
+                  <Icon className={`${iconSizeClass} shrink-0 text-white`} />
                 </div>
                 <h3 className="text-xl font-semibold text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug">{s.title}</h3>
               </div>
