@@ -17,7 +17,7 @@ export const generateMetadata = () => ({
   openGraph: {
     title: 'ד״ר תמר קורן – רופאת עור חיפה',
     description:
-      'אבחון וטיפול באקנה, שומות, סרטן עור, נשירת שיער ועוד. קביעת תור מהירה.',
+      'טיפול במחלות עור בילדים ומבוגרים בגובה העיניים | קביעת תור מהיר',
     url: 'https://drkoren.skin/',
     locale: 'he_IL',
     images: ['/og.jpg'],
