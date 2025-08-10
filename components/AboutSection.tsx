@@ -40,12 +40,13 @@ export function AboutSection() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A51A8218.jpg-Jm1XM2fGyqHdDeohR1Ocu3BEtIVZSx.jpeg"
+            src="/doctor-photo.jpg"
             alt={SITE.hero.title}
-            width={600}
-            height={900}
+            width={400}
+            height={600}
             className="rounded-3xl shadow-lg w-full max-w-md mx-auto"
-            loading="lazy"
+            priority
+            fetchPriority="high"
           />
         </div>
         <div className="md:w-1/2 md:pr-8">

@@ -26,40 +26,17 @@ const iconMap: Record<ServiceItem["iconKey"], IconComponent> = {
 
 export default function ServicesGrid() {
   const [openKey, setOpenKey] = React.useState<string | null>(null)
-  const [visibleTiles, setVisibleTiles] = React.useState<Set<string>>(new Set())
-  const gridRef = React.useRef<HTMLDivElement>(null)
   const openItem = services.find((s) => s.key === openKey) || null
   const modalRef = React.useRef<HTMLDivElement>(null)
   const closeBtnRef = React.useRef<HTMLButtonElement>(null)
+  const lastDismissRef = React.useRef<number>(0)
 
   const close = React.useCallback(() => {
+    lastDismissRef.current = Date.now()
     setOpenKey(null)
   }, [])
 
-  // Intersection Observer for staggered animations
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const serviceKey = (entry.target as HTMLElement).dataset.serviceKey
-          if (serviceKey && entry.isIntersecting) {
-            setVisibleTiles(prev => new Set([...prev, serviceKey]))
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px'
-      }
-    )
-
-    const tiles = gridRef.current?.querySelectorAll('[data-service-key]')
-    tiles?.forEach(tile => observer.observe(tile))
-
-    return () => observer.disconnect()
-  }, [])
-
-  // Handle ESC key and focus management for modal
+  // Handle ESC key, scroll-to-close and focus management for modal
   React.useEffect(() => {
     if (!openItem) return
 
@@ -69,20 +46,22 @@ export default function ServicesGrid() {
       }
     }
 
+    const handleScroll = () => {
+      close()
+    }
+
     document.addEventListener('keydown', handleEscape)
-    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
     // Focus the close button when modal opens
     const timer = setTimeout(() => {
       closeBtnRef.current?.focus()
     }, 100)
 
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden'
-
     return () => {
       document.removeEventListener('keydown', handleEscape)
+      window.removeEventListener('scroll', handleScroll)
       clearTimeout(timer)
-      document.body.style.overflow = ''
     }
   }, [openItem, close])
 
@@ -90,35 +69,30 @@ export default function ServicesGrid() {
     <div className="w-full">
       {/* Services Grid */}
       <div
-        ref={gridRef}
         className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 ${openKey ? 'pointer-events-none select-none' : ''}`}
         aria-hidden={!!openItem}
       >
-        {services.map((s, index) => {
+        {services.map((s) => {
           const Icon = iconMap[s.iconKey]
           const isOpen = openKey === s.key
-          const isVisible = visibleTiles.has(s.key)
           const iconSizeClass = s.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'
-          
+
           return (
             <button
               key={s.key}
               type="button"
               data-service-key={s.key}
-              onClick={() => setOpenKey(s.key)}
-              className={`group bg-white rounded-xl shadow-md p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
-                transition-all duration-300 ease-out
-                ${isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-4'
+              onClick={() => {
+                if (Date.now() - lastDismissRef.current < 300) {
+                  return
                 }
+                setOpenKey(s.key)
+              }}
+              className={`group bg-white rounded-xl shadow-md p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
+                transition-all duration-200 ease-out
                 hover:shadow-lg hover:-translate-y-1
                 hover:bg-gradient-to-br hover:from-white hover:to-[#f8faf8]
               `}
-              style={{
-                transitionDelay: isVisible ? `${index * 30}ms` : '0ms',
-                willChange: isVisible ? 'auto' : 'opacity, transform'
-              }}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
             >
@@ -140,16 +114,33 @@ export default function ServicesGrid() {
       </div>
 
       {openItem && (
-        <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true">
-          <div 
+        <div
+          className="fixed inset-0 z-[100]"
+          role="dialog"
+          aria-modal="true"
+          onPointerDown={(e) => {
+            // Close when clicking anywhere outside the modal
+            if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+              e.preventDefault()
+              e.stopPropagation()
+              close()
+            }
+          }}
+        >
+          <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in"
-            onClick={(e) => {
+            onPointerDown={(e) => {
+              e.preventDefault()
               e.stopPropagation()
               close()
             }}
           />
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <div ref={modalRef} className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-right animate-modal-in" role="document">
+          <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div
+              ref={modalRef}
+              className="pointer-events-auto w-full max-w-3xl bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-right animate-modal-in"
+              role="document"
+            >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="flex items-center gap-3">
                   <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center animate-tilt">

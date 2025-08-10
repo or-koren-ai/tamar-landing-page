@@ -10,8 +10,29 @@ const assistant = Assistant({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.baseUrl),
+  metadataBase: new URL(SITE.baseUrl), // 'https://drkoren.skin' (no trailing slash)
   alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Dr. Tamar Koren',
+    title: 'ד״ר תמר קורן – רופאת עור בחיפה',
+    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהירה.',
+    images: [
+      {
+        url: 'https://drkoren.skin/og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ד״ר תמר קורן',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ד״ר תמר קורן – רופאת עור בחיפה',
+    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהירה.',
+    images: ['https://drkoren.skin/og.jpg'],
+  },
 }
 
 export default function RootLayout({

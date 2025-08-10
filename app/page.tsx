@@ -22,7 +22,7 @@ export const generateMetadata = () => ({
     locale: 'he_IL',
     images: ['/og.jpg'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['/og.jpg'] },
 })
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
             <div className="flex-shrink-0">
               <a href="#top">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dr.%20Tamar%20Koren-U0hIz1F6EsNKraH3b9qex4H5pIyU6c.png"
+                  src="/logo-tk.png"
                   alt={SITE.name}
                   width={200}
                   height={50}
