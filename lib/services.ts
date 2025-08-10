@@ -42,7 +42,7 @@ export const services: ServiceItem[] = [
   {
     key: 'moles',
     slug: 'mole-check',
-    title: 'בדיקת שומות, אבחון נגעים שפירים וסרטני עור',
+    title: 'בדיקת שומות, אבחון והסרת נגעים שפירים, אבחון סרטני עור',
     iconKey: 'search',
     description: 'בדיקה יסודית ומעקב אחר שומות ונגעי עור',
     longDescription:
@@ -62,7 +62,7 @@ export const services: ServiceItem[] = [
   {
     key: 'pigmentation',
     slug: 'pigmentation',
-    title: 'טיפול בפיגמנטציה ואסטטיקה',
+    title: 'טיפול בפיגמנטציה ואסתטיקה',
     iconKey: 'palette',
     description: 'טיפולים אסתטיים מתקדמים והבהרת כתמי עור',
     longDescription:

@@ -1,4 +1,4 @@
-export function SparklesIcon({ className, title = "טיפול בפיגמנטציה ואסטטיקה" }: { className?: string; title?: string }) {
+export function SparklesIcon({ className, title = "טיפול בפיגמנטציה ואסתטיקה" }: { className?: string; title?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

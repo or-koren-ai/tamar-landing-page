@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { MessageCircle, Phone, Mail, MapPin } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
+import { AboutSection } from "@/components/AboutSection"
 import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
 import { SITE } from "@/lib/site-config"
@@ -106,34 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="אודות" className="py-12 md:py-16" aria-labelledby="about-title">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A51A8218.jpg-Jm1XM2fGyqHdDeohR1Ocu3BEtIVZSx.jpeg"
-                alt={SITE.hero.title}
-                width={600}
-                height={900}
-                className="rounded-3xl shadow-lg w-full max-w-md mx-auto"
-                loading="lazy"
-              />
-            </div>
-            <div className="md:w-1/2 md:pr-8">
-              <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-8 text-[#6b8e6b] text-center md:text-right">אודות</h2>
-              <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
-                ד״ר תמר קורן היא מומחית לרפואת עור ומין, בעלת ניסיון בטיפול בילדים ומבוגרים. 
-                בוגרת הפקולטה לרפואה בטכניון והתמחתה ברפואת עור בבית החולים העמק.
-              </p>
-              <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
-                בעלת פרסום מאמרים מדעיים, מדריכה סטודנטים לרפואה בטכניון
-                ומתנדבת בעמותת 'למענם' המסייעת רפואית לניצולי שואה.
-              </p>
-              <p className="text-xl text-gray-500 leading-relaxed text-right">
-                ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל, תוך הקפדה על מקצועיות, גישה קשובה ואכפתית.
-              </p>
-            </div>
-          </div>
-        </section>
+        <AboutSection />
 
         <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
