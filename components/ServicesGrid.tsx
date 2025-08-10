@@ -8,6 +8,7 @@ import { AcneIcon } from "@/components/icons/AcneIcon"
 import { MolesIcon } from "@/components/icons/MolesIcon"
 import { FingernailIcon } from "@/components/icons/FingernailIcon"
 import { SparklesIcon } from "@/components/icons/SparklesIcon"
+import { HyperhidrosisIcon } from "@/components/icons/HyperhidrosisIcon"
 import Link from "next/link"
 
 type IconComponent = React.ComponentType<{ className?: string }>
@@ -19,6 +20,7 @@ const iconMap: Record<ServiceItem["iconKey"], IconComponent> = {
   search: MolesIcon,
   acne: AcneIcon,
   palette: SparklesIcon,
+  hyperhidrosis: HyperhidrosisIcon,
   video: Video,
 }
 

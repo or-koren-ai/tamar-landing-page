@@ -2,7 +2,7 @@ export type ServiceItem = {
   key: string
   slug: string
   title: string
-  iconKey: 'stethoscope' | 'hand' | 'hair' | 'search' | 'acne' | 'palette' | 'video'
+  iconKey: 'stethoscope' | 'hand' | 'hair' | 'search' | 'acne' | 'palette' | 'video' | 'hyperhidrosis'
   description: string
   longDescription: string
   seoAnchor: string
@@ -68,6 +68,16 @@ export const services: ServiceItem[] = [
     longDescription:
       'המרפאה מציעה מגוון טיפולים אסתטיים מתקדמים, כולל טיפול בכתמי עור ופיגמנטציה. אנו משתמשים בטכנולוגיות חדישות לשיפור מרקם העור ומראהו הכללי.',
     seoAnchor: 'טיפול בפיגמנטציה בחיפה',
+  },
+  {
+    key: 'hyperhidrosis',
+    slug: 'hyperhidrosis',
+    title: 'הזעת יתר',
+    iconKey: 'hyperhidrosis',
+    description: 'טיפול בהזעת יתר באמצעות בוטוקס',
+    longDescription:
+      'הזעת יתר היא בעיה נפוצה המשפיעה על איכות החיים. ד"ר קורן מציעה טיפול יעיל באמצעות זריקות בוטוקס לאזורי הידיים, כפות הרגליים ובתי השחי. הטיפול בוטוקס מפחית משמעותית את רמת ההזעה ומשפר את איכות החיים לתקופה של 6-12 חודשים.',
+    seoAnchor: 'טיפול בהזעת יתר בחיפה',
   },
   {
     key: 'telemedicine',
