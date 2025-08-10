@@ -190,24 +190,24 @@ export default function Home() {
         <section id="קביעת-תור" className="scroll-mt-24 py-12 md:py-16 bg-[#c6d5c6] bg-opacity-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
-            <div className="flex flex-col md:flex-row-reverse gap-10 md:gap-12">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-12">
               <div className="md:w-1/2">
                 <div className="text-right space-y-2">
                   <p className="text-gray-700 text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
                   <div className="mt-3 flex flex-col gap-2 text-gray-700 text-right items-end">
-                    <div className="w-full flex justify-end items-center gap-2">
+                    <div className="w-full flex justify-start items-center gap-2">
                       <Phone className="w-4 h-4 text-[#6b8e6b]" />
                       <a href={SITE.clinicPhone.link} className="underline">{SITE.clinicPhone.display}</a>
                     </div>
-                    <div className="w-full flex justify-end items-center gap-2">
+                    <div className="w-full flex justify-start items-center gap-2">
                       <MessageCircle className="w-4 h-4 text-[#25D366]" />
                       <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline">{SITE.whatsapp.display}</a>
                     </div>
-                    <div className="w-full flex justify-end items-center gap-2">
+                    <div className="w-full flex justify-start items-center gap-2">
                       <Mail className="w-4 h-4 text-[#6b8e6b]" />
                       <a href="mailto:office@mchc.co.il" className="underline">office@mchc.co.il</a>
                     </div>
-                    <div className="w-full flex justify-end items-center gap-2">
+                    <div className="w-full flex justify-start items-center gap-2">
                       <MapPin className="w-4 h-4 text-[#6b8e6b]" />
                       <address className="not-italic inline">{SITE.address.streetAddress}, {SITE.address.locality}</address>
                     </div>
