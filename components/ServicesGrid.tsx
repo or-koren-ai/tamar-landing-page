@@ -107,29 +107,28 @@ export default function ServicesGrid() {
               data-service-key={s.key}
               onClick={() => setOpenKey(s.key)}
               className={`group bg-white rounded-xl shadow-md p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
-                transition-all duration-700 ease-out transform-gpu
+                transition-all duration-300 ease-out
                 ${isVisible 
-                  ? 'opacity-100 translate-y-0 scale-100 shadow-lg' 
-                  : 'opacity-0 translate-y-8 scale-95 shadow-sm'
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4'
                 }
-                hover:shadow-xl hover:-translate-y-2 hover:scale-105
+                hover:shadow-lg hover:-translate-y-1
                 hover:bg-gradient-to-br hover:from-white hover:to-[#f8faf8]
-                active:scale-100 active:translate-y-0
               `}
               style={{
-                transitionDelay: isVisible ? `${index * 50}ms` : '0ms'
+                transitionDelay: isVisible ? `${index * 30}ms` : '0ms',
+                willChange: isVisible ? 'auto' : 'opacity, transform'
               }}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
             >
               <div className="flex flex-col items-center text-center gap-4">
                 <div className={`w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center 
-                  transition-all duration-500 ease-out transform-gpu
-                  group-hover:rotate-6 group-hover:scale-110 group-hover:bg-[#859a85]
-                  group-active:rotate-12 group-active:scale-110
-                  ${isVisible ? 'animate-pulse-once' : ''}
+                  transition-all duration-300 ease-out
+                  group-hover:rotate-3 group-hover:bg-[#859a85]
+                  group-active:rotate-6
                 `}>
-                  <Icon className={`${iconSizeClass} shrink-0 text-white transition-all duration-300 group-hover:scale-110`} />
+                  <Icon className={`${iconSizeClass} shrink-0 text-white transition-transform duration-200 group-hover:scale-105`} />
                 </div>
                 <h3 className="text-xl font-medium text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug transition-colors duration-300 group-hover:text-[#6b8e6b]">
                   {s.title}

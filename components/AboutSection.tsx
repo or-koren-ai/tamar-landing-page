@@ -31,9 +31,10 @@ export function AboutSection() {
     <section 
       ref={sectionRef}
       id="אודות" 
-      className={`py-12 md:py-16 transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`py-12 md:py-16 transition-all duration-300 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
+      style={{ willChange: isVisible ? 'auto' : 'opacity, transform' }}
       aria-labelledby="about-title"
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -59,9 +60,10 @@ export function AboutSection() {
             ד״ר קורן היא בעלת ניסיון רב בטיפול בילדים ומבוגרים וכיום עובדת כרופאה בכירה ואחראית מרפאת פסוריאזיס בבית החולים ׳העמק׳. במסגרת תפקיד זה הקימה מרפאה משותפת עם היחידה לראומטולוגיה המטפלת בחולי פסוריאזיס מורכבים.
           </p>
 
-          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
             isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}>
+          }`}
+          style={{ willChange: isExpanded ? 'auto' : 'max-height, opacity' }}>
             <p className="mb-6 text-xl text-gray-500 leading-relaxed text-right">
               בעלת פרסום מאמרים מדעיים ברפואת עור, עוסקת בהדרכת סטודנטים לרפואה בטכניון ובהתנדבות בעמותת 'למענם׳ המסייעת לניצולי שואה בקבלת מענה רפואי בביתם. כמו כן בוגרת קורס עיוני ומעשי לאסתטיקה רפואית, חברה באיגוד הישראלי לרפואת עור ומין ובחברה הישראלית לכירורגיה דרמטולוגית.
             </p>
@@ -72,7 +74,7 @@ export function AboutSection() {
 
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-[#6b8e6b] hover:text-[#859a85] transition-all duration-300 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded transform hover:scale-105"
+            className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
             aria-expanded={isExpanded}
           >
             {isExpanded ? 'הראה פחות' : 'קרא עוד'}

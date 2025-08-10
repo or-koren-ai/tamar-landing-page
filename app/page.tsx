@@ -28,7 +28,7 @@ export const generateMetadata = () => ({
 export default function Home() {
   return (
     <div id="top" className="min-h-screen bg-white text-gray-800 font-extralight" dir="rtl">
-      <header className="py-3 bg-white shadow-md sticky top-0 z-50">
+      <header className="py-3 bg-white shadow-md sticky top-0 z-50 animate-header-slide">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
@@ -40,6 +40,7 @@ export default function Home() {
                   height={50}
                   className="h-auto w-auto max-w-[200px]"
                   priority
+                  fetchPriority="high"
                 />
               </a>
             </div>
@@ -96,12 +97,12 @@ export default function Home() {
       </header>
 
       <main className="pb-28 md:pb-0">
-        <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30">
+        <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-thin mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0">
+            <h1 className="text-3xl md:text-5xl font-thin mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0 animate-hero-title">
               {SITE.hero.title}
             </h1>
-            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0">
+            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0 animate-hero-subtitle">
               {SITE.hero.subtitle}
             </p>
           </div>
@@ -147,7 +148,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="mt-8 text-sm text-center text-gray-500">
+            <p className="mt-8 text-base text-center text-gray-500">
               לעוד ביקורות -{' '}
               <a
                 href={SITE.socials.medreviews}
@@ -197,7 +198,7 @@ export default function Home() {
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] text-[#25D366] bg-white hover:bg-[#25D366] hover:text-white transition-colors px-4 py-2 text-sm"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span className="font-medium">קבע/י תור בוואטצאפ</span>
+                    <span className="font-medium">קבע/י תור ב-WhatsApp</span>
                   </a>
 
                   <a

@@ -6,6 +6,74 @@
    GLOBAL UTILITIES & ANIMATIONS
 ======================================= */
 
+/* Hero entrance animations - elegant and fast */
+@layer utilities {
+  @keyframes heroFadeIn {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px) scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  @keyframes heroTitleSlide {
+    0% { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes heroSubtitleSlide {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes headerSlide {
+    0% { 
+      opacity: 0; 
+      transform: translateY(-10px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-hero-fade-in {
+    animation: heroFadeIn 600ms ease-out both;
+  }
+
+  .animate-hero-title {
+    animation: heroTitleSlide 500ms ease-out both 200ms;
+  }
+
+  .animate-hero-subtitle {
+    animation: heroSubtitleSlide 500ms ease-out both 400ms;
+  }
+
+  .animate-header-slide {
+    animation: headerSlide 400ms ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-fade-in, .animate-hero-title, .animate-hero-subtitle, .animate-header-slide {
+      animation: none;
+    }
+  }
+}
 
 /* Right-to-left scrolling animation */
 @layer utilities {
@@ -31,23 +99,25 @@
 }
 
 /* =======================================
-   MODAL + TILT ANIMATIONS
+   MODAL + TILT ANIMATIONS - OPTIMIZED
 ======================================= */
 @layer utilities {
   @keyframes modalIn {
-    0% { opacity: 0; transform: translateY(10px) scale(0.98); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+    0% { opacity: 0; transform: translate3d(0, 10px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
   }
   .animate-modal-in {
-    animation: modalIn 300ms ease-out both;
+    animation: modalIn 200ms ease-out both;
+    will-change: opacity, transform;
   }
 
   @keyframes tiltWobble {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(4deg); }
+    0%, 100% { transform: rotate(0deg) translateZ(0); }
+    50% { transform: rotate(3deg) translateZ(0); }
   }
   .animate-tilt {
-    animation: tiltWobble 1.2s ease-in-out infinite;
+    animation: tiltWobble 1s ease-in-out infinite;
+    will-change: transform;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -60,43 +130,43 @@
 ======================================= */
 
 @layer utilities {
-  /* Smooth hover transformations */
+  /* Optimized hover transformations */
   .hover-transform {
-    @apply transition-all duration-500;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
   }
   
   .hover-transform:hover {
-    @apply rotate-12 scale-110;
+    transform: rotate(8deg) scale(1.05) translateZ(0);
   }
 
-  /* Glass morphism effect on hover */
+  /* Optimized glass morphism effect */
   .hover-glass {
-    @apply transition-all duration-300;
+    transition: box-shadow 0.2s ease-out;
   }
   
   .hover-glass:hover {
-    @apply backdrop-blur-sm shadow-lg;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
 }
 
 /* =======================================
-   CLINIC SERVICES - HOVER EXPANSION
+   CLINIC SERVICES - OPTIMIZED
 ======================================= */
 
 /* 
-  Base style for the service cards.
-  Increased the min-height to help prevent text overflow.
-  Using a smooth transition for scale and box-shadow on hover.
+  Optimized service cards with minimal layout shifts
 */
 .clinic-service-card {
   min-height: 350px;
   position: relative;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   background: white;
   border-radius: 0.5rem;
   overflow: hidden;
-  width: 300px; /* Fixed width */
-  margin: 0; /* Remove margin to prevent gaps */
+  width: 300px;
+  margin: 0;
+  will-change: transform;
 }
 
 /* Remove any margin/padding that might cause gaps */
@@ -106,21 +176,18 @@
   padding: 0;
 }
 
-/* Ensure smooth transitions */
+/* Optimized transitions */
 .embla__slide {
   flex: 0 0 auto;
   min-width: 300px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-out;
 }
 
 .default-content {
-  /* Removed fixed height; let the content size naturally.
-     We'll still hide it on hover with opacity. */
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease-out;
 }
 
 .hover-content {
-  /* Changed top: 50% to top: 0 and inset: 0 to let the card expand properly */
   position: absolute;
   inset: 0;
   background: white;
@@ -129,16 +196,14 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease-out;
   z-index: 50;
-  transform: scale(0.9); /* Start slightly smaller */
 }
 
-/* When hovering, show the hover content, hide the default content */
+/* Simplified hover effects */
 .clinic-service-card:hover .hover-content {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1.1); /* Slight enlarge on hover */
 }
 
 .clinic-service-card:hover .default-content {
@@ -157,29 +222,25 @@
   /* Service card - Default state */
   .clinic-service-card {
     @apply bg-white p-6 rounded-xl shadow-md w-[300px] flex-shrink-0 
-      transform transition-all duration-500 relative cursor-pointer backdrop-blur-md;
+      relative cursor-pointer;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+    will-change: transform;
   }
 
-  /* Hover Effect - Expands the Card */
+  /* Optimized hover effect */
   .clinic-service-card:hover {
-    @apply scale-110 shadow-xl;
+    @apply shadow-xl;
+    transform: translateY(-2px) translateZ(0);
   }
 
   /* Default Content (Short Description) */
   .default-content {
-    @apply transition-opacity duration-500 opacity-100;
-    /* If you prefer absolute positioning, uncomment below:
-       @apply absolute inset-0 flex flex-col justify-center items-center; 
-       but that can cut text if the card is too short.
-    */
+    @apply transition-opacity duration-200 opacity-100;
   }
 
   /* Expanded Content (Long Description) */
   .hover-content {
-    @apply transition-opacity duration-500 opacity-0 scale-90;
-    /* If you prefer absolute positioning, keep:
-       @apply absolute inset-0 flex flex-col justify-center items-center bg-white rounded-xl;
-    */
+    @apply transition-opacity duration-200 opacity-0;
   }
 
   /* On hover, hide default content & show expanded content */
@@ -187,7 +248,7 @@
     @apply opacity-0;
   }
   .clinic-service-card:hover .hover-content {
-    @apply opacity-100 scale-100;
+    @apply opacity-100;
   }
 }
 
@@ -197,14 +258,15 @@
     @apply bg-white 
            rounded-xl 
            shadow-md 
-           transition-all 
-           duration-300 
            cursor-pointer
            ring-1 ring-black/5;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+    will-change: transform;
   }
 
   .service-tile:hover {
-    @apply md:shadow-xl md:scale-105;
+    @apply md:shadow-xl;
+    transform: translateY(-2px) translateZ(0);
   }
 
   /* Remove background pattern for a cleaner look */
@@ -230,13 +292,14 @@
 }
 
 @keyframes tilt {
-  0% { transform: rotate(0deg) scale(1); }
-  60% { transform: rotate(18deg) scale(1.08); }
-  100% { transform: rotate(0deg) scale(1); }
+  0% { transform: rotate(0deg) translateZ(0); }
+  60% { transform: rotate(12deg) translateZ(0); }
+  100% { transform: rotate(0deg) translateZ(0); }
 }
 
 @layer utilities {
   .animate-tilt {
-    animation: tilt 350ms ease-out both;
+    animation: tilt 250ms ease-out both;
+    will-change: transform;
   }
 }
