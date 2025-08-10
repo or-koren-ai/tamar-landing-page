@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { MessageCircle, Phone } from "lucide-react"
+import { MessageCircle, Phone, Mail, MapPin } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
 import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
@@ -28,7 +27,7 @@ export const generateMetadata = () => ({
 export default function Home() {
   return (
     <div id="top" className="min-h-screen bg-white text-gray-800 font-extralight" dir="rtl">
-      <header className="py-4 bg-white shadow-md sticky top-0 z-50">
+      <header className="py-3 bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
@@ -47,29 +46,43 @@ export default function Home() {
               <Navigation />
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button className="md:hidden bg-[#859a85] text-white hover:bg-[#A27B5C]">תפריט</Button>
+                  <button
+                    type="button"
+                    className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300/70 bg-white/80 backdrop-blur shadow-sm ring-1 ring-black/5 hover:bg-white hover:shadow-md transition"
+                    aria-label="פתח תפריט"
+                  >
+                    <span className="sr-only">תפריט</span>
+                    <span className="flex flex-col items-center justify-center gap-1.5">
+                      <span className="block h-[2px] w-5 rounded-full bg-[#6b8e6b]"></span>
+                      <span className="block h-[2px] w-4 rounded-full bg-[#6b8e6b]"></span>
+                      <span className="block h-[2px] w-6 rounded-full bg-[#6b8e6b]"></span>
+                    </span>
+                  </button>
                 </SheetTrigger>
-                <SheetContent side="right" className="bg-white">
-                  <nav className="mt-8">
-                    <ul className="flex flex-col items-end gap-4 text-right">
-                      <li>
+                <SheetContent side="right" className="bg-white p-0" dir="rtl">
+                  <div className="px-4 py-3 border-b text-right">
+                    <div className="text-[#6b8e6b] text-xl">{SITE.name}</div>
+                  </div>
+                  <nav className="mt-2">
+                    <ul className="flex flex-col items-end gap-2 text-right px-4 py-3">
+                      <li className="w-full">
                         <SheetClose asChild>
-                          <a href="#אודות" className="text-lg text-[#859a85] hover:underline">אודות</a>
+                          <a href="#אודות" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">אודות</a>
                         </SheetClose>
                       </li>
-                      <li>
+                      <li className="w-full">
                         <SheetClose asChild>
-                          <a href="#שירותי-המרפאה" className="text-lg text-[#859a85] hover:underline">שירותי המרפאה</a>
+                          <a href="#שירותי-המרפאה" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">שירותי המרפאה</a>
                         </SheetClose>
                       </li>
-                      <li>
+                      <li className="w-full">
                         <SheetClose asChild>
-                          <a href="#ביקורות" className="text-lg text-[#859a85] hover:underline">ביקורות</a>
+                          <a href="#ביקורות" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">ביקורות</a>
                         </SheetClose>
                       </li>
-                      <li>
+                      <li className="w-full">
                         <SheetClose asChild>
-                          <a href="#קביעת-תור" className="text-lg text-[#859a85] hover:underline">קביעת תור</a>
+                          <a href="#קביעת-תור" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">קביעת תור</a>
                         </SheetClose>
                       </li>
                     </ul>
@@ -121,7 +134,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
 
         <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
@@ -182,21 +194,21 @@ export default function Home() {
               <div className="md:w-1/2">
                 <div className="text-right space-y-2">
                   <p className="text-gray-700 text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
-                  <ul className="list-none space-y-1 text-gray-700">
-                    <li>
-                      <strong className="text-gray-800">טלפון למרפאה:</strong>{' '}
-                      <a href={SITE.clinicPhone.link} className="underline" dir="ltr">{SITE.clinicPhone.display}</a>
+                  <ul className="mt-3 w-full list-none space-y-2 text-gray-700 text-right">
+                    <li className="grid grid-cols-[1rem_1fr] items-center gap-x-2 justify-items-end">
+                      <Phone className="w-4 h-4 text-[#6b8e6b]" />
+                      <a href={SITE.clinicPhone.link} className="underline">{SITE.clinicPhone.display}</a>
                     </li>
-                    <li>
-                      <strong className="text-gray-800">וואטסאפ:</strong>{' '}
-                      <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline" dir="ltr">{SITE.whatsapp.display}</a>
+                    <li className="grid grid-cols-[1rem_1fr] items-center gap-x-2 justify-items-end">
+                      <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                      <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline">{SITE.whatsapp.display}</a>
                     </li>
-                    <li>
-                      <strong className="text-gray-800">מייל:</strong>{' '}
-                      <a href="mailto:office@mchc.co.il" className="underline" dir="ltr">office@mchc.co.il</a>
+                    <li className="grid grid-cols-[1rem_1fr] items-center gap-x-2 justify-items-end">
+                      <Mail className="w-4 h-4 text-[#6b8e6b]" />
+                      <a href="mailto:office@mchc.co.il" className="underline">office@mchc.co.il</a>
                     </li>
-                    <li>
-                      <strong className="text-gray-800">כתובת:</strong>{' '}
+                    <li className="grid grid-cols-[1rem_1fr] items-center gap-x-2 justify-items-end">
+                      <MapPin className="w-4 h-4 text-[#6b8e6b]" />
                       <address className="not-italic inline">{SITE.address.streetAddress}, {SITE.address.locality}</address>
                     </li>
                   </ul>
@@ -242,9 +254,9 @@ export default function Home() {
 
         <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
           <div className="container mx-auto px-4 py-3">
-            <Button asChild className="w-full bg-[#859a85] hover:bg-[#6b8e6b] text-white text-lg py-4 font-medium shadow-lg">
-              <a href="#קביעת-תור" aria-label="לקביעת תור">לקביעת תור</a>
-            </Button>
+            <a href="#קביעת-תור" aria-label="לקביעת תור" className="w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#859a85] to-[#6b8e6b] text-white text-lg py-3 px-5 font-medium shadow-lg hover:shadow-xl ring-1 ring-black/5 transition">
+              <span>לקביעת תור</span>
+            </a>
           </div>
         </div>
       </main>

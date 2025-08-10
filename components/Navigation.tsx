@@ -20,7 +20,7 @@ export function Navigation() {
 
   return (
     <nav className="hidden md:block">
-      <ul className="flex justify-between items-center gap-8">
+      <ul className="flex justify-between items-center gap-6">
         {navItems.map((item, index) => (
           <li key={index}>
             <a

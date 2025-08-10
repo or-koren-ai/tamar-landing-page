@@ -8,6 +8,7 @@ import { AcneIcon } from "@/components/icons/AcneIcon"
 import { MolesIcon } from "@/components/icons/MolesIcon"
 import { FingernailIcon } from "@/components/icons/FingernailIcon"
 import { SparklesIcon } from "@/components/icons/SparklesIcon"
+import Link from "next/link"
 
 type IconComponent = React.ComponentType<{ className?: string }>
 
@@ -177,6 +178,11 @@ export default function ServicesGrid() {
                     <li key={idx}>{line}.</li>
                   ))}
               </ul>
+              <div className="mt-6 flex justify-start">
+                <Link href={`/services/${openItem.slug}`} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#859a85] text-white hover:bg-[#6b8e6b] transition-colors px-4 py-2 text-sm">
+                  לקריאה נוספת על השירות
+                </Link>
+              </div>
             </div>
           </div>
         </div>
