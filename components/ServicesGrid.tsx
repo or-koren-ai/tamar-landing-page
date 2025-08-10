@@ -139,7 +139,7 @@ export default function ServicesGrid() {
                 <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center transition-transform duration-300 group-active:rotate-12 group-active:scale-110">
                   <Icon className={`${iconSizeClass} shrink-0 text-white`} />
                 </div>
-                <h3 className="text-xl font-semibold text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug">{s.title}</h3>
+                <h3 className="text-xl font-medium text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug">{s.title}</h3>
               </div>
             </button>
           )
@@ -160,10 +160,10 @@ export default function ServicesGrid() {
             <div ref={modalRef} className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-right animate-modal-in" role="document">
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="bg-[#A27B5C] p-3 rounded-full animate-tilt">
-                    {React.createElement(iconMap[openItem.iconKey], { className: "w-6 h-6 text-white" })}
+                  <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center animate-tilt">
+                    {React.createElement(iconMap[openItem.iconKey], { className: `${openItem.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'} shrink-0 text-white` })}
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#859a85]">{openItem.title}</h3>
+                  <h3 className="text-2xl font-medium text-[#859a85]">{openItem.title}</h3>
                 </div>
                 <button ref={closeBtnRef} onClick={close} className="text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded" aria-label="סגור">✕</button>
               </div>
