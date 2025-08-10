@@ -26,122 +26,114 @@ const iconMap: Record<ServiceItem["iconKey"], IconComponent> = {
 
 export default function ServicesGrid() {
   const [openKey, setOpenKey] = React.useState<string | null>(null)
+  const [visibleTiles, setVisibleTiles] = React.useState<Set<string>>(new Set())
+  const gridRef = React.useRef<HTMLDivElement>(null)
   const openItem = services.find((s) => s.key === openKey) || null
+  const modalRef = React.useRef<HTMLDivElement>(null)
+  const closeBtnRef = React.useRef<HTMLButtonElement>(null)
 
-  const squelchClicksRef = React.useRef(false)
-  const close = () => {
-    // Squelch any in-flight click after closing so background handlers don't trigger
-    squelchClicksRef.current = true
-    window.setTimeout(() => {
-      squelchClicksRef.current = false
-    }, 400)
+  const close = React.useCallback(() => {
     setOpenKey(null)
-  }
+  }, [])
 
-  const canCloseOnScrollRef = React.useRef(false)
-  const timerRef = React.useRef<number | null>(null)
-  const closeBtnRef = React.useRef<HTMLButtonElement | null>(null)
-  const modalRef = React.useRef<HTMLDivElement | null>(null)
-
+  // Intersection Observer for staggered animations
   React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close()
-    }
-    const onScrollLike = () => {
-      if (canCloseOnScrollRef.current) close()
-    }
-    const onGlobalPointerDown = (e: Event) => {
-      // Close when clicking anywhere outside the modal content
-      const root = modalRef.current
-      if (!root) return
-      if (!root.contains(e.target as Node)) {
-        try {
-          ;(e as unknown as PointerEvent).preventDefault()
-          ;(e as unknown as PointerEvent).stopPropagation()
-        } catch {}
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const serviceKey = (entry.target as HTMLElement).dataset.serviceKey
+          if (serviceKey && entry.isIntersecting) {
+            setVisibleTiles(prev => new Set([...prev, serviceKey]))
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    )
+
+    const tiles = gridRef.current?.querySelectorAll('[data-service-key]')
+    tiles?.forEach(tile => observer.observe(tile))
+
+    return () => observer.disconnect()
+  }, [])
+
+  // Handle ESC key and focus management for modal
+  React.useEffect(() => {
+    if (!openItem) return
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
         close()
       }
     }
 
-    if (openKey) {
-      canCloseOnScrollRef.current = false
-      // Enable scroll-close shortly after open to avoid instant close from minor layout shifts
-      timerRef.current = window.setTimeout(() => {
-        canCloseOnScrollRef.current = true
-      }, 350)
-
-      document.addEventListener("keydown", onKey)
-      window.addEventListener("scroll", onScrollLike, { passive: true })
-      window.addEventListener("wheel", onScrollLike, { passive: true })
-      window.addEventListener("touchmove", onScrollLike, { passive: true })
-      // Capture phase so we close before other handlers if needed
-      document.addEventListener("pointerdown", onGlobalPointerDown, true)
-    }
-
-    return () => {
-      if (timerRef.current) window.clearTimeout(timerRef.current)
-      document.removeEventListener("keydown", onKey)
-      window.removeEventListener("scroll", onScrollLike)
-      window.removeEventListener("wheel", onScrollLike)
-      window.removeEventListener("touchmove", onScrollLike)
-      document.removeEventListener("pointerdown", onGlobalPointerDown, true)
-      canCloseOnScrollRef.current = false
-    }
-  }, [openKey])
-
-  // Global click capture to absorb any stray click immediately after closing
-  React.useEffect(() => {
-    const onClickCapture = (e: Event) => {
-      if (squelchClicksRef.current) {
-        try {
-          ;(e as MouseEvent).preventDefault()
-          ;(e as MouseEvent).stopPropagation()
-        } catch {}
-      }
-    }
-    document.addEventListener('click', onClickCapture, true)
-    return () => document.removeEventListener('click', onClickCapture, true)
-  }, [])
-
-  // Lock body scroll and move focus to the modal close button when opened
-  React.useEffect(() => {
-    if (!openKey) return
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = "hidden"
-    // slight delay to ensure the button is mounted
-    const id = window.setTimeout(() => {
+    document.addEventListener('keydown', handleEscape)
+    
+    // Focus the close button when modal opens
+    const timer = setTimeout(() => {
       closeBtnRef.current?.focus()
-    }, 0)
+    }, 100)
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden'
+
     return () => {
-      document.body.style.overflow = previousOverflow
-      window.clearTimeout(id)
+      document.removeEventListener('keydown', handleEscape)
+      clearTimeout(timer)
+      document.body.style.overflow = ''
     }
-  }, [openKey])
+  }, [openItem, close])
 
   return (
-    <div className="relative">
+    <div className="w-full">
+      {/* Services Grid */}
       <div
+        ref={gridRef}
         className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 ${openKey ? 'pointer-events-none select-none' : ''}`}
         aria-hidden={!!openItem}
       >
-        {services.map((s) => {
+        {services.map((s, index) => {
           const Icon = iconMap[s.iconKey]
           const isOpen = openKey === s.key
+          const isVisible = visibleTiles.has(s.key)
           const iconSizeClass = s.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'
+          
           return (
             <button
               key={s.key}
               type="button"
+              data-service-key={s.key}
               onClick={() => setOpenKey(s.key)}
-              className="group bg-white rounded-xl shadow-md p-6 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] text-right h-full min-h-[180px]"
+              className={`group bg-white rounded-xl shadow-md p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
+                transition-all duration-700 ease-out transform-gpu
+                ${isVisible 
+                  ? 'opacity-100 translate-y-0 scale-100 shadow-lg' 
+                  : 'opacity-0 translate-y-8 scale-95 shadow-sm'
+                }
+                hover:shadow-xl hover:-translate-y-2 hover:scale-105
+                hover:bg-gradient-to-br hover:from-white hover:to-[#f8faf8]
+                active:scale-100 active:translate-y-0
+              `}
+              style={{
+                transitionDelay: isVisible ? `${index * 50}ms` : '0ms'
+              }}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
             >
               <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center transition-transform duration-300 group-active:rotate-12 group-active:scale-110">
-                  <Icon className={`${iconSizeClass} shrink-0 text-white`} />
+                <div className={`w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center 
+                  transition-all duration-500 ease-out transform-gpu
+                  group-hover:rotate-6 group-hover:scale-110 group-hover:bg-[#859a85]
+                  group-active:rotate-12 group-active:scale-110
+                  ${isVisible ? 'animate-pulse-once' : ''}
+                `}>
+                  <Icon className={`${iconSizeClass} shrink-0 text-white transition-all duration-300 group-hover:scale-110`} />
                 </div>
-                <h3 className="text-xl font-medium text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug">{s.title}</h3>
+                <h3 className="text-xl font-medium text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug transition-colors duration-300 group-hover:text-[#6b8e6b]">
+                  {s.title}
+                </h3>
               </div>
             </button>
           )
@@ -150,10 +142,9 @@ export default function ServicesGrid() {
 
       {openItem && (
         <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true">
-          <div
-            className="absolute inset-0 bg-black/35 backdrop-blur-sm"
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in"
             onClick={(e) => {
-              e.preventDefault()
               e.stopPropagation()
               close()
             }}
@@ -191,4 +182,4 @@ export default function ServicesGrid() {
       )}
     </div>
   )
-} 
+}
