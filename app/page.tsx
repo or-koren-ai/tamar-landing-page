@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { MessageCircle, Phone, Mail, MapPin } from "lucide-react"
+import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
 import { AboutSection } from "@/components/AboutSection"
 import React from "react"
@@ -20,9 +20,9 @@ export const generateMetadata = () => ({
       'טיפול במחלות עור בילדים ומבוגרים בגובה העיניים | קביעת תור מהיר',
     url: 'https://drkoren.skin/',
     locale: 'he_IL',
-    images: ['/og.jpg'],
+    images: ['/doctor-photo.jpg'],
   },
-  twitter: { card: 'summary_large_image', images: ['/og.jpg'] },
+  twitter: { card: 'summary_large_image', images: ['/doctor-photo.jpg'] },
 })
 
 export default function Home() {
@@ -185,6 +185,10 @@ export default function Home() {
                     <div className="w-full flex justify-start items-center gap-2">
                       <MapPin className="w-4 h-4 text-[#6b8e6b]" />
                       <address className="not-italic inline">{SITE.address.streetAddress}, {SITE.address.locality}</address>
+                    </div>
+                    <div className="w-full flex justify-start items-center gap-2">
+                      <Clock className="w-4 h-4 text-[#6b8e6b]" />
+                      <span>ימי שלישי 13:00-19:00</span>
                     </div>
                   </div>
                 </div>

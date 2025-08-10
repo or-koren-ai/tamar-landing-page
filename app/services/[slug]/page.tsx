@@ -27,7 +27,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       title,
       description,
       url: `${SITE.baseUrl}/services/${service.slug}`,
-      images: ['/og.jpg'],
+      images: ['/doctor-photo.jpg'],
       locale: 'he_IL',
     },
     twitter: { card: 'summary_large_image', title, description },

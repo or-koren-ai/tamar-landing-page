@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     url: '/',
     siteName: 'Dr. Tamar Koren',
     title: 'ד״ר תמר קורן – רופאת עור בחיפה',
-    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהירה.',
+    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהיר.',
     images: [
       {
-        url: 'https://drkoren.skin/og.jpg',
+        url: '/doctor-photo.jpg',
         width: 1200,
         height: 630,
         alt: 'ד״ר תמר קורן',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'ד״ר תמר קורן – רופאת עור בחיפה',
-    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהירה.',
-    images: ['https://drkoren.skin/og.jpg'],
+    description: 'מרפאת עור מתקדמת בחיפה. קביעת תור מהיר.',
+    images: ['/doctor-photo.jpg'],
   },
 }
 
