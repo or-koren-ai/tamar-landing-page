@@ -12,7 +12,7 @@ import Script from 'next/script'
 export const generateMetadata = () => ({
   title: 'ד״ר תמר קורן – רופאת עור מומחית בחיפה | קביעת תור',
   description:
-    'רופאת עור בחיפה. אבחון וטיפול באקנה, בדיקת שומות וסרטן עור, נשירת שיער, פטרת ציפורניים ועוד. קביעת תור ב‑WhatsApp או בטלפון.',
+    'טיפול במחלות עור בילדים ומבוגרים בגובה העיניים. קביעת תור מהירה',
   alternates: { canonical: 'https://drkoren.skin/' },
   openGraph: {
     title: 'ד״ר תמר קורן – רופאת עור חיפה',
