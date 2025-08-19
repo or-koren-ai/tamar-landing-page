@@ -31,19 +31,6 @@ export default function Home() {
       <header className="py-3 bg-white shadow-md sticky top-0 z-50 animate-header-slide">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <div className="flex-shrink-0">
-              <a href="#top">
-                <Image
-                  src="/logo-tk.png"
-                  alt={SITE.name}
-                  width={200}
-                  height={50}
-                  className="h-auto w-auto max-w-[200px]"
-                  priority
-                  fetchPriority="high"
-                />
-              </a>
-            </div>
             <div className="flex items-center gap-4">
               <Navigation />
               <Sheet>
@@ -91,6 +78,19 @@ export default function Home() {
                   </nav>
                 </SheetContent>
               </Sheet>
+            </div>
+            <div className="flex-shrink-0">
+              <a href="#top">
+                <Image
+                  src="/logo-tk.png"
+                  alt={SITE.name}
+                  width={200}
+                  height={50}
+                  className="h-auto w-auto max-w-[200px]"
+                  priority
+                  fetchPriority="high"
+                />
+              </a>
             </div>
           </div>
         </div>
