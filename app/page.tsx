@@ -5,8 +5,10 @@ import { Navigation } from "@/components/Navigation"
 import { AboutSection } from "@/components/AboutSection"
 import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
+import PressCarousel from "@/components/PressCarousel"
 import AppointmentSection from "@/components/AppointmentSection"
 import { SITE } from "@/lib/site-config"
+import { pressItems } from "@/lib/press"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import Script from 'next/script'
 
@@ -92,6 +94,11 @@ export default function Home() {
                       <li className="w-full">
                         <SheetClose asChild>
                           <a href="#ביקורות" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">ביקורות</a>
+                        </SheetClose>
+                      </li>
+                      <li className="w-full">
+                        <SheetClose asChild>
+                          <a href="#כתבות-ופרסומים" className="block w-full rounded-lg px-3 py-2 text-lg text-[#859a85] hover:bg-[#f3f6f3] transition-colors">כתבות ופרסומים</a>
                         </SheetClose>
                       </li>
                       <li className="w-full">
@@ -221,6 +228,8 @@ export default function Home() {
 
         <AppointmentSection />
 
+        <PressCarousel />
+
         <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
           <div className="container mx-auto px-4 py-3">
             <a href="#קביעת-תור" aria-label="לקביעת תור" className="w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#859a85] to-[#6b8e6b] text-white text-lg py-3 px-5 font-medium shadow-lg hover:shadow-xl ring-1 ring-black/5 transition">
@@ -322,6 +331,24 @@ export default function Home() {
             ],
           }),
         }}
+      />
+      <Script id="press-ld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context":"https://schema.org",
+          "@type":"ItemList",
+          "name":"כתבות ופרסומים",
+          "itemListElement": pressItems.map((it, i) => ({
+            "@type":"ListItem",
+            "position": i+1,
+            "item": { 
+              "@type":"NewsArticle", 
+              "headline": it.title, 
+              "mainEntityOfPage": it.href, 
+              "publisher": it.source, 
+              "datePublished": it.date 
+            }
+          }))
+        }) }} 
       />
     </div>
   )

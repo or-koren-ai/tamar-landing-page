@@ -3,7 +3,7 @@
 import React from 'react';
 
 export function Navigation() {
-  const navItems = ["אודות", "שירותי המרפאה", "ביקורות", "קביעת תור"];
+  const navItems = ["אודות", "שירותי המרפאה", "ביקורות", "כתבות ופרסומים", "קביעת תור"];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
     e.preventDefault();
