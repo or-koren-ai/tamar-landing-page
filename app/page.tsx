@@ -1,29 +1,55 @@
-import type { Metadata } from "next"
+'use client'
+
 import Image from "next/image"
 import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
 import { AboutSection } from "@/components/AboutSection"
-import React from "react"
+import React, { useState } from "react"
 import ServicesGrid from "@/components/ServicesGrid"
 import { SITE } from "@/lib/site-config"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import Script from 'next/script'
 
-export const generateMetadata = () => ({
-  title: 'ד״ר תמר קורן – רופאת עור מומחית בחיפה | קביעת תור',
-  description:
-    'טיפול במחלות עור בילדים ומבוגרים בגובה העיניים. קביעת תור מהירה',
-  alternates: { canonical: 'https://drkoren.skin/' },
-  openGraph: {
-    title: 'ד״ר תמר קורן – רופאת עור חיפה',
-    description:
-      'טיפול במחלות עור בילדים ומבוגרים בגובה העיניים | קביעת תור מהיר',
-    url: 'https://drkoren.skin/',
-    locale: 'he_IL',
-    images: ['/doctor-photo.jpg'],
-  },
-  twitter: { card: 'summary_large_image', images: ['/doctor-photo.jpg'] },
-})
+// Star rating component
+const Stars = ({ value = 5 }: { value: number }) => (
+  <span className="review-stars" aria-label={`דירוג ${value} מתוך 5`}>
+    {[...Array(5)].map((_, i) => (
+      <svg key={i} viewBox="0 0 20 20" className={`w-4 h-4 ${i < value ? 'fill-current' : 'fill-gray-200'}`}>
+        <path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29c.13.41.51.69.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03c-.35.26-.49.72-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1.1 1.1 0 0 0-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29c.13-.4-.01-.86-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46c.44 0 .82-.28.95-.69L9.05 2.93z"/>
+      </svg>
+    ))}
+  </span>
+);
+
+// Helper function for initials
+const initials = (name: string) => name.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('');
+
+// Review card component
+const ReviewCard: React.FC<{ review: any }> = ({ review }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <article className="review-card" dir="rtl">
+      <header className="review-header">
+        <div className="review-id">
+          <div className="review-avatar" aria-hidden="true">{initials(review.name)}</div>
+          <div className="text-right">
+            <div className="review-name">{review.name}{review.city ? <span className="review-city">, {review.city}</span> : null}</div>
+            <div><Stars value={Math.round(review.rating)} /></div>
+          </div>
+        </div>
+      </header>
+
+      <p className="review-text text-right">{review.text}</p>
+
+      <footer className="flex items-center justify-between pt-1">
+        <div className="flex items-center gap-2">
+          {review.treatment ? <span className="review-chip">{review.treatment}</span> : null}
+        </div>
+      </footer>
+    </article>
+  );
+};
+
 
 export default function Home() {
   return (
@@ -120,55 +146,77 @@ export default function Home() {
 
         <section id="ביקורות" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-4 text-center text-[#859a85]">ביקורות מטופלים</h2>
-            <div className="flex justify-center mb-10 md:mb-12">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {[
+                {
+                  id: '1',
+                  name: 'אופיר',
+                  city: 'חיפה',
+                  rating: 5,
+                  text: '״תודה לך ד״ר תמר על מקצועיות, הקשבה ואכפתיות. את נותנת תחושת ביטחון, מסבירה בצורה ברורה על תהליכים רפואיים, ומקדישה זמן אמיתי למטופלים. הרגשתי שמקשיבים לי ושהטיפול נעשה בגישה אנושית ומכילה.״',
+                  dateISO: '2024-08-31',
+                  treatment: 'טיפול באקנה',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews'
+                },
+                {
+                  id: '2',
+                  name: 'אביבית שמואל נסים',
+                  city: 'קריית אתא',
+                  rating: 5,
+                  text: '״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״',
+                  dateISO: '2024-07-15',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews'
+                },
+                {
+                  id: '3',
+                  name: 'ר.ב',
+                  city: 'הרצליה',
+                  rating: 5,
+                  text: '״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״',
+                  dateISO: '2024-09-10',
+                  treatment: 'בוטוקס',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews'
+                },
+                {
+                  id: '4',
+                  name: 'Wayne Shepherd',
+                  city: 'Haifa',
+                  rating: 5,
+                  text: '"Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"',
+                  dateISO: '2024-06-20',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews',
+                  isEnglish: true
+                },
+                {
+                  id: '5',
+                  name: 'מיכל',
+                  city: 'קרית אתא',
+                  rating: 5,
+                  text: '״רופאה נהדרת! טבלנית מאוד עם ילדים, מסבירה בצורה ברורה את כל אפשרויות הטיפול ומאפשרת לבחור יחד את הדרך המתאימה. נעימה, עדינה ומקצועית ברמה גבוהה.״',
+                  dateISO: '2025-08-26',
+                  treatment: 'טיפול ביבלות ויראליות',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews'
+                },
+                {
+                  id: '6',
+                  name: 'א.כ.ד.',
+                  city: 'חיפה',
+                  rating: 5,
+                  text: '״תמר קיבלה אותנו לבדיקה של בני בין השבתיים ואצ. תמר היתה גישה ומקסימה, יצרה עמו קשר שגרם לו להרגיש בטוח ולשתף פעולה. הבדיקה היתה מקיפה, החבזרים היו ברורים ונתנו בנועם עם מענה לכל השאלות. אופן יצירת הקשר וקביעת התור היו נוחים והתורים זמינים.״',
+                  dateISO: '2025-07-28',
+                  treatment: 'טיפול באטופיק דרמטיטיס',
+                  sourceUrl: 'https://www.medreviews.co.il/provider/dr-koren-tamar#reviews'
+                }
+              ].map(review => (
+                <ReviewCard key={review.id} review={review} />
+              ))}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
-                <p className="text-right italic">
-                  ״תודה לך ד״ר תמר על מקצועיות, הקשבה ואכפתיות. את נותנת תחושת ביטחון, מסבירה בצורה ברורה על תהליכים רפואיים, ומקדישה זמן אמיתי למטופלים. הרגשתי שמקשיבים לי ושהטיפול נעשה בגישה אנושית ומכילה.״
-                </p>
-                <p className="mt-auto author text-right">- אופיר, חיפה</p>
-              </div>
-
-              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
-                <p className="text-right italic">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
-                <p className="mt-auto author text-right">- אביבית שמואל נסים, קריית אתא</p>
-              </div>
-
-              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
-                <p className="text-right italic">
-                  ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
-                </p>
-                <p className="mt-auto author text-right">- ר.ב הרצליה</p>
-              </div>
-
-              <div className="testimonial shadow-md flex flex-col min-h-[220px]" dir="ltr">
-                <p className="text-left italic">
-                  "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
-                </p>
-                <p className="mt-auto author text-right">- Wayne Shepherd, Haifa</p>
-              </div>
+            <div className="mt-8 flex justify-center">
+              <p className="text-sm text-center">
+                לעוד ביקורות — <a href={SITE.socials.medreviews} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">MedReviews</a>
+              </p>
             </div>
-
-            <p className="mt-8 text-base text-center">
-              לעוד ביקורות -{' '}
-              <a
-                href={SITE.socials.medreviews}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                MedReviews
-              </a>
-            </p>
           </div>
         </section>
 

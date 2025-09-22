@@ -276,12 +276,32 @@
 }
 
 /* Utility: multi-line clamp without plugin */
+@layer components {
+  .review-card { @apply bg-white rounded-2xl ring-1 ring-black/5 shadow-sm p-5 md:p-6 flex flex-col gap-3; }
+  .review-header { @apply flex items-center justify-between gap-3; }
+  .review-id { @apply flex items-center gap-3; }
+  .review-avatar { @apply shrink-0 w-9 h-9 rounded-full bg-[#e8f0e8] text-[#6b8e6b] grid place-items-center text-sm font-medium ring-1 ring-black/5; }
+  .review-name { @apply text-sm md:text-base font-medium text-gray-800; }
+  .review-city { @apply text-xs md:text-sm text-gray-500; }
+  .review-stars { @apply inline-flex items-center gap-0.5 text-yellow-400; }
+  .review-date { @apply text-xs text-gray-400 whitespace-nowrap; }
+  .review-text { @apply text-right italic leading-8 text-gray-700; }
+  .review-chip { @apply inline-flex items-center gap-2 rounded-full bg-[#f3f6f3] text-[#6b8e6b] px-3 py-1 text-xs ring-1 ring-black/5; }
+  .review-source { @apply text-xs text-gray-500 underline; }
+  .review-more { @apply text-xs text-[#6b8e6b] underline hover:no-underline; }
+}
 @layer utilities {
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .line-clamp-5 { 
+    display: -webkit-box; 
+    -webkit-line-clamp: 5; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
   }
 }
 
