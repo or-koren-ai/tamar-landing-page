@@ -27,7 +27,7 @@ export const generateMetadata = () => ({
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-white text-gray-800 font-extralight" dir="rtl">
+    <div id="top" className="min-h-screen bg-white text-gray-800" dir="rtl">
       <header className="py-3 bg-white shadow-md sticky top-0 z-50 animate-header-slide">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
@@ -99,10 +99,10 @@ export default function Home() {
       <main className="pb-28 md:pb-0">
         <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in">
           <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-thin mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0 animate-hero-title">
+            <h1 className="text-3xl md:text-5xl font-normal mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0 animate-hero-title">
               {SITE.hero.title}
             </h1>
-            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0 animate-hero-subtitle">
+            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0 animate-hero-subtitle text-center">
               {SITE.hero.subtitle}
             </p>
           </div>
@@ -119,42 +119,51 @@ export default function Home() {
 
         <section id="ביקורות" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <h2 className="text-3xl md:text-4xl font-light mb-4 text-center text-[#859a85]">ביקורות מטופלים</h2>
+            <div className="flex justify-center mb-10 md:mb-12">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right italic">
+              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
+                <p className="text-right italic">
                   ״תודה לך ד״ר תמר על מקצועיות, הקשבה ואכפתיות. את נותנת תחושת ביטחון, מסבירה בצורה ברורה על תהליכים רפואיים, ומקדישה זמן אמיתי למטופלים. הרגשתי שמקשיבים לי ושהטיפול נעשה בגישה אנושית ומכילה.״
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- אופיר, חיפה</p>
+                <p className="mt-auto author text-right">- אופיר, חיפה</p>
               </div>
 
-              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right italic">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- אביבית שמואל נסים, קריית אתא</p>
+              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
+                <p className="text-right italic">״בן אדם טוב במלוא מובן המילה ואשת מקצוע מעולה!״</p>
+                <p className="mt-auto author text-right">- אביבית שמואל נסים, קריית אתא</p>
               </div>
 
-              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]">
-                <p className="text-gray-700 text-right italic">
+              <div className="testimonial shadow-md flex flex-col min-h-[220px]">
+                <p className="text-right italic">
                   ״כבר פעם שניה שאני עושה אצל ד"ר קורן המקסימה בוטוקס. בשתי הפעמים התוצאה מעולה. ד"ר קורן מסבירה את האפשרויות בסבלנות ומקצועיות, לא לוחצת ולא משכנעת. עובדת במקצועיות, עדינות וסבלנות. אני ממליצה מאוד.״
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- ר.ב הרצליה</p>
+                <p className="mt-auto author text-right">- ר.ב הרצליה</p>
               </div>
 
-              <div className="bg-[#c6d5c6] bg-opacity-10 p-6 rounded-lg shadow-md flex flex-col min-h-[220px]" dir="ltr">
-                <p className="text-gray-700 text-left italic">
+              <div className="testimonial shadow-md flex flex-col min-h-[220px]" dir="ltr">
+                <p className="text-left italic">
                   "Very professional, knowledgeable and compassionate Health Care Provider. Very satisfied with the excellent service which I received. Would highly recommend this practice"
                 </p>
-                <p className="mt-auto font-light text-[#859a85] text-right">- Wayne Shepherd, Haifa</p>
+                <p className="mt-auto author text-right">- Wayne Shepherd, Haifa</p>
               </div>
             </div>
 
-            <p className="mt-8 text-base text-center text-gray-500">
+            <p className="mt-8 text-base text-center">
               לעוד ביקורות -{' '}
               <a
                 href={SITE.socials.medreviews}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-[#859a85]"
+                className="underline"
               >
                 MedReviews
               </a>
@@ -168,8 +177,8 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-10 md:gap-12">
               <div className="md:w-1/2">
                 <div className="text-right space-y-2">
-                  <p className="text-gray-700 text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
-                  <div className="mt-3 flex flex-col gap-2 text-gray-700 text-right items-end">
+                  <p className="text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
+                  <div className="mt-3 flex flex-col gap-2 text-right items-end">
                     <div className="w-full flex justify-start items-center gap-2">
                       <Phone className="w-4 h-4 text-[#6b8e6b]" />
                       <a href={SITE.clinicPhone.link} className="underline">{SITE.clinicPhone.display}</a>
@@ -240,7 +249,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-light overflow-hidden relative z-30">
+      <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
           <div className="footer-content opacity-0 translate-y-8 transition-all duration-700 ease-out">
             <div className="mb-2">

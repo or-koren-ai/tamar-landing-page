@@ -51,34 +51,34 @@ export default function HyperhidrosisPage() {
               <HyperhidrosisIcon className="w-10 h-10 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-light text-[#6b8e6b] mb-2">
+              <h1 className="text-3xl md:text-4xl font-semibold text-[#6b8e6b] mb-2">
                 טיפול בהזעת יתר
               </h1>
-              <p className="text-xl text-gray-600">זריקות בוטוקס לטיפול יעיל בהזעת יתר</p>
+              <p className="text-xl">זריקות בוטוקס לטיפול יעיל בהזעת יתר</p>
             </div>
           </div>
 
           <div className="prose prose-lg max-w-none text-right">
             <section className="mb-12">
               <h2 className="text-2xl font-medium text-[#859a85] mb-6">מה זו הזעת יתר?</h2>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6">
                 הזעת יתר (הייפרהידרוזיס) היא מצב רפואי הגורם להזעה מוגזמת מעבר לצרכי ויסות החום הטבעיים של הגוף. 
                 המצב יכול להשפיע על איכות החיים באופן משמעותי ולגרום למצוקה חברתית ורגשית.
               </p>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-xl leading-relaxed">
                 הזעת יתר יכולה להתרחש באזורים שונים בגוף, כגון כפות הידיים, כפות הרגליים, בתי השחי ואף הפנים.
               </p>
             </section>
 
             <section className="mb-12">
               <h2 className="text-2xl font-medium text-[#859a85] mb-6">טיפול בבוטוקס להזעת יתר</h2>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6">
                 זריקות בוטוקס הן פתרון יעיל ובטוח לטיפול בהזעת יתר. הבוטוקס פועל על ידי חסימת האותות העצביים 
                 המגיעים לבלוטות הזיעה, ובכך מפחית משמעותית את כמות הזיעה המופרשת באזור המטופל.
               </p>
               
               <h3 className="text-xl font-medium text-[#6b8e6b] mb-4">יעילות הטיפול:</h3>
-              <ul className="text-lg text-gray-700 space-y-3 mb-6">
+              <ul className="text-lg space-y-3 mb-6">
                 <li>• הפחתה של עד 87% ברמת ההזעה</li>
                 <li>• שיפור מיידי תוך 2-4 ימים מהטיפול</li>
                 <li>• יעילות מרבית תוך 2 שבועות</li>
@@ -86,7 +86,7 @@ export default function HyperhidrosisPage() {
               </ul>
 
               <h3 className="text-xl font-medium text-[#6b8e6b] mb-4">אזורי טיפול:</h3>
-              <ul className="text-lg text-gray-700 space-y-3">
+              <ul className="text-lg space-y-3">
                 <li>• כפות הידיים</li>
                 <li>• בתי השחי</li>
                 <li>• כפות הרגליים</li>
@@ -99,28 +99,28 @@ export default function HyperhidrosisPage() {
               <div className="space-y-6">
                 <div className="bg-[#f8faf8] p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">1. ייעוץ ראשוני</h3>
-                  <p className="text-gray-700">
+                  <p>
                     בדיקה מקיפה ואבחון מצב ההזעה, הסבר על תהליך הטיפול ותשובה לכל השאלות.
                   </p>
                 </div>
                 
                 <div className="bg-[#f8faf8] p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">2. הכנה לטיפול</h3>
-                  <p className="text-gray-700">
+                  <p>
                     הרדמה מקומית קלה באזור הטיפול להפחתת אי נוחות.
                   </p>
                 </div>
                 
                 <div className="bg-[#f8faf8] p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">3. ביצוע הטיפול</h3>
-                  <p className="text-gray-700">
+                  <p>
                     זריקות בוטוקס מדויקות באזור המטופל. הטיפול אורך כ-15-30 דקות.
                   </p>
                 </div>
                 
                 <div className="bg-[#f8faf8] p-6 rounded-lg">
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">4. מעקב</h3>
-                  <p className="text-gray-700">
+                  <p>
                     מעקב לאחר הטיפול והערכת התוצאות תוך שבועיים.
                   </p>
                 </div>
@@ -132,21 +132,21 @@ export default function HyperhidrosisPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">האם הטיפול כואב?</h3>
-                  <p className="text-gray-700">
+                  <p>
                     הטיפול כולל אי נוחות קלה בלבד. משתמשים בהרדמה מקומית ובמחטים דקות במיוחד.
                   </p>
                 </div>
                 
                 <div>
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">מה לגבי תופעות לוואי?</h3>
-                  <p className="text-gray-700">
+                  <p>
                     תופעות הלוואי נדירות וזמניות, ועשויות לכלול נפיחות קלה או חולשה זמנית באזור הטיפול.
                   </p>
                 </div>
                 
                 <div>
                   <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">כמה זמן נמשך הטיפול?</h3>
-                  <p className="text-gray-700">
+                  <p>
                     תוצאות הטיפול נמשכות בין 6-12 חודשים, לאחר מכן ניתן לחזור על הטיפול.
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export default function HyperhidrosisPage() {
 
             <section className="bg-[#e8f0e8] bg-opacity-30 p-8 rounded-2xl mb-12">
               <h2 className="text-2xl font-medium text-[#859a85] mb-6 text-center">קבעו תור היום</h2>
-              <p className="text-lg text-gray-700 text-center mb-8">
+              <p className="text-lg text-center mb-8">
                 לייעוץ מקצועי וטיפול בהזעת יתר באמצעות בוטוקס
               </p>
               

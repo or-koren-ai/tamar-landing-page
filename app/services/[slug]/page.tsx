@@ -46,22 +46,22 @@ export default function ServicePage({ params }: PageProps) {
             <nav className="text-sm text-right" aria-label="breadcrumbs">
               <ol className="inline-flex gap-1">
                 <li>
-                  <Link href="/" className="text-[#859a85] hover:underline">דף הבית</Link>
+                  <Link href="/" className="hover:underline">דף הבית</Link>
                 </li>
                 <li className="text-gray-400">/</li>
                 <li>
-                  <Link href="/services" className="text-[#859a85] hover:underline">שירותי המרפאה</Link>
+                  <Link href="/services" className="hover:underline">שירותי המרפאה</Link>
                 </li>
                 <li className="text-gray-400">/</li>
-                <li className="text-gray-700">{service.title}</li>
+                <li>{service.title}</li>
               </ol>
             </nav>
-            <Link href="/#שירותי-המרפאה" className="inline-flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors px-3 py-1.5 text-xs md:text-sm" aria-label="חזרה לשירותים">
+            <Link href="/#שירותי-המרפאה" className="inline-flex items-center justify-center rounded-full border border-gray-300 text-gray-800 hover:bg-gray-50 transition-colors px-3 py-1.5 text-xs md:text-sm" aria-label="חזרה לשירותים">
               חזרה
             </Link>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-thin mb-3 text-[#6b8e6b] text-right">
+          <h1 className="text-3xl md:text-5xl font-semibold mb-3 text-[#6b8e6b] text-right">
             {service.title}
           </h1>
           <p className="text-base md:text-lg text-gray-900 text-right max-w-3xl ml-auto">
@@ -74,7 +74,7 @@ export default function ServicePage({ params }: PageProps) {
         <div className="container mx-auto px-4">
           <div className="prose prose-lg max-w-3xl ml-auto text-right prose-headings:text-[#6b8e6b] prose-p:leading-8">
             {service.longDescription.split('\n').map((para, idx) => (
-              <p key={idx} className="text-gray-700">{para}</p>
+              <p key={idx}>{para}</p>
             ))}
           </div>
 

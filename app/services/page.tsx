@@ -14,8 +14,8 @@ export default function ServicesIndexPage() {
       <section className="py-10 md:py-16 bg-[#e8f0e8] bg-opacity-30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-3">
-            <h1 className="text-3xl md:text-5xl font-thin text-[#6b8e6b] text-right m-0">שירותי המרפאה</h1>
-            <Link href="/#שירותי-המרפאה" className="inline-flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors px-3 py-1.5 text-xs md:text-sm" aria-label="חזרה לדף הבית">
+            <h1 className="text-3xl md:text-5xl font-semibold text-[#6b8e6b] text-right m-0">שירותי המרפאה</h1>
+            <Link href="/#שירותי-המרפאה" className="inline-flex items-center justify-center rounded-full border border-gray-300 text-gray-800 hover:bg-gray-50 transition-colors px-3 py-1.5 text-xs md:text-sm" aria-label="חזרה לדף הבית">
               חזרה
             </Link>
           </div>
@@ -31,7 +31,7 @@ export default function ServicesIndexPage() {
             {services.map((s) => (
               <li key={s.key} className="bg-white rounded-xl shadow-md p-6 text-right">
                 <h2 className="text-xl font-semibold text-[#859a85] mb-2">{s.title}</h2>
-                <p className="text-gray-700 mb-4 line-clamp-3 min-h-[3.5rem]">{s.description}</p>
+                <p className="mb-4 line-clamp-3 min-h-[3.5rem]">{s.description}</p>
                 <Link href={`/services/${s.slug}`} className="text-sm text-[#A27B5C] hover:underline">
                   לקריאה נוספת
                 </Link>
