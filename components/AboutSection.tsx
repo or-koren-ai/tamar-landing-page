@@ -61,8 +61,8 @@ export function AboutSection() {
             ד״ר קורן היא בעלת ניסיון רב בטיפול בילדים ומבוגרים וכיום עובדת כרופאה בכירה ואחראית מרפאת פסוריאזיס בבית החולים ׳העמק׳. במסגרת תפקיד זה הקימה מרפאה משותפת עם היחידה לראומטולוגיה המטפלת בחולי פסוריאזיס מורכבים.
           </p>
 
-          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+            isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
           }`}
           style={{ willChange: isExpanded ? 'auto' : 'max-height, opacity' }}>
             <p className="mb-6 text-xl leading-relaxed text-right">
