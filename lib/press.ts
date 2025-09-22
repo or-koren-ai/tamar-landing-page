@@ -20,12 +20,6 @@ export const pressItems: PressItem[] = [
     date: "2025-03-18"
   },
   {
-    title: "\"למרוח קרם הגנה בכל שנה ובכל עונות השנה,הנזק לעור שלנו הוא נזק מצטבר\"",
-    href: "https://newzim.co.il/zafon/?p=62775",
-    source: "ניוZים צפון ",
-    date: "2025-03-17"
-  },
-  {
     title: "עור, שיער, ציפורניים ומה שביניהם -  מה משתנה בהם בזמן ההריון?",
     href: "https://www.olisafecare.com/%D7%A2%D7%95%D7%A8-%D7%A9%D7%99%D7%A2%D7%A8-%D7%95%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%A0%D7%99%D7%99%D7%9D-%D7%91%D7%94%D7%A8%D7%99%D7%95%D7%9F?srsltid=AfmBOorwVzenrFdRtCKyzGCD_-kvV98bYatOf3u33bD9hQqOeyn_eFbW",
     source: "Oli Safe Care",
