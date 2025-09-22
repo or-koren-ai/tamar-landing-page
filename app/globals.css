@@ -345,15 +345,48 @@ h1, h2, h3{
   font-family: 'Assistant', 'Heebo', sans-serif; /* Ensure clean font */
 }
 
-/* Hero H1 with centered decorative line */
-section h1.animate-hero-title::after {
-  content: '';
+/* =======================================
+   HERO SECTION CLASSES
+======================================= */
+
+/* Hero title - main heading */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* Hero accent - second line with subtle underline */
+.hero-accent {
   display: block;
+  font-size: 0.75em;
+  margin-top: 0.5rem;
+  position: relative;
+  color: var(--accent-strong);
+}
+
+.hero-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 50%;
+  transform: translateX(50%);
   width: 60px;
-  height: 3px;
+  height: 2px;
   background: var(--accent);
-  margin: 0.8rem auto 0;
-  border-radius: 2px;
+  border-radius: 1px;
+}
+
+/* Hero subtitle */
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--text);
+  max-width: 90ch;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* Hero subtitle centered alignment override */

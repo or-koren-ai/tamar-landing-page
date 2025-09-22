@@ -98,12 +98,13 @@ export default function Home() {
 
       <main className="pb-28 md:pb-0">
         <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-normal mb-2 md:mb-3 text-[#6b8e6b] px-4 md:px-0 animate-hero-title">
-              {SITE.hero.title}
+          <div className="mx-auto max-w-4xl text-center px-4">
+            <h1 className="hero-title animate-hero-title">
+              ד״ר תמר קורן
+              <span className="hero-accent">מומחית לרפואת עור ומין · חיפה</span>
             </h1>
-            <p className="text-base md:text-lg mb-4 text-gray-900 px-4 md:px-0 animate-hero-subtitle text-center">
-              {SITE.hero.subtitle}
+            <p className="hero-sub animate-hero-subtitle">
+              קליניקה פרטית – טיפול אישי ומקצועי לילדים ולמבוגרים
             </p>
           </div>
         </section>
