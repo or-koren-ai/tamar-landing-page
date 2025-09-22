@@ -1,11 +1,11 @@
 'use client'
 
 import Image from "next/image"
-import { MessageCircle, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Navigation } from "@/components/Navigation"
 import { AboutSection } from "@/components/AboutSection"
-import React, { useState } from "react"
+import React from "react"
 import ServicesGrid from "@/components/ServicesGrid"
+import AppointmentSection from "@/components/AppointmentSection"
 import { SITE } from "@/lib/site-config"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import Script from 'next/script'
@@ -26,7 +26,6 @@ const initials = (name: string) => name.trim().split(/\s+/).map(w=>w[0]).slice(0
 
 // Review card component
 const ReviewCard: React.FC<{ review: any }> = ({ review }) => {
-  const [open, setOpen] = useState(false);
   return (
     <article className="review-card" dir="rtl">
       <header className="review-header">
@@ -220,74 +219,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="קביעת-תור" className="scroll-mt-24 py-12 md:py-16 bg-[#c6d5c6] bg-opacity-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">קביעת תור</h2>
-            <div className="flex flex-col md:flex-row gap-10 md:gap-12">
-              <div className="md:w-1/2">
-                <div className="text-right space-y-2">
-                  <p className="text-lg leading-relaxed">לקביעת תור ולשאלות כלליות:</p>
-                  <div className="mt-3 flex flex-col gap-2 text-right items-end">
-                    <div className="w-full flex justify-start items-center gap-2">
-                      <Phone className="w-4 h-4 text-[#6b8e6b]" />
-                      <a href={SITE.clinicPhone.link} className="underline">{SITE.clinicPhone.display}</a>
-                    </div>
-                    <div className="w-full flex justify-start items-center gap-2">
-                      <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                      <a href={SITE.whatsapp.link} target="_blank" rel="noopener noreferrer" className="underline">{SITE.whatsapp.display}</a>
-                    </div>
-                    <div className="w-full flex justify-start items-center gap-2">
-                      <Mail className="w-4 h-4 text-[#6b8e6b]" />
-                      <a href="mailto:office@mchc.co.il" className="underline">office@mchc.co.il</a>
-                    </div>
-                    <div className="w-full flex justify-start items-center gap-2">
-                      <MapPin className="w-4 h-4 text-[#6b8e6b]" />
-                      <address className="not-italic inline">{SITE.address.streetAddress}, {SITE.address.locality}</address>
-                    </div>
-                    <div className="w-full flex justify-start items-center gap-2">
-                      <Clock className="w-4 h-4 text-[#6b8e6b]" />
-                      <span>ימי שלישי 13:00-19:00</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-5 flex flex-col md:flex-row items-stretch md:items-center gap-3 justify-end">
-                  <a
-                    href={SITE.whatsapp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`יצירת קשר בוואטסאפ לקביעת תור ${SITE.whatsapp.display}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] text-[#25D366] bg-white hover:bg-[#25D366] hover:text-white transition-colors px-4 py-2 text-sm"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span className="font-medium">קבע/י תור ב-WhatsApp</span>
-                  </a>
-
-                  <a
-                    href={SITE.clinicPhone.link}
-                    aria-label={`חיוג למרפאה לקביעת תור ${SITE.clinicPhone.display}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#A27B5C] text-white hover:bg-[#859a85] transition-colors px-4 py-2 text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span className="font-medium">התקשר/י למרפאה</span>
-                  </a>
-                </div>
-              </div>
-              <div className="md:w-1/2 h-80 md:h-[450px] rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5">
-                <iframe
-                  src={SITE.map.embedSrc}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`מפת הקליניקה — ${SITE.address.streetAddress}, ${SITE.address.locality}`}
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AppointmentSection />
 
         <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
           <div className="container mx-auto px-4 py-3">
@@ -300,7 +232,7 @@ export default function Home() {
 
       <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
-          <div className="footer-content opacity-0 translate-y-8 transition-all duration-700 ease-out">
+            <div className="footer-content opacity-100 translate-y-0 transition-all duration-700 ease-out">
             <div className="mb-2">
               <a
                 href={SITE.socials.instagram}
