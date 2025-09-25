@@ -82,29 +82,29 @@ export default function ServicesGrid() {
               key={s.key}
               type="button"
               data-service-key={s.key}
+              aria-label={`לקריאה על ${s.title}`}
               onClick={() => {
                 if (Date.now() - lastDismissRef.current < 300) {
                   return
                 }
                 setOpenKey(s.key)
               }}
-              className={`group bg-white rounded-xl shadow-md p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
+              className={`group service-tile p-5 sm:p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
                 transition-all duration-200 ease-out
                 hover:shadow-lg hover:-translate-y-1
-                hover:bg-gradient-to-br hover:from-white hover:to-[#f8faf8]
               `}
               aria-haspopup="dialog"
               aria-expanded={isOpen}
             >
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className={`w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center 
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#A27B5C] flex items-center justify-center 
                   transition-all duration-300 ease-out
                   group-hover:rotate-3 group-hover:bg-[#859a85]
                   group-active:rotate-6
                 `}>
                   <Icon className={`${iconSizeClass} shrink-0 text-white transition-transform duration-200 group-hover:scale-105`} />
                 </div>
-                <h3 className="text-xl font-medium text-[#859a85] line-clamp-2 min-h-[3.5rem] leading-snug transition-colors duration-300 group-hover:text-[#6b8e6b]">
+                <h3 className="service-title text-[#859a85] text-balance line-clamp-3 min-h-[3.2rem] transition-colors duration-300 group-hover:text-[#6b8e6b]">
                   {s.title}
                 </h3>
               </div>
@@ -150,8 +150,7 @@ export default function ServicesGrid() {
                 </div>
                 <button ref={closeBtnRef} onClick={close} className="text-gray-800 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded" aria-label="סגור">✕</button>
               </div>
-              <p className="leading-relaxed">{openItem.description}</p>
-              <ul className="mt-3 list-disc pr-5 space-y-1">
+              <ul className="mt-2 list-disc pr-5 space-y-1">
                 {openItem.longDescription
                   .split('.')
                   .map((s) => s.trim())

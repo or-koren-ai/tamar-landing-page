@@ -61,17 +61,17 @@ export default function AppointmentSection() {
           <div className="sm:grid sm:grid-cols-2 sm:gap-3">
             <a
               href={SITE.clinicPhone.link}
-              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-sm font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
-              התקשרו למרפאה
+              <span className="text-base">התקשרו למרפאה</span>
             </a>
 
             <a
               href={SITE.whatsapp.link}
               target="_blank" rel="nofollow noopener noreferrer"
-              className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-sm font-medium hover:bg-[var(--bg-tint)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-base font-medium hover:bg-[var(--bg-tint)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
-              קביעת תור ב-WhatsApp
+              <span className="text-base">קביעת תור ב-WhatsApp</span>
             </a>
           </div>
         </div>

@@ -297,6 +297,12 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .line-clamp-5 { 
     display: -webkit-box; 
     -webkit-line-clamp: 5; 
@@ -321,6 +327,20 @@
   .animate-tilt {
     animation: tilt 250ms ease-out both;
     will-change: transform;
+  }
+}
+
+/* Simple utilities for improved service tiles */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+@layer components {
+  .service-title {
+    font-size: clamp(16px, 3vw, 18px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 500;
   }
 }
 

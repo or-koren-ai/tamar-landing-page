@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import DoctorPhoto from '@/public/doctor-photo-large.jpg'
+import DoctorPhoto from '@/public/doctor-photo.webp'
 import { SITE } from '@/lib/site-config'
 
 export function AboutSection() {
