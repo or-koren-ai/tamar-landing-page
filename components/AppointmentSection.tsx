@@ -61,8 +61,7 @@ export default function AppointmentSection() {
           <div className="sm:grid sm:grid-cols-2 sm:gap-3">
             <a
               href={SITE.clinicPhone.link}
-              aria-label="התקשרות למרפאה"
-              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white text-sm font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-sm font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               התקשרו למרפאה
             </a>
@@ -70,7 +69,6 @@ export default function AppointmentSection() {
             <a
               href={SITE.whatsapp.link}
               target="_blank" rel="nofollow noopener noreferrer"
-              aria-label="קביעת תור ב-WhatsApp"
               className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-sm font-medium hover:bg-[var(--bg-tint)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               קביעת תור ב-WhatsApp
@@ -81,7 +79,7 @@ export default function AppointmentSection() {
 
       {/* Full-width map below */}
       <div className="mt-10 relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-        <div className="h-[380px] md:h-[450px] xl:h-[520px] w-full">
+        <div className="h-[330px] md:h-[400px] xl:h-[470px] w-full">
           <MapEmbed />
         </div>
       </div>

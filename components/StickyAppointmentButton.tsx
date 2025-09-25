@@ -19,9 +19,8 @@ export function StickyAppointmentButton() {
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 backdrop-blur border-t" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       <div className="container mx-auto px-4 py-3">
-        <button 
+        <button
           onClick={handleClick}
-          aria-label="לקביעת תור" 
           className="w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#859a85] to-[#6b8e6b] text-white text-lg py-3 px-5 font-medium shadow-lg hover:shadow-xl ring-1 ring-black/5 transition"
         >
           <span>לקביעת תור</span>

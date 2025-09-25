@@ -1,7 +1,11 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { SITE } from '@/lib/site-config'
 
 export function AboutSectionServer() {
+  const [isExpanded, setIsExpanded] = useState(false)
   return (
     <section
       id="אודות"
@@ -15,7 +19,7 @@ export function AboutSectionServer() {
             alt={SITE.hero.title}
             width={400}
             height={600}
-            className="rounded-3xl shadow-lg w-full max-w-md mx-auto"
+            className="rounded-3xl shadow-lg w-full max-w-lg mx-auto md:max-w-md"
             priority
             fetchPriority="high"
           />
@@ -32,20 +36,37 @@ export function AboutSectionServer() {
             ד״ר קורן היא בעלת ניסיון רב בטיפול בילדים ומבוגרים וכיום עובדת כרופאה בכירה ואחראית מרפאת פסוריאזיס בבית החולים ׳העמק׳. במסגרת תפקיד זה הקימה מרפאה משותפת עם היחידה לראומטולוגיה המטפלת בחולי פסוריאזיס מורכבים.
           </p>
 
-          <details className="group">
-            <summary className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded cursor-pointer list-none">
-              <span className="group-open:hidden">קרא עוד</span>
-              <span className="hidden group-open:inline">הראה פחות</span>
-            </summary>
-            <div className="mt-4">
-              <p className="mb-6 text-xl leading-relaxed text-right">
-                בעלת פרסום מאמרים מדעיים ברפואת עור, עוסקת בהדרכת סטודנטים לרפואה בטכניון ובהתנדבות בעמותת 'למענם׳ המסייעת לניצולי שואה בקבלת מענה רפואי בביתם. כמו כן בוגרת קורס עיוני ומעשי לאסתטיקה רפואית, חברה באיגוד הישראלי לרפואת עור ומין ובחברה הישראלית לכירורגיה דרמטולוגית.
-              </p>
-              <p className="mb-6 text-xl leading-relaxed text-right">
-                ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל/ת, תוך הקפדה על מקצועיות, מתן הסבר מפורט בגובה העיניים וגישה אנושית ואמפתית.
-              </p>
+          <div>
+            {!isExpanded && (
+              <button
+                className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
+                onClick={() => setIsExpanded(true)}
+              >
+                קרא עוד
+              </button>
+            )}
+
+            <div className={`overflow-hidden transition-all duration-500 ease-out ${
+              isExpanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            }`}>
+              <div className={`mt-4 transition-all duration-500 ease-out ${
+                isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                <p className="mb-6 text-xl leading-relaxed text-right">
+                  בעלת פרסום מאמרים מדעיים ברפואת עור, עוסקת בהדרכת סטודנטים לרפואה בטכניון ובהתנדבות בעמותת 'למענם׳ המסייעת לניצולי שואה בקבלת מענה רפואי בביתם. כמו כן בוגרת קורס עיוני ומעשי לאסתטיקה רפואית, חברה באיגוד הישראלי לרפואת עור ומין ובחברה הישראלית לכירורגיה דרמטולוגית.
+                </p>
+                <p className="mb-6 text-xl leading-relaxed text-right">
+                  ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל/ת, תוך הקפדה על מקצועיות, מתן הסבר מפורט בגובה העיניים וגישה אנושית ואמפתית.
+                </p>
+                <button
+                  className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
+                  onClick={() => setIsExpanded(false)}
+                >
+                  הראה פחות
+                </button>
+              </div>
             </div>
-          </details>
+          </div>
         </div>
       </div>
     </section>

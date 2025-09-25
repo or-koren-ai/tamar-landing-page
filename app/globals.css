@@ -336,7 +336,17 @@
   --bg-tint: #f4f8f5;       /* very light green section bg */
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0px; /* Mobile: smaller padding for mobile header */
+}
+
+/* Desktop: larger padding for desktop header */
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 40px;
+  }
+}
 
 body{
   color: var(--text);
