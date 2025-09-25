@@ -48,8 +48,8 @@ export default function AppointmentSection() {
               </li>
               <li className="flex items-center gap-2 text-[15px]">
                 <Mail className="size-4 text-[var(--accent-strong)]" aria-hidden />
-                <a href="mailto:office@mchc.co.il" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
-                  office@mchc.co.il
+                <a href={`mailto:${SITE.clinicEmail}`} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                  {SITE.clinicEmail}
                 </a>
               </li>
             </ul>

@@ -14,6 +14,7 @@ export const SITE = {
     streetAddress: "מוריה 84",
     locality: "חיפה",
     countryCode: "IL",
+    postalCode: "3461312",
   },
 
   whatsapp: {
@@ -27,6 +28,8 @@ export const SITE = {
     display: "04-8340280",
     link: "tel:+97248340280",
   },
+  
+  clinicEmail: "office@mchc.co.il",
 
   hours: {
     byAppointmentOnly: true,

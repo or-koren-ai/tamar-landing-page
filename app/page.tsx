@@ -47,7 +47,7 @@ export default function Home() {
               <span className="hero-accent">מומחית לרפואת עור ומין · חיפה</span>
             </h1>
             <p className="hero-sub animate-hero-subtitle">
-              קליניקה פרטית – טיפול אישי ומקצועי לילדים ולמבוגרים
+              טיפול אישי ומקצועי לילדים ולמבוגרים
             </p>
           </div>
         </section>
@@ -121,9 +121,16 @@ export default function Home() {
             "@type": "Physician",
             name: SITE.name,
             description: 'רופאת עור מומחית בחיפה',
+            medicalSpecialty: "Dermatology",
             areaServed: 'חיפה והסביבה',
             telephone: SITE.clinicPhone.e164,
-            hasMap: SITE.map.url,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: SITE.address.streetAddress,
+              addressLocality: SITE.address.locality,
+              addressCountry: SITE.address.countryCode,
+              postalCode: SITE.address.postalCode
+            },
             url: 'https://drkoren.skin',
             sameAs: [
               'https://www.medreviews.co.il/provider/dr-koren-tamar',
@@ -142,9 +149,8 @@ export default function Home() {
               'רוזציאה',
               'בוטוקס',
               'יבלות',
-              'יבלות וירליות ',
+              'יבלות וירליות',
               'מולוסקום',
-              'פטרות ציפורניים',
               'סרחי עור'
             ],
             contactPoint: [
@@ -159,6 +165,11 @@ export default function Home() {
                 telephone: SITE.whatsapp.e164,
                 url: SITE.whatsapp.link,
               },
+              {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                email: SITE.clinicEmail
+              }
             ],
           }),
         }}
