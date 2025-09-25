@@ -15,6 +15,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
   },
   experimental: {
     webpackBuildWorker: true,

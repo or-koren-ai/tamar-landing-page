@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'דרמטולוגית ורופאת עור מומחית בחיפה והקריות. אבחון וטיפול באקנה, נקודות חן, פסוריאזיס, אטופיק, רוזצאה ועוד. קליניקה פרטית במוריה 84, חיפה. קביעת תור מהיר.',
     images: [
       {
-        url: '/doctor-photo.jpg',
+        url: '/doctor-photo-large.jpg',
         width: 1200,
         height: 630,
         alt: 'ד״ר תמר קורן',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'רופאת עור בחיפה - ד״ר תמר קורן | דרמטולוגית מומחית',
     description: 'דרמטולוגית ורופאת עור מומחית בחיפה והקריות. אבחון וטיפול באקנה, נקודות חן, פסוריאזיס, אטופיק, רוזצאה ועוד. קליניקה פרטית במוריה 84, חיפה. קביעת תור מהיר.',
-    images: ['/doctor-photo.jpg'],
+    images: ['/doctor-photo-large.jpg'],
   },
 }
 

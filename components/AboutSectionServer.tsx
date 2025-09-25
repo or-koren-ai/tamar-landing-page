@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import DoctorPhoto from '@/public/doctor-photo-large.jpg'
 import { SITE } from '@/lib/site-config'
 
 export function AboutSectionServer() {
@@ -15,10 +16,10 @@ export function AboutSectionServer() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <Image
-            src="/doctor-photo.jpg"
+            src={DoctorPhoto}
             alt={SITE.hero.title}
-            width={400}
-            height={600}
+            placeholder="blur"
+            sizes="(min-width: 768px) 400px, 88vw"
             className="rounded-3xl shadow-lg w-full max-w-lg mx-auto md:max-w-md"
             priority
             fetchPriority="high"
