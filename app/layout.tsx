@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(SITE.baseUrl), // 'https://drkoren.skin' (no trailing slash)
   alternates: { canonical: '/' },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     url: '/',
