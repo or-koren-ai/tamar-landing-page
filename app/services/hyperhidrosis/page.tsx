@@ -14,9 +14,9 @@ export const generateMetadata = (): Metadata => ({
     description: 'טיפול יעיל בהזעת יתר באמצעות זריקות בוטוקס. פתרון ארוך טווח בחיפה.',
     url: 'https://drkoren.skin/services/hyperhidrosis',
     locale: 'he_IL',
-    images: ['/doctor-photo.webp'],
+    images: ['/logo-tk.png'],
   },
-  twitter: { card: 'summary_large_image', images: ['/doctor-photo.webp'] },
+  twitter: { card: 'summary_large_image', images: ['/logo-tk.png'] },
 })
 
 export default function HyperhidrosisPage() {
