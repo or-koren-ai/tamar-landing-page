@@ -22,6 +22,8 @@ export function AboutSectionServer() {
               <Image
                 src={DoctorPhoto}
                 alt={SITE.hero.title}
+                width={400}
+                height={400}
                 placeholder="blur"
                 sizes="(min-width: 768px) 400px, 88vw"
                 className="rounded-3xl shadow-lg w-full max-w-sm mx-auto md:max-w-md"
