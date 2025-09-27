@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { SITE } from '@/lib/site-config'
 import { Assistant } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 const assistant = Assistant({
   subsets: ['hebrew'],
@@ -61,7 +62,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he-IL" dir="rtl" className="scroll-smooth">
-      <body className={assistant.className}>{children}</body>
+      <body className={assistant.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
