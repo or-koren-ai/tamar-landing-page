@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/leaf-og.png',
+        url: '/herb.png',
         alt: 'עלים',
       },
     ],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/leaf-og.png'],
+    images: ['/herb.png'],
   },
 }
 

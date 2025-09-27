@@ -18,7 +18,7 @@ export function AboutSectionServer() {
           <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-8 md:mb-12 text-[#6b8e6b] text-center">אודות</h2>
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="md:w-1/2 order-2 md:order-1">
+            <div className="md:w-1/2 order-1">
               <Image
                 src={DoctorPhoto}
                 alt={SITE.hero.title}
@@ -29,7 +29,7 @@ export function AboutSectionServer() {
                 fetchPriority="high"
               />
             </div>
-            <div className="md:w-1/2 order-1 md:order-2">
+            <div className="md:w-1/2 order-2">
               <p className="mb-6 text-xl leading-relaxed text-right">
             ד״ר תמר קורן היא מומחית לרפואת עור ומין, בוגרת הפקולטה לרפואה בטכניון.
             את התמחותה ברפואת עור ביצעה בין השנים 2019-2024 במרכז רפואי העמק, עפולה.

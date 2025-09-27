@@ -40,19 +40,31 @@ export default function Home() {
       </header>
 
       <main className="pb-28 md:pb-0">
-        <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in">
-          <div className="mx-auto max-w-4xl text-center px-4">
-            <h1 className="hero-title animate-hero-title">
-              ד״ר תמר קורן
-              <span className="hero-accent">מומחית לרפואת עור ומין · חיפה</span>
-            </h1>
-            <p className="text-base md:text-lg hero-sub animate-hero-subtitle">
-              טיפול אישי ומקצועי לילדים ולמבוגרים
-            </p>
-          </div>
-        </section>
+        {/* Decorative background wrapper for hero + about */}
+        <div className="relative overflow-hidden">
+          {/* Decorative leaf (left), above section backgrounds but non-interactive */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15 md:opacity-15 lg:opacity-15 bg-no-repeat bg-left bg-contain"
+            style={{ backgroundImage: 'url("/herb.svg")' }}
+          />
 
-        <AboutSectionServer />
+          <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
+            <div className="mx-auto max-w-4xl text-center px-4">
+              <h1 className="hero-title animate-hero-title">
+                ד״ר תמר קורן
+                <span className="hero-accent">מומחית לרפואת עור ומין · חיפה</span>
+              </h1>
+              <p className="text-base md:text-lg hero-sub animate-hero-subtitle">
+                טיפול אישי ומקצועי לילדים ולמבוגרים
+              </p>
+            </div>
+          </section>
+
+          <div className="relative z-10">
+            <AboutSectionServer />
+          </div>
+        </div>
 
         <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
