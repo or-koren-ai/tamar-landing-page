@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: 'שירותי המרפאה',
   description: 'סקירת כל שירותי המרפאה של ד"ר תמר קורן, כולל אבחון מחלות עור, בדיקת שומות, נשירת שיער, אקנה ועוד.',
   alternates: { canonical: '/services' },
+  openGraph: { images: ['/leaf-og.png'], locale: 'he_IL' },
+  twitter: { card: 'summary_large_image', images: ['/leaf-og.png'] },
 }
 
 export default function ServicesIndexPage() {

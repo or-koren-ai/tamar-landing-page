@@ -27,10 +27,10 @@ export function generateMetadata({ params }: PageProps): Metadata {
       title,
       description,
       url: `${SITE.baseUrl}/services/${service.slug}`,
-      images: ['/logo-tk.png'],
+      images: ['/leaf-og.png'],
       locale: 'he_IL',
     },
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: ['/leaf-og.png'] },
   }
 }
 
