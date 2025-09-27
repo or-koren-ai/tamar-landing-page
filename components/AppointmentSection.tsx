@@ -17,12 +17,12 @@ export default function AppointmentSection() {
           <div className="sm:flex sm:items-start sm:gap-8 text-right">
             {/* Right column (address + hours) */}
             <ul className="space-y-3 sm:flex-1">
-              <li className="flex items-center gap-2 text-[15px]">
-                <MapPin className="size-4 text-[var(--accent-strong)]" aria-hidden />
+              <li className="flex items-center gap-2 text-base">
+                <MapPin className="size-5 text-[var(--accent-strong)]" aria-hidden />
                 <address className="not-italic">{SITE.address.streetAddress}, {SITE.address.locality}</address>
               </li>
-              <li className="flex items-center gap-2 text-[15px]">
-                <Clock className="size-4 text-[var(--accent-strong)]" aria-hidden />
+              <li className="flex items-center gap-2 text-base">
+                <Clock className="size-5 text-[var(--accent-strong)]" aria-hidden />
                 <span>ימי שלישי 13:00–19:00</span>
               </li>
             </ul>
@@ -32,20 +32,20 @@ export default function AppointmentSection() {
 
             {/* Left column (phone/WA/mail) */}
             <ul className="mt-4 sm:mt-0 space-y-3 sm:flex-1">
-              <li className="flex items-center gap-2 text-[15px]">
-                <Phone className="size-4 text-[var(--accent-strong)]" aria-hidden />
+              <li className="flex items-center gap-2 text-base">
+                <Phone className="size-5 text-[var(--accent-strong)]" aria-hidden />
                 <a href={SITE.clinicPhone.link} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.clinicPhone.display}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-[15px]">
-                <MessageCircle className="size-4 text-[var(--accent-strong)]" aria-hidden />
+              <li className="flex items-center gap-2 text-base">
+                <MessageCircle className="size-5 text-[var(--accent-strong)]" aria-hidden />
                 <a href={SITE.whatsapp.link} target="_blank" rel="nofollow noopener noreferrer" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.whatsapp.display}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-[15px]">
-                <Mail className="size-4 text-[var(--accent-strong)]" aria-hidden />
+              <li className="flex items-center gap-2 text-base">
+                <Mail className="size-5 text-[var(--accent-strong)]" aria-hidden />
                 <a href={`mailto:${SITE.clinicEmail}`} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.clinicEmail}
                 </a>
