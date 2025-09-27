@@ -1,10 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site-config";
-
-const MapEmbed = dynamic(() => import("./MapEmbed"), { ssr: false });
+import MapEmbed from "./MapEmbed";
 
 export default function AppointmentSection() {
   return (
