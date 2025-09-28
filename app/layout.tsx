@@ -48,8 +48,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.baseUrl), // 'https://drkoren.skin' (no trailing slash)
   alternates: { canonical: '/' },
   icons: {
-    icon: '/herb/herb.svg',
-    shortcut: '/herb/herb.svg',
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/herb/herb.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/herb/herb.svg',
     other: [
       { rel: 'icon', url: '/herb/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
