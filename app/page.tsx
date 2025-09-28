@@ -2,13 +2,14 @@ import Image from "next/image"
 import { Navigation } from "@/components/Navigation"
 import { AboutSectionServer } from "@/components/AboutSectionServer"
 import ServicesGrid from "@/components/ServicesGrid"
-import { LazyPressCarousel } from "@/components/LazyComponents"
+import { LazyPressCarousel, LazyContentSummary } from "@/components/LazyComponents"
 import AppointmentSection from "@/components/AppointmentSection"
 import { ReviewsSection } from "@/components/ReviewsSection"
 import { MobileMenu } from "@/components/MobileMenu"
 import { StickyAppointmentButton } from "@/components/StickyAppointmentButton"
 import { SITE } from "@/lib/site-config"
 import { pressItems } from "@/lib/press"
+import { businessStructuredData, faqStructuredData } from "@/lib/structured-data"
 import Script from 'next/script'
 
 
@@ -40,6 +41,9 @@ export default function Home() {
       </header>
 
       <main className="pb-28 md:pb-0">
+        {/* Hidden content summary for LLMs and AI agents - lazy loaded */}
+        <LazyContentSummary />
+        
         {/* Decorative background wrapper for hero + about */}
         <div className="relative overflow-hidden">
           {/* Decorative leaf (left), above section backgrounds but non-interactive */}
@@ -137,65 +141,19 @@ export default function Home() {
           })();
         `}
       </Script>
+      {/* Enhanced Business Structured Data for LLMs */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Physician",
-            name: SITE.name,
-            description: 'רופאת עור מומחית בחיפה',
-            medicalSpecialty: "Dermatology",
-            areaServed: 'חיפה והסביבה',
-            telephone: SITE.clinicPhone.e164,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: SITE.address.streetAddress,
-              addressLocality: SITE.address.locality,
-              addressCountry: SITE.address.countryCode,
-              postalCode: SITE.address.postalCode
-            },
-            url: 'https://drkoren.skin',
-            sameAs: [
-              'https://www.medreviews.co.il/provider/dr-koren-tamar',
-              'https://www.instagram.com/dr.tamar_koren'
-            ],
-            knowsAbout: [
-              'אקנה',
-              'בדיקת שומות ודרמוסקופיה',
-              'סרטן העור',
-              'פסוריאזיס',
-              'אקזמה / אטופיק דרמטיטיס',
-              'נשירת שיער / אלופציה',
-              'פטרת ציפורניים',
-              'פיגמנטציה וכתמי עור',
-              'ויטיליגו',
-              'רוזציאה',
-              'בוטוקס',
-              'יבלות',
-              'יבלות וירליות',
-              'מולוסקום',
-              'סרחי עור'
-            ],
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                contactType: "appointment",
-                telephone: SITE.clinicPhone.e164,
-              },
-              {
-                "@type": "ContactPoint",
-                contactType: "whatsapp",
-                telephone: SITE.whatsapp.e164,
-                url: SITE.whatsapp.link,
-              },
-              {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: SITE.clinicEmail
-              }
-            ],
-          }),
+          __html: JSON.stringify(businessStructuredData),
+        }}
+      />
+      
+      {/* FAQ Structured Data for better LLM understanding */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqStructuredData),
         }}
       />
       <Script id="press-ld" type="application/ld+json"

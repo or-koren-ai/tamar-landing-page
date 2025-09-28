@@ -13,26 +13,44 @@ const assistant = Assistant({
 
 export const metadata: Metadata = {
   title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
-  description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
+  description: 'ד״ר תמר קורן - דרמטולוגית מומחית בחיפה. טיפול אישי ומקצועי בילדים ומבוגרים: אקנה, בדיקת שומות, פסוריאזיס, נשירת שיער, אקזמה ועוד. קביעת תור: 04-8340280',
   keywords: [
+    'ד״ר תמר קורן',
     'רופאת עור חיפה',
     'רופא עור חיפה',
+    'רופא עור מומלץ חיפה',
     'דרמטולוגית חיפה',
     'דרמטולוג חיפה',
-    'רופא עור מומלץ חיפה',
-    'מרפאת עור חיפה',
-    'רפואת עור ומין',
-    'דרמטולוגית מומחית',
+    'מומחית רפואת עור ומין',
+    'בדיקת שומות חיפה', 
+    'טיפול באקנה חיפה',
+    'פסוריאזיס חיפה',
+    'נשירת שיער חיפה',
+    'אקזמה חיפה',
+    'רוזציאה חיפה',
+    'פיגמנטציה חיפה',
+    'ויטיליגו חיפה',
     'חיפה והקריות',
+    'מרפאה פרטית רפואת עור חיפה',
     'Dermatologist Haifa',
     'Skin doctor Haifa',
+    'Dr Tamar Koren'
   ],
+  // AI/LLM-specific metadata
+  other: {
+    'ai-content-description': 'Medical practice website for Dr. Tamar Koren, dermatologist in Haifa, Israel. Provides information about skin treatments, medical services, appointment booking, and contact details.',
+    'content-language': 'he-IL',
+    'medical-specialty': 'Dermatology, Venereology',
+    'service-area': 'Haifa, Kiryat Ata, Kiryat Motzkin, Kiryat Yam, North Israel',
+    'practice-type': 'Private medical practice',
+    'target-audience': 'Children and adults seeking dermatological care',
+  },
   metadataBase: new URL(SITE.baseUrl), // 'https://drkoren.skin' (no trailing slash)
   alternates: { canonical: '/' },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/herb.svg',
+    shortcut: '/herb.svg',
+    apple: '/herb.svg',
   },
   openGraph: {
     type: 'website',

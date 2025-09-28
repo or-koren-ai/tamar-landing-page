@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { MessageCircle, Phone, ArrowRight } from 'lucide-react'
 import { SITE } from '@/lib/site-config'
 import { services } from '@/lib/services'
+import { generateServiceStructuredData } from '@/lib/structured-data'
 import { Navigation } from '@/components/Navigation'
 import { MobileMenu } from '@/components/MobileMenu'
 
@@ -269,6 +270,14 @@ export default function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </footer>
+
+      {/* Service-specific structured data for LLMs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateServiceStructuredData(service)),
+        }}
+      />
 
       <Script id="footer-anim" strategy="afterInteractive">
         {`
