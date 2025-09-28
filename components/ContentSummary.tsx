@@ -36,21 +36,6 @@ export function ContentSummary() {
       <span itemProp="telephone">{SITE.clinicPhone.display}</span>
       <span itemProp="email">{SITE.clinicEmail}</span>
 
-      {/* Services Summary */}
-      <div data-content-type="services-list">
-        <h2>שירותי המרפאה ({services.length} שירותים):</h2>
-        <ul>
-          {services.map((service, index) => (
-            <li key={service.slug} itemProp="availableService">
-              <strong>{service.title}</strong>: {service.description}
-              {service.longDescription && (
-                <div>פרטים נוספים: {service.longDescription.substring(0, 200)}...</div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* Key Medical Specialties */}
       <div data-content-type="medical-expertise">
         <h2>התמחויות רפואיות עיקריות:</h2>
