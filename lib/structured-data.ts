@@ -9,6 +9,14 @@ export const businessStructuredData = {
   description: "רופאת עור מומחית בחיפה - טיפול אישי ומקצועי לילדים ולמבוגרים",
   medicalSpecialty: ["Dermatology", "Venereology", "רפואת עור ומין"],
   
+  // Logo for google search
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE.baseUrl}/herb.png`,
+    width: 512,
+    height: 512
+  },
+
   // Business Info
   url: SITE.baseUrl,
   telephone: SITE.clinicPhone.e164,
