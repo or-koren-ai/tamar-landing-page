@@ -25,10 +25,11 @@ export function AboutSectionServer() {
                 width={400}
                 height={400}
                 placeholder="blur"
-                sizes="(min-width: 768px) 400px, 88vw"
+                sizes="(min-width: 768px) 400px, 320px"
                 className="rounded-3xl shadow-lg w-full max-w-sm mx-auto md:max-w-md"
                 priority
                 fetchPriority="high"
+                loading="eager"
               />
             </div>
             <div className="md:w-1/2 order-2">

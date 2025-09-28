@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { Navigation } from "@/components/Navigation"
 import { AboutSectionServer } from "@/components/AboutSectionServer"
-import { LazyServicesGrid, LazyPressCarousel } from "@/components/LazyComponents"
+import ServicesGrid from "@/components/ServicesGrid"
+import { LazyPressCarousel } from "@/components/LazyComponents"
 import AppointmentSection from "@/components/AppointmentSection"
 import { ReviewsSection } from "@/components/ReviewsSection"
 import { MobileMenu } from "@/components/MobileMenu"
@@ -30,7 +31,6 @@ export default function Home() {
                   width={200}
                   height={50}
                   className="h-auto w-auto max-w-[200px]"
-                  priority
                   fetchPriority="high"
                 />
               </a>
@@ -43,11 +43,16 @@ export default function Home() {
         {/* Decorative background wrapper for hero + about */}
         <div className="relative overflow-hidden">
           {/* Decorative leaf (left), above section backgrounds but non-interactive */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15 md:opacity-15 lg:opacity-15 bg-no-repeat bg-left bg-contain"
-            style={{ backgroundImage: 'url("/herb.svg")' }}
-          />
+          <div className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15">
+            <Image
+              src="/herb.svg"
+              alt=""
+              width={560}
+              height={400}
+              className="w-full h-auto"
+              loading="lazy"
+            />
+          </div>  
 
           <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
             <div className="mx-auto max-w-4xl text-center px-4">
@@ -69,7 +74,7 @@ export default function Home() {
         <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
-            <LazyServicesGrid />
+            <ServicesGrid />
           </div>
         </section>
 
