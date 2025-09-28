@@ -20,9 +20,7 @@ const nextConfig = {
     imageSizes: [128, 256, 384],
   },
   experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
+    // Removed experimental features for stable Vercel deployment
   },
 }
 
