@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ChevronRight, ChevronLeft, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { pressItems } from "@/lib/press";
 
 export default function PressCarousel() {
@@ -100,8 +101,27 @@ export default function PressCarousel() {
                       ? "ring-1 ring-black/5 shadow-[inset_0_0_0_2px_rgba(94,127,105,0.45)]"
                       : "ring-1 ring-black/5 opacity-60 hover:opacity-80"}`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm text-black/60">{it.source}</span>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      {it.logo ? (
+                        <div className="flex-shrink-0">
+                          <Image
+                            src={it.logo}
+                            alt={it.logoAlt || `${it.source} לוגו`}
+                            width={80}
+                            height={32}
+                            className={`w-auto object-contain ${it.source === 'Oli Safe Care' ? 'max-h-24' : it.source === 'Ynet לאשה' ? 'max-h-10' : 'max-h-8'}`} // ~96px / ~40px / ~32px
+                            loading="lazy"
+                            decoding="async"
+                            priority={false}
+                            sizes="(max-width: 768px) 60px, 80px"
+                            placeholder="empty"
+                            unoptimized={false}
+                          />
+                        </div>
+                      ) : null}
+                      <span className="text-sm text-black/60 font-medium">{it.source}</span>
+                    </div>
                     <ArrowUpRight className="size-4 text-[var(--accent-strong)] opacity-70" />
                   </div>
                   <h3 className="text-[var(--heading)] text-lg leading-snug line-clamp-3">{it.title}</h3>
