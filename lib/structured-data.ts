@@ -12,7 +12,7 @@ export const businessStructuredData = {
   // Logo for google search
   logo: {
     "@type": "ImageObject",
-    url: `${SITE.baseUrl}/herb.png`,
+    url: `${SITE.baseUrl}/herb/herb.png`,
     width: 512,
     height: 512
   },

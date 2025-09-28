@@ -48,9 +48,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.baseUrl), // 'https://drkoren.skin' (no trailing slash)
   alternates: { canonical: '/' },
   icons: {
-    icon: '/herb.svg',
-    shortcut: '/herb.svg',
-    apple: '/herb.svg',
+    icon: '/herb/herb.svg',
+    shortcut: '/herb/herb.svg',
+    apple: '/herb/herb.svg',
+    other: [
+      { rel: 'icon', url: '/herb/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { rel: 'icon', url: '/herb/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      { rel: 'manifest', url: '/site.webmanifest' },
+    ],
   },
   openGraph: {
     type: 'website',
@@ -60,8 +65,10 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/herb.png',
-        alt: 'עלים',
+        url: '/herb/android-chrome-512x512.png',
+        alt: 'עלים - ד״ר תמר קורן',
+        width: 512,
+        height: 512,
       },
     ],
     locale: 'he_IL',
@@ -70,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/herb.png'],
+    images: ['/herb/android-chrome-512x512.png'],
   },
 }
 

@@ -49,7 +49,7 @@ export default function Home() {
           {/* Decorative leaf (left), above section backgrounds but non-interactive */}
           <div className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15">
             <Image
-              src="/herb.svg"
+              src="/herb/herb.svg"
               alt=""
               width={560}
               height={400}

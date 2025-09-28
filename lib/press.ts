@@ -4,25 +4,33 @@ export type PressItem = {
   source: string;
   date?: string;   // "2024-11-22"
   summary?: string;
+  logo?: string;   // Logo image path
+  logoAlt?: string; // Alt text for logo
 };
 
 export const pressItems: PressItem[] = [
   {
-    title: "דילמה: האם להוציא מאות שקלים לשיחת ייעוץ עם רופא עור או להתייעץ עם הצ'אט בחינם?",
-    href: "https://www.ynet.co.il/laisha/article/skvxm11jbee",
-    source: "Ynet – לאשה",
-    date: "2025-05-25"
-  },
-  {
     title: "ד\"ר תמר קורן: \"למרוח קרם הגנה בכל שנה ובכל עונות השנה\"",
     href: "https://haipo.co.il/item/562953",
     source: "חי פה – חדשות חיפה",
-    date: "2025-03-18"
+    date: "2025-03-18",
+    logo: "/press-logos/haipo-logo.png",
+    logoAlt: "חי פה לוגו"
+  },
+  {
+    title: "דילמה: האם להוציא מאות שקלים לשיחת ייעוץ עם רופא עור או להתייעץ עם הצ'אט בחינם?",
+    href: "https://www.ynet.co.il/laisha/article/skvxm11jbee",
+    source: "Ynet – לאשה",
+    date: "2025-05-25",
+    logo: "/press-logos/ynet-laisha-logo.png",
+    logoAlt: "Ynet לאשה לוגו"
   },
   {
     title: "עור, שיער, ציפורניים ומה שביניהם -  מה משתנה בהם בזמן ההריון?",
     href: "https://www.olisafecare.com/%D7%A2%D7%95%D7%A8-%D7%A9%D7%99%D7%A2%D7%A8-%D7%95%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%A0%D7%99%D7%99%D7%9D-%D7%91%D7%94%D7%A8%D7%99%D7%95%D7%9F?srsltid=AfmBOorwVzenrFdRtCKyzGCD_-kvV98bYatOf3u33bD9hQqOeyn_eFbW",
     source: "Oli Safe Care",
-    date: "2025-02-26"
+    date: "2025-02-26",
+    logo: "/press-logos/oli-safe-care-logo.png",
+    logoAlt: "Oli Safe Care לוגו"
   }
 ];
