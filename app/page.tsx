@@ -115,7 +115,7 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-            <p>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות. | <a href="/accessibility-declaration" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">הצהרת נגישות</a></p>
+            <p>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות. | <a href="/accessibility-declaration" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">הצהרת נגישות</a> | <a href="/privacy-policy" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">מדיניות פרטיות</a></p>
           </div>
         </div>
       </footer>
