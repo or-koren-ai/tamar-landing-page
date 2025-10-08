@@ -14,6 +14,13 @@ const assistant = Assistant({
 export const metadata: Metadata = {
   title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
   description: 'ד״ר תמר קורן - דרמטולוגית מומחית בחיפה. טיפול אישי ומקצועי בילדים ומבוגרים: אקנה, בדיקת שומות, פסוריאזיס, נשירת שיער, אקזמה ועוד. קביעת תור: 04-8340280',
+  authors: [{ name: 'Or Koren' }],
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
   keywords: [
     'ד״ר תמר קורן',
     'רופאת עור חיפה',
