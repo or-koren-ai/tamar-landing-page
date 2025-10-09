@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     'ai-content-description': 'Medical practice website for Dr. Tamar Koren, dermatologist in Haifa, Israel. Provides information about skin treatments, medical services, appointment booking, and contact details.',
     'content-language': 'he-IL',
     'medical-specialty': 'Dermatology, Venereology',
-    'service-area': 'Haifa, Kiryat Ata, Kiryat Motzkin, Kiryat Yam, North Israel',
+    'service-area': 'Haifa, Kiryat Ata, Kiryat Motzkin, Kiryat Yam, Yokneam, Emek Yezreel, North Israel',
     'practice-type': 'Private medical practice',
     'target-audience': 'Children and adults seeking dermatological care',
   },
