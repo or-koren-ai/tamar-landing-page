@@ -43,7 +43,7 @@ export const servicesList: ServiceListItem[] = [
   {
     key: 'moles',
     slug: 'mole-check',
-    title: 'בדיקת שומות, אבחון והסרת נגעים שפירים, אבחון סרטני עור',
+    title: 'בדיקת שומות, אבחון והסרת נגעים שפירים, סרטני עור',
     iconKey: 'search',
     description: 'בדיקה יסודית ומעקב אחר שומות ונגעי עור',
     seoAnchor: 'בדיקת שומות ודרמוסקופיה חיפה',

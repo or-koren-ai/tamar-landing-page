@@ -38,12 +38,12 @@ export default function ServicesGrid() {
               prefetch={true}
               data-service-key={s.key}
               aria-label={`לקריאה על ${s.title}`}
-              className={`group service-tile p-5 sm:p-6 text-right h-full min-h-[180px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
+              className={`group service-tile p-4 sm:p-5 text-right h-full min-h-[160px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85]
                 transition-all duration-200 ease-out
                 hover:shadow-lg hover:-translate-y-1 block
               `}
             >
-              <div className="flex flex-col items-center text-center gap-3">
+              <div className="flex flex-col items-center text-center gap-2 h-full">
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#A27B5C] flex items-center justify-center
                   transition-all duration-300 ease-out
                   group-hover:rotate-3 group-hover:bg-[#859a85]
@@ -54,6 +54,11 @@ export default function ServicesGrid() {
                 <h3 className="service-title text-[#859a85] text-balance line-clamp-3 min-h-[3.2rem] transition-colors duration-300 group-hover:text-[#6b8e6b]">
                   {s.title}
                 </h3>
+                <div className="mt-auto">
+                  <span className="inline-block text-[#A27B5C] opacity-85 text-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-[-3px]">
+                    מידע נוסף ←
+                  </span>
+                </div>
               </div>
             </Link>
           )
