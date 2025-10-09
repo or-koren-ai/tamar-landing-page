@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export function AcneIcon({ className, title = "התאמת טיפול אישי ומדוייק לאקנה" }: { className?: string; title?: string }) {
   return (
     <svg
