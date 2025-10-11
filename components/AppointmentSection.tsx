@@ -3,6 +3,7 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site-config";
 import MapEmbed from "./MapEmbed";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
 
 export default function AppointmentSection() {
   return (
@@ -34,13 +35,13 @@ export default function AppointmentSection() {
             <ul className="mt-4 sm:mt-0 space-y-3 sm:flex-1">
               <li className="flex items-center gap-2 text-base">
                 <Phone className="size-5 text-[var(--accent-strong)]" aria-hidden />
-                <a href={SITE.clinicPhone.link} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                <a href={SITE.clinicPhone.link} onClick={() => trackPhoneClick('appointment-section')} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.clinicPhone.display}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-base">
                 <MessageCircle className="size-5 text-[var(--accent-strong)]" aria-hidden />
-                <a href={SITE.whatsapp.link} target="_blank" rel="nofollow noopener noreferrer" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                <a href={SITE.whatsapp.link} onClick={() => trackWhatsAppClick('appointment-section')} target="_blank" rel="nofollow noopener noreferrer" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.whatsapp.display}
                 </a>
               </li>
@@ -59,6 +60,7 @@ export default function AppointmentSection() {
           <div className="sm:grid sm:grid-cols-2 sm:gap-3">
             <a
               href={SITE.clinicPhone.link}
+              onClick={() => trackPhoneClick('appointment-section')}
               className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               <span className="text-base">התקשרו למרפאה</span>
@@ -66,6 +68,7 @@ export default function AppointmentSection() {
 
             <a
               href={SITE.whatsapp.link}
+              onClick={() => trackWhatsAppClick('appointment-section')}
               target="_blank" rel="nofollow noopener noreferrer"
               className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-base font-medium hover:bg-[var(--bg-tint)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >

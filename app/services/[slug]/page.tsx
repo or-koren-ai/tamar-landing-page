@@ -3,12 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
-import { MessageCircle, Phone, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SITE } from '@/lib/site-config'
 import { services } from '@/lib/services'
 import { generateServiceStructuredData } from '@/lib/structured-data'
 import { Navigation } from '@/components/Navigation'
 import { MobileMenu } from '@/components/MobileMenu'
+import ServiceCTAButtons from '@/components/ServiceCTAButtons'
 
 // Import all service icons
 import { Stethoscope, Video } from 'lucide-react'
@@ -207,25 +208,7 @@ export default function ServicePage({ params }: PageProps) {
                 לייעוץ מקצועי ו{service.title.includes('טיפול') ? service.title : `טיפול ב${service.title}`}
               </p>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-                <a
-                  href={SITE.whatsapp.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] text-[#25D366] bg-white hover:bg-[#25D366] hover:text-white transition-colors px-6 py-3 text-lg"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>קביעת תור בוואטסאפ</span>
-                </a>
-
-                <a
-                  href={SITE.clinicPhone.link}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#A27B5C] text-white hover:bg-[#859a85] transition-colors px-6 py-3 text-lg"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>התקשרות למרפאה</span>
-                </a>
-              </div>
+              <ServiceCTAButtons />
             </section>
 
             <div className="text-center">
