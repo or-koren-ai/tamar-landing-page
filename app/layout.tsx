@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 import { SITE } from '@/lib/site-config'
 import { Assistant } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const assistant = Assistant({
@@ -113,7 +113,11 @@ export default function RootLayout({
     <html lang="he-IL" dir="rtl" className="scroll-smooth">
       <body className={assistant.className}>
         {children}
-        <Analytics />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="8e5e2547-96fa-490f-8581-06674034debc"
+          strategy="afterInteractive"
+        />
         <SpeedInsights />
       </body>
     </html>
