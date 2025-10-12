@@ -124,7 +124,7 @@ export default function ServicePage({ params }: PageProps) {
               <>
                 {service.sections.map((section, index) => (
                   <section key={index} className="mb-12">
-                    <h2 className="text-2xl font-medium text-[#859a85] mb-6">{section.title}</h2>
+                    <h2 className="text-3xl font-medium text-[#859a85] mb-6">{section.title}</h2>
                     <p className="text-xl leading-relaxed mb-6">
                       {section.content}
                     </p>
@@ -140,7 +140,7 @@ export default function ServicePage({ params }: PageProps) {
 
                 {service.effectiveness && (
                   <section className="mb-12">
-                    <h3 className="text-xl font-medium text-[#6b8e6b] mb-4">{service.effectiveness.title}</h3>
+                    <h2 className="text-2xl font-medium text-[#6b8e6b] mb-4">{service.effectiveness.title}</h2>
                     <ul className="text-lg space-y-3 mb-6">
                       {service.effectiveness.items.map((item, index) => (
                         <li key={index}>• {item}</li>
@@ -151,7 +151,7 @@ export default function ServicePage({ params }: PageProps) {
 
                 {service.treatmentAreas && (
                   <section className="mb-12">
-                    <h3 className="text-xl font-medium text-[#6b8e6b] mb-4">{service.treatmentAreas.title}</h3>
+                    <h2 className="text-2xl font-medium text-[#6b8e6b] mb-4">{service.treatmentAreas.title}</h2>
                     <ul className="text-lg space-y-3">
                       {service.treatmentAreas.items.map((item, index) => (
                         <li key={index}>• {item}</li>
@@ -162,14 +162,14 @@ export default function ServicePage({ params }: PageProps) {
 
                 {service.treatmentProcess && (
                   <section className="mb-12">
-                    <h2 className="text-2xl font-medium text-[#859a85] mb-6">{service.treatmentProcess.title}</h2>
+                    <h2 className="text-3xl font-medium text-[#859a85] mb-6">{service.treatmentProcess.title}</h2>
                     <div className="space-y-6">
                       {service.treatmentProcess.steps.map((step, index) => (
                         <div key={index} className="bg-[#f8faf8] p-6 rounded-lg">
-                          <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">
+                          <h3 className="text-xl font-medium text-[#6b8e6b] mb-3">
                             {step.number}. {step.title}
                           </h3>
-                          <p>{step.description}</p>
+                          <p className="text-lg">{step.description}</p>
                         </div>
                       ))}
                     </div>
@@ -190,12 +190,12 @@ export default function ServicePage({ params }: PageProps) {
             {/* FAQ section - shows for any service that has it, regardless of structured content */}
             {service.faq && (
               <section className="mb-12">
-                <h2 className="text-2xl font-medium text-[#859a85] mb-6">{service.faq.title}</h2>
+                <h2 className="text-3xl font-medium text-[#859a85] mb-6">{service.faq.title}</h2>
                 <div className="space-y-6">
                   {service.faq.items.map((faqItem, index) => (
                     <div key={index}>
-                      <h3 className="text-lg font-medium text-[#6b8e6b] mb-3">{faqItem.question}</h3>
-                      <p>{faqItem.answer}</p>
+                      <h3 className="text-xl font-medium text-[#6b8e6b] mb-3">{faqItem.question}</h3>
+                      <p className="text-lg">{faqItem.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -225,7 +225,7 @@ export default function ServicePage({ params }: PageProps) {
         </div>
       </main>
 
-      <footer className="bg-[#859a85] text-gray-900 pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
+      <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
             <div className="footer-content opacity-100 translate-y-0 transition-all duration-700 ease-out">
             <div className="mb-2">
@@ -233,7 +233,7 @@ export default function ServicePage({ params }: PageProps) {
                 href={SITE.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-900 hover:opacity-80 transition-opacity duration-300 text-lg"
+                className="inline-flex items-center gap-2 text-white hover:opacity-80 transition-opacity duration-300 text-lg"
                 aria-label="עקבו אחרינו באינסטגרם"
               >
                 <span>Instagram</span>
@@ -249,7 +249,14 @@ export default function ServicePage({ params }: PageProps) {
                 </svg>
               </a>
             </div>
-            <p>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות. | <a href="/accessibility-declaration" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">הצהרת נגישות</a> | <a href="/privacy-policy" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">מדיניות פרטיות</a></p>
+            <p className="flex flex-col md:flex-row items-center justify-center gap-2">
+              <span>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות.</span>
+              <span className="flex items-center gap-2">
+                <a href="/accessibility-declaration" className="text-white hover:opacity-80 transition-opacity duration-300">הצהרת נגישות</a>
+                <span>|</span>
+                <a href="/privacy-policy" className="text-white hover:opacity-80 transition-opacity duration-300">מדיניות פרטיות</a>
+              </span>
+            </p>
           </div>
         </div>
       </footer>

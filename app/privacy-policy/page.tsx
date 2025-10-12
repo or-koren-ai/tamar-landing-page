@@ -243,7 +243,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </main>
 
-      <footer className="bg-[#859a85] text-gray-900 py-8 text-center font-normal overflow-hidden relative z-30">
+      <footer className="bg-[#859a85] text-white py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
           <div className="footer-content opacity-100 translate-y-0 transition-all duration-700 ease-out">
             <div className="mb-2">
@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
                 href={SITE.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-900 hover:opacity-80 transition-opacity duration-300 text-lg"
+                className="inline-flex items-center gap-2 text-white hover:opacity-80 transition-opacity duration-300 text-lg"
                 aria-label="עקבו אחרינו באינסטגרם"
               >
                 <span>Instagram</span>
@@ -267,7 +267,14 @@ export default function PrivacyPolicyPage() {
                 </svg>
               </a>
             </div>
-            <p>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות. | <a href="/accessibility-declaration" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">הצהרת נגישות</a> | <a href="/privacy-policy" className="text-gray-900 hover:text-gray-700 transition-colors duration-300">מדיניות פרטיות</a></p>
+            <p className="flex flex-col md:flex-row items-center justify-center gap-2">
+              <span>&copy; {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות.</span>
+              <span className="flex items-center gap-2">
+                <a href="/accessibility-declaration" className="text-white hover:opacity-80 transition-opacity duration-300">הצהרת נגישות</a>
+                <span>|</span>
+                <a href="/privacy-policy" className="text-white hover:opacity-80 transition-opacity duration-300">מדיניות פרטיות</a>
+              </span>
+            </p>
           </div>
         </div>
       </footer>
