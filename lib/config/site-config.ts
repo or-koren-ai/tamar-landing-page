@@ -20,7 +20,7 @@ export const SITE = {
   whatsapp: {
     e164: "+972525280650",
     display: "052-528-0650",
-    link: "https://wa.me/972525280650",
+    link: "https://api.whatsapp.com/send?phone=972525280650&text=" + encodeURIComponent("שלום ד״ר קורן, הופניתי מהאתר drkoren.skin ") + "%F0%9F%8C%BF",
   },
 
   clinicPhone: {
