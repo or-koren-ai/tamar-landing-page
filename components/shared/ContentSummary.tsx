@@ -1,5 +1,5 @@
-import { SITE } from '@/lib/site-config'
-import { services } from '@/lib/services'
+import { SITE } from '@/lib/config/site-config'
+import { services } from '@/lib/data/services'
 
 /**
  * Hidden content summary for LLMs and AI agents

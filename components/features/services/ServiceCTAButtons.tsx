@@ -1,7 +1,7 @@
 "use client";
 
-import { SITE } from '@/lib/site-config';
-import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
+import { SITE } from '@/lib/config/site-config';
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/tracking/analytics';
 
 export default function ServiceCTAButtons() {
   return (

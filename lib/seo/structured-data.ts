@@ -1,5 +1,5 @@
-import { SITE } from './site-config'
-import { services } from './services'
+import { SITE } from '../config/site-config'
+import { services } from '../data/services'
 
 // Enhanced business structured data for LLMs
 export const businessStructuredData = {
@@ -12,7 +12,7 @@ export const businessStructuredData = {
   // Logo for google search
   logo: {
     "@type": "ImageObject",
-    url: `${SITE.baseUrl}/herb/herb.png`,
+    url: `${SITE.baseUrl}/assets/graphics/herb/herb.png`,
     width: 512,
     height: 512
   },

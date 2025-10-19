@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { SITE } from "@/lib/site-config";
+import { SITE } from "@/lib/config/site-config";
 
 export default function MapEmbed() {
   const [shouldLoad, setShouldLoad] = useState(false);

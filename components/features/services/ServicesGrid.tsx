@@ -1,5 +1,5 @@
 import React from "react"
-import { servicesList, type ServiceListItem } from "@/lib/services-list"
+import { servicesList, type ServiceListItem } from "@/lib/data/services-list"
 import { Stethoscope, Video } from "lucide-react"
 import { HairIcon } from "@/components/icons/HairIcon"
 import { AcneIcon } from "@/components/icons/AcneIcon"

@@ -4,12 +4,12 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
-import { SITE } from '@/lib/site-config'
-import { services } from '@/lib/services'
-import { generateServiceStructuredData } from '@/lib/structured-data'
-import { Navigation } from '@/components/Navigation'
-import { MobileMenu } from '@/components/MobileMenu'
-import ServiceCTAButtons from '@/components/ServiceCTAButtons'
+import { SITE } from '@/lib/config/site-config'
+import { services } from '@/lib/data/services'
+import { generateServiceStructuredData } from '@/lib/seo/structured-data'
+import { Navigation } from '@/components/features/header/Navigation'
+import { MobileMenu } from '@/components/features/header/MobileMenu'
+import ServiceCTAButtons from '@/components/features/services/ServiceCTAButtons'
 
 // Import all service icons
 import { Stethoscope, Video } from 'lucide-react'
@@ -59,9 +59,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
       description: service.description,
       url: `https://drkoren.skin/services/${service.slug}`,
       locale: 'he_IL',
-      images: ['/herb/herb.png'],
+      images: ['/assets/graphics/herb/herb.png'],
     },
-    twitter: { card: 'summary_large_image', images: ['/herb/herb.png'] },
+    twitter: { card: 'summary_large_image', images: ['/assets/graphics/herb/herb.png'] },
   }
 }
 
@@ -90,7 +90,7 @@ export default function ServicePage({ params }: PageProps) {
             <div className="flex-shrink-0">
               <Link href="/" prefetch={true}>
                 <Image
-                  src="/logo-tk.png"
+                  src="/assets/images/logo-tk.png"
                   alt={SITE.name}
                   width={200}
                   height={50}

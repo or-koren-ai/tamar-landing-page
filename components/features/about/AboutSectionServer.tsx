@@ -2,15 +2,15 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { SITE } from '@/lib/site-config'
-import DoctorPhoto from '@/public/doctor-photo.webp'
+import { SITE } from '@/lib/config/site-config'
+import DoctorPhoto from '@/public/assets/images/doctor-photo.webp'
 
 export function AboutSectionServer() {
   const [isExpanded, setIsExpanded] = useState(false)
   return (
     <section
       id="אודות"
-      className="py-12 md:py-16"
+      className="py-12 md:py-16 scroll-mt-24"
       aria-labelledby="about-title"
     >
       <div className="container mx-auto px-4">

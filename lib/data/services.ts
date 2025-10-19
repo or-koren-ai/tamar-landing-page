@@ -1,43 +1,4 @@
-export type ServiceItem = {
-  key: string
-  slug: string
-  title: string
-  iconKey: 'stethoscope' | 'hand' | 'hair' | 'search' | 'acne' | 'palette' | 'video' | 'hyperhidrosis'
-  description: string
-  longDescription: string
-  seoAnchor: string
-  cardTitle?: string
-  cardDescription?: string
-  // Enhanced structured content
-  sections?: {
-    title: string
-    content: string
-    bullets?: string[]
-  }[]
-  treatmentProcess?: {
-    title: string
-    steps: {
-      number: string
-      title: string
-      description: string
-    }[]
-  }
-  effectiveness?: {
-    title: string
-    items: string[]
-  }
-  treatmentAreas?: {
-    title: string
-    items: string[]
-  }
-  faq?: {
-    title: string
-    items: {
-      question: string
-      answer: string
-    }[]
-  }
-}
+import type { ServiceItem } from '@/types'
 
 export const services: ServiceItem[] = [
   {
@@ -574,6 +535,7 @@ export const services: ServiceItem[] = [
     longDescription:
       'הזעת יתר הינה תופעה יחסית שכיחה שמשפיעה רבות ופוגעת באורח החיים של המטופל/ת.\nהזעת יתר יכולה להיות כללית (בכל הגוף) או מקומית (בתי שחי, כפות ידיים ורגליים וכדומה). במקרים של הזעת יתר יש לבצע בדיקה רפואית יסודית ולראות האם ישנה סיבה רפואית שגורמת להזעת יתר.\nבמידת הצורך ניתנת המלצה לטיפול בהזעת יתר כללית בכדורים שיכולים להקל רבות על המטופל.\nעבור הזעת יתר מקומית (בתי שחי, כפות ידיים ורגליים) מנהל המזון והתרופות האמריקני (FDA) אישר טיפול בבוטוקוס עבור בתי השחי ומחקרים מסוימים מראים כי הוא עשוי להיות יעיל גם עבור אזורים אחרים בגוף. הזריקות חוסמות באופן זמני תהליך כימי בעור אשר מפעיל את בלוטות הזיעה.',
     seoAnchor: 'טיפול בהזעת יתר חיפה',
+    cardTitle: 'הזעת יתר',
     cardDescription: 'טיפול ממוקד בבוטוקס',
     sections: [
       {

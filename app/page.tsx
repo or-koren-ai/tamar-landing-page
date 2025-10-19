@@ -1,15 +1,15 @@
 import Image from "next/image"
-import { Navigation } from "@/components/Navigation"
-import { AboutSectionServer } from "@/components/AboutSectionServer"
-import ServicesGrid from "@/components/ServicesGrid"
-import { LazyPressCarousel, LazyContentSummary } from "@/components/LazyComponents"
-import AppointmentSection from "@/components/AppointmentSection"
-import { ReviewsSection } from "@/components/ReviewsSection"
-import { MobileMenu } from "@/components/MobileMenu"
-import { StickyAppointmentButton } from "@/components/StickyAppointmentButton"
-import { SITE } from "@/lib/site-config"
-import { pressItems } from "@/lib/press"
-import { businessStructuredData, faqStructuredData } from "@/lib/structured-data"
+import { Navigation } from "@/components/features/header/Navigation"
+import { AboutSectionServer } from "@/components/features/about/AboutSectionServer"
+import ServicesGrid from "@/components/features/services/ServicesGrid"
+import { LazyPressCarousel, LazyContentSummary } from "@/components/shared/LazyComponents"
+import AppointmentSection from "@/components/features/appointments/AppointmentSection"
+import { ReviewsSection } from "@/components/features/reviews/ReviewsSection"
+import { MobileMenu } from "@/components/features/header/MobileMenu"
+import { StickyAppointmentButton } from "@/components/features/appointments/StickyAppointmentButton"
+import { SITE } from "@/lib/config/site-config"
+import { pressItems } from "@/lib/data/press"
+import { businessStructuredData, faqStructuredData } from "@/lib/seo/structured-data"
 import Script from 'next/script'
 
 
@@ -27,7 +27,7 @@ export default function Home() {
             <div className="flex-shrink-0">
               <a href="#top">
                 <Image
-                  src="/logo-tk.png"
+                  src="/assets/images/logo-tk.png"
                   alt={SITE.name}
                   width={200}
                   height={50}
@@ -49,7 +49,7 @@ export default function Home() {
           {/* Decorative leaf (left), above section backgrounds but non-interactive */}
           <div className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15">
             <Image
-              src="/herb/herb.svg"
+              src="/assets/graphics/herb/herb.svg"
               alt=""
               width={560}
               height={400}
@@ -75,7 +75,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative">
+        <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative scroll-mt-24">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
             <ServicesGrid />

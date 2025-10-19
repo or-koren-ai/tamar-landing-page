@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { pressItems } from "@/lib/press";
+import { pressItems } from "@/lib/data/press";
 
 export default function PressSection() {
   return (

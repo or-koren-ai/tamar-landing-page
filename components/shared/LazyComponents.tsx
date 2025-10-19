@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 
-export const LazyServicesGrid = dynamic(() => import('@/components/ServicesGrid'), {
+export const LazyServicesGrid = dynamic(() => import('@/components/features/services/ServicesGrid'), {
   loading: () => (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
       {Array.from({ length: 8 }).map((_, i) => (
@@ -13,7 +13,7 @@ export const LazyServicesGrid = dynamic(() => import('@/components/ServicesGrid'
   ssr: false
 })
 
-export const LazyPressCarousel = dynamic(() => import('@/components/PressCarousel'), {
+export const LazyPressCarousel = dynamic(() => import('@/components/features/press/PressCarousel'), {
   loading: () => (
     <div className="py-12 md:py-16 bg-[#f8faf8]">
       <div className="container mx-auto px-4">
@@ -25,7 +25,7 @@ export const LazyPressCarousel = dynamic(() => import('@/components/PressCarouse
   ssr: false
 })
 
-export const LazyContentSummary = dynamic(() => import('@/components/ContentSummary').then(mod => ({ default: mod.ContentSummary })), {
+export const LazyContentSummary = dynamic(() => import('@/components/shared/ContentSummary').then(mod => ({ default: mod.ContentSummary })), {
   loading: () => null, // No loading state needed - it's hidden content for LLMs
   ssr: false // Don't render on server - only load after hydration for LLM crawlers
 })

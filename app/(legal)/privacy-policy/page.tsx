@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { SITE } from "@/lib/site-config";
+import { SITE } from "@/lib/config/site-config";
 import Image from "next/image";
-import { Navigation } from "@/components/Navigation";
-import { MobileMenu } from "@/components/MobileMenu";
+import { Navigation } from "@/components/features/header/Navigation";
+import { MobileMenu } from "@/components/features/header/MobileMenu";
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             <div className="flex-shrink-0">
               <a href="/">
                 <Image
-                  src="/logo-tk.png"
+                  src="/assets/images/logo-tk.png"
                   alt={SITE.name}
                   width={200}
                   height={50}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronRight, ChevronLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { pressItems } from "@/lib/press";
+import { pressItems } from "@/lib/data/press";
 
 export default function PressCarousel() {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,27 +38,23 @@ export default function PressCarousel() {
     if (!el || !list) return;
     const last = list.length - 1;
     const t = Math.max(0, Math.min(i, last));
-    
-    setActive(t);
-    
-    // First slide: align to right edge (RTL)
-    if (t === 0) {
-      return el.scrollTo({ left: 0, behavior: "smooth" });
-    }
-    
-    // Last slide: align to left edge (RTL)
-    if (t === last) {
-      return el.scrollTo({ left: el.scrollWidth - el.clientWidth, behavior: "smooth" });
-    }
 
-    // Middle slides: center the slide
-    const s = list[t];
-    const targetLeft = s.offsetLeft - (el.clientWidth - s.clientWidth) / 2;
-    el.scrollTo({ left: targetLeft, behavior: "smooth" });
+    // Update active state immediately to prevent onScroll from overriding
+    setActive(t);
+
+    // Scroll the target slide into view
+    const targetSlide = list[t];
+    if (targetSlide) {
+      targetSlide.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+    }
   };
 
   return (
-    <section id="כתבות-ופרסומים" dir="rtl" aria-labelledby="press-title" className="py-12 sm:py-16 bg-[var(--bg-tint)]/40">
+    <section id="כתבות-ופרסומים" dir="rtl" aria-labelledby="press-title" className="py-12 sm:py-16 bg-[var(--bg-tint)]/40 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4">
         <h2 id="press-title" className="text-3xl sm:text-4xl font-light text-center mb-6 text-[#859a85]">
           כתבות ופרסומים
@@ -96,7 +92,7 @@ export default function PressCarousel() {
                   href={it.href}
                   target="_blank"
                   rel="noopener nofollow"
-                  className={`block h-full rounded-2xl bg-white p-5 shadow-sm transition
+                  className={`flex flex-col h-full rounded-2xl bg-white p-5 shadow-sm transition
                     ${i === active
                       ? "ring-1 ring-black/5 shadow-[inset_0_0_0_2px_rgba(94,127,105,0.45)]"
                       : "ring-1 ring-black/5 opacity-60 hover:opacity-80"}`}
@@ -126,7 +122,7 @@ export default function PressCarousel() {
                   </div>
                   <h3 className="text-[var(--heading)] text-lg leading-snug line-clamp-3">{it.title}</h3>
                   <div className="mt-auto pt-4 flex items-center justify-between">
-                    <time className="text-xs text-black/50">
+                    <time className="text-sm text-black/50">
                       {it.date ? new Date(it.date).toLocaleDateString("he-IL") : ""}
                     </time>
                     <span className="text-[13px] text-[var(--accent-strong)] underline-offset-2">לקריאה</span>

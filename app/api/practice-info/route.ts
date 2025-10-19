@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { SITE } from '@/lib/site-config'
-import { services } from '@/lib/services'
+import { SITE } from '@/lib/config/site-config'
+import { services } from '@/lib/data/services'
 
 // API endpoint for AI agents to easily access practice information
 export async function GET() {

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { SITE } from '@/lib/site-config'
-import { services } from '@/lib/services'
+import { SITE } from '@/lib/config/site-config'
+import { services } from '@/lib/data/services'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

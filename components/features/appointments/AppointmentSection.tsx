@@ -1,9 +1,9 @@
 "use client";
 
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { SITE } from "@/lib/site-config";
-import MapEmbed from "./MapEmbed";
-import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
+import { SITE } from "@/lib/config/site-config";
+import MapEmbed from "@/components/shared/MapEmbed";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking/analytics";
 
 export default function AppointmentSection() {
   return (

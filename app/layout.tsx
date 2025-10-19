@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import { SITE } from '@/lib/site-config'
+import { SITE } from '@/lib/config/site-config'
 import { Assistant } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -13,7 +13,7 @@ const assistant = Assistant({
 
 export const metadata: Metadata = {
   title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
-  description: 'ד״ר תמר קורן - דרמטולוגית מומחית בחיפה. טיפול אישי ומקצועי בילדים ומבוגרים: אקנה, בדיקת שומות, פסוריאזיס, נשירת שיער, אקזמה ועוד. קביעת תור: 04-8340280',
+  description: `ד״ר תמר קורן - דרמטולוגית מומחית בחיפה. טיפול אישי ומקצועי בילדים ומבוגרים: אקנה, בדיקת שומות, פסוריאזיס, נשירת שיער, אקזמה ועוד. קביעת תור: ${SITE.clinicPhone.display}`,
   authors: [{ name: 'Or Koren' }],
   robots: {
     index: true,
@@ -70,13 +70,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/herb/herb.svg', type: 'image/svg+xml' },
+      { url: '/assets/graphics/herb/herb.svg', type: 'image/svg+xml' },
     ],
     shortcut: '/favicon.ico',
-    apple: '/herb/herb.svg',
+    apple: '/assets/graphics/herb/herb.svg',
     other: [
-      { rel: 'icon', url: '/herb/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { rel: 'icon', url: '/herb/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      { rel: 'icon', url: '/assets/graphics/herb/herb-192.png', sizes: '192x192', type: 'image/png' },
+      { rel: 'icon', url: '/assets/graphics/herb/herb-512.png', sizes: '512x512', type: 'image/png' },
       { rel: 'manifest', url: '/site.webmanifest' },
     ],
   },
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/herb/herb.png',
+        url: '/assets/graphics/herb/herb.png',
         alt: 'עלים - ד״ר תמר קורן',
         width: 512,
         height: 512,
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/herb/herb.png'],
+    images: ['/assets/graphics/herb/herb.png'],
   },
 }
 

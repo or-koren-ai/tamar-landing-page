@@ -38,7 +38,7 @@ export const SITE = {
   map: {
     embedSrc:
       "https://maps.google.com/maps?width=520&height=400&hl=he&q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94+(%D7%9E%D7%A8%D7%A4%D7%90%D7%AA%20%D7%9E%D7%95%D7%9E%D7%97%D7%99%D7%9D%20%D7%93״ר%20%D7%AA%D7%9E%D7%A8%20%D7%A7%D7%95%D7%A8%D7%9F)&t=k&z=15&ie=UTF8&iwloc=B&output=embed",
-    url: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
+    url: "https://≈com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
   },
 
   socials: {
