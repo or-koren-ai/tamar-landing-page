@@ -18,9 +18,9 @@ export const SITE = {
   },
 
   whatsapp: {
-    e164: "+972525280650",
-    display: "052-528-0650",
-    link: "https://api.whatsapp.com/send?phone=972525280650&text=" + encodeURIComponent("שלום, הופנתי מהאתר של ד״ר תמר קורן") + "%F0%9F%8C%BF",
+    e164: "+972559620827",
+    display: "055-962-0827",
+    link: "https://api.whatsapp.com/send?phone=972559620827&text=" + encodeURIComponent("שלום, הופנתי מהאתר של ד״ר תמר קורן") + "%F0%9F%8C%BF",
   },
 
   clinicPhone: {
