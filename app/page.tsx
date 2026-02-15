@@ -8,6 +8,7 @@ import { ReviewsSection } from "@/components/features/reviews/ReviewsSection"
 import { MobileMenu } from "@/components/features/header/MobileMenu"
 import { StickyAppointmentButton } from "@/components/features/appointments/StickyAppointmentButton"
 import { SITE } from "@/lib/config/site-config"
+import DoctorPhoto from '@/public/assets/images/doctor-photo.webp'
 import { pressItems } from "@/lib/data/press"
 import { businessStructuredData, faqStructuredData, reviewsStructuredData } from "@/lib/seo/structured-data"
 import Script from 'next/script'
@@ -32,6 +33,7 @@ export default function Home() {
                   width={200}
                   height={50}
                   className="h-auto w-auto max-w-[200px]"
+                  fetchPriority="low"
                 />
               </a>
             </div>
@@ -57,7 +59,7 @@ export default function Home() {
             />
           </div>
 
-          <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
+          <section className="py-7 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
             <div className="mx-auto max-w-4xl text-center px-4">
               <h1 className="hero-title animate-hero-title">
                 ד״ר תמר קורן
@@ -68,6 +70,22 @@ export default function Home() {
               </p>
             </div>
           </section>
+
+          {/* Doctor photo — own section between hero and about */}
+          <div className="pt-6 pb-2 md:py-8 flex justify-center px-4 relative z-10">
+            <Image
+              src={DoctorPhoto}
+              alt={SITE.hero.title}
+              width={400}
+              height={600}
+              placeholder="blur"
+              quality={80}
+              sizes="(min-width: 768px) 464px, 290px"
+              className="rounded-3xl shadow-lg w-full max-w-[290px] md:max-w-[464px]"
+              priority
+              fetchPriority="high"
+            />
+          </div>
 
           <div className="relative z-10">
             <AboutSectionServer />

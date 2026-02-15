@@ -32,7 +32,7 @@ export function ContentSummary() {
         <span itemProp="addressCountry">IL</span>
       </div>
 
-      <meta itemProp="image" content="https://drkoren.skin/assets/images/doctor-photo-green-square.png" />
+      <meta itemProp="image" content="https://drkoren.skin/assets/images/doctor-photo-green-square.jpg" />
       
       <span itemProp="telephone">{SITE.clinicPhone.display}</span>
       <span itemProp="email">{SITE.clinicEmail}</span>

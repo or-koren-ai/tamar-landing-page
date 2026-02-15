@@ -26,6 +26,6 @@ export const LazyPressCarousel = dynamic(() => import('@/components/features/pre
 })
 
 export const LazyContentSummary = dynamic(() => import('@/components/shared/ContentSummary').then(mod => ({ default: mod.ContentSummary })), {
-  loading: () => null, // No loading state needed - it's hidden content for LLMs
-  ssr: false // Don't render on server - only load after hydration for LLM crawlers
+  loading: () => null,
+  ssr: true // Render on server so LLM crawlers that don't execute JS can see the content
 })

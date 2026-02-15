@@ -21,7 +21,7 @@ export const businessStructuredData = {
   // Doctor photo for Google Knowledge Panel / search results
   image: {
     "@type": "ImageObject",
-    url: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`,
+    url: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.jpg`,
     width: 1200,
     height: 1200,
     caption: "ד״ר תמר קורן - מומחית לרפואת עור ומין בחיפה"
@@ -198,7 +198,7 @@ export const generateServiceStructuredData = (service: any) => ({
   description: service.description,
   url: `${SITE.baseUrl}/services/${service.slug}`,
   datePublished: "2024-12-01",
-  dateModified: "2025-06-01",
+  dateModified: "2026-02-15",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -231,7 +231,7 @@ export const generateServiceStructuredData = (service: any) => ({
     "@type": "Physician",
     name: SITE.name,
     url: SITE.baseUrl,
-    image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`
+    image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.jpg`
   },
   publisher: {
     "@type": "MedicalBusiness",
@@ -314,7 +314,7 @@ export const reviewsStructuredData = {
     addressCountry: "IL",
     postalCode: SITE.address.postalCode,
   },
-  image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`,
+  image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.jpg`,
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: SITE.rating.value,

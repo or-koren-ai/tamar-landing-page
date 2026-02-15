@@ -42,7 +42,7 @@ export const SITE = {
     staticImage: "/assets/images/map-clinic-location.png",
   },
 
-  // Rating data from MedReviews — auto-updated weekly via GitHub Action
+  // Rating data from MedReviews — auto-updated daily via GitHub Action
   rating: {
     value: 4.9,
     count: 143,
