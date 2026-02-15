@@ -5,6 +5,6 @@ export type Review = {
   rating: number
   text: string
   dateISO: string
-  treatment?: string
+  tags?: string[]
   isEnglish?: boolean
 }

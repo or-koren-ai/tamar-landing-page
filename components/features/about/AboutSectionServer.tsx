@@ -25,6 +25,7 @@ export function AboutSectionServer() {
                 width={400}
                 height={400}
                 placeholder="blur"
+                quality={80}
                 sizes="(min-width: 768px) 400px, 280px"
                 className="rounded-3xl shadow-lg w-full max-w-sm mx-auto md:max-w-md"
                 priority

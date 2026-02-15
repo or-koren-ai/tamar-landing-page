@@ -87,19 +87,19 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/assets/images/og-doctor-photo.jpg',
+        url: '/assets/images/og-doctor-photo-small.jpg',
         alt: 'ד״ר תמר קורן - מומחית לרפואת עור ומין בחיפה',
-        width: 1200,
-        height: 1200,
+        width: 256,
+        height: 256,
       },
     ],
     locale: 'he_IL',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/assets/images/og-doctor-photo.jpg'],
+    images: ['/assets/images/og-doctor-photo-small.jpg'],
   },
 }
 

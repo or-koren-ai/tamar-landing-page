@@ -32,11 +32,13 @@ const ReviewCard: React.FC<{ review: any }> = ({ review }) => {
 
       <p className="review-text text-right">{review.text}</p>
 
-      <footer className="flex items-center justify-between pt-1">
-        <div className="flex items-center gap-2">
-          {review.treatment ? <span className="review-chip">{review.treatment}</span> : null}
-        </div>
-      </footer>
+      {review.tags?.length ? (
+        <footer className="flex flex-wrap gap-1.5">
+          {review.tags.map(tag => (
+            <span key={tag} className="review-chip">{tag}</span>
+          ))}
+        </footer>
+      ) : null}
     </article>
   );
 };
@@ -46,7 +48,7 @@ export function ReviewsSection() {
     <section id="ביקורות" className="py-12 md:py-16 scroll-mt-24">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-light mb-6 text-center text-[#859a85]">ביקורות מטופלים</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
           {reviews.map(review => (
             <ReviewCard key={review.id} review={review} />
           ))}

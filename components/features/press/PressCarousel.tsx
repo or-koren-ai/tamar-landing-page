@@ -54,7 +54,7 @@ export default function PressCarousel() {
   };
 
   return (
-    <section id="כתבות-ופרסומים" dir="rtl" aria-labelledby="press-title" className="py-12 sm:py-16 bg-[var(--bg-tint)]/40 scroll-mt-24">
+    <section id="כתבות-ופרסומים" dir="rtl" aria-labelledby="press-title" className="pt-12 pb-4 sm:pt-16 sm:pb-6 bg-[var(--bg-tint)]/40 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4">
         <h2 id="press-title" className="text-3xl sm:text-4xl font-light text-center mb-6 text-[#859a85]">
           כתבות ופרסומים
@@ -79,7 +79,7 @@ export default function PressCarousel() {
           </button>
         </div>
 
-        <div ref={ref} className="relative -mx-4 px-4 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar">
+        <div ref={ref} className="relative -mx-4 px-4 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory no-scrollbar">
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[var(--bg-tint)]/40 to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 left-0  w-12 bg-gradient-to-r from-[var(--bg-tint)]/40 to-transparent" />
 

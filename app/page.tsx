@@ -32,7 +32,6 @@ export default function Home() {
                   width={200}
                   height={50}
                   className="h-auto w-auto max-w-[200px]"
-                  fetchPriority="high"
                 />
               </a>
             </div>
@@ -43,11 +42,11 @@ export default function Home() {
       <main className="pb-28 md:pb-0">
         {/* Hidden content summary for LLMs and AI agents - lazy loaded */}
         <LazyContentSummary />
-        
+
         {/* Decorative background wrapper for hero + about */}
         <div className="relative overflow-hidden">
-          {/* Decorative leaf (left), above section backgrounds but non-interactive */}
-          <div className="pointer-events-none absolute inset-y-0 -top-44 left-10 z-0 hidden sm:block w-[65vw] max-w-[560px] opacity-15">
+          {/* Decorative leaf — mobile: small top-left corner, desktop: larger left side */}
+          <div className="pointer-events-none absolute -top-2 -left-2 z-0 w-[130px] opacity-15 rotate-12 sm:w-[45vw] sm:max-w-[420px] sm:-top-24 sm:left-6 sm:rotate-0 sm:opacity-15 animate-botanical-drift botanical-mask">
             <Image
               src="/assets/graphics/herb/herb.svg"
               alt=""
@@ -56,13 +55,13 @@ export default function Home() {
               className="w-full h-auto"
               loading="lazy"
             />
-          </div>  
+          </div>
 
           <section className="py-8 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
             <div className="mx-auto max-w-4xl text-center px-4">
               <h1 className="hero-title animate-hero-title">
                 ד״ר תמר קורן
-                <span className="hero-accent">מומחית לרפואת עור ומין · חיפה</span>
+                <span className="hero-accent">מומחית לרפואת עור ומין <span className="inline-block translate-y-[2px]">·</span> חיפה</span>
               </h1>
               <p className="text-base md:text-lg hero-sub animate-hero-subtitle">
                 טיפול אישי ומקצועי לילדים ולמבוגרים

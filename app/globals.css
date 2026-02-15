@@ -68,8 +68,28 @@
     animation: headerSlide 400ms ease-out both;
   }
 
+  /* Botanical leaf drift-in animation */
+  @keyframes botanicalDrift {
+    0% {
+      transform: translateY(12px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-botanical-drift {
+    animation: botanicalDrift 1s ease-out both 600ms;
+  }
+
+  /* Soft dissolving edges via radial gradient mask */
+  .botanical-mask {
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black 30%, transparent 75%);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .animate-hero-fade-in, .animate-hero-title, .animate-hero-subtitle, .animate-header-slide {
+    .animate-hero-fade-in, .animate-hero-title, .animate-hero-subtitle, .animate-header-slide, .animate-botanical-drift {
       animation: none;
     }
   }
@@ -424,10 +444,9 @@ h1, h2, h3{
   bottom: -8px;
   right: 50%;
   transform: translateX(50%);
-  width: 60px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
+  width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 /* Hero subtitle */
