@@ -41,6 +41,15 @@ export const SITE = {
     url: "https://≈com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
   },
 
+  // Rating data from MedReviews — auto-updated weekly via GitHub Action
+  rating: {
+    value: 4.9,
+    count: 143,
+    bestRating: 5,
+    source: "MedReviews",
+    sourceUrl: "https://www.medreviews.co.il/provider/dr-koren-tamar",
+  },
+
   socials: {
     medreviews: "https://www.medreviews.co.il/provider/dr-koren-tamar",
     instagram: "https://www.instagram.com/dr.tamar_koren",

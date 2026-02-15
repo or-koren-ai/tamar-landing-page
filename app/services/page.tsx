@@ -1,13 +1,30 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { servicesList } from '@/lib/data/services-list'
+import { SITE } from '@/lib/config/site-config'
 
 export const metadata: Metadata = {
-  title: 'שירותי המרפאה',
-  description: 'סקירת כל שירותי המרפאה של ד"ר תמר קורן, כולל אבחון מחלות עור, בדיקת שומות, נשירת שיער, אקנה ועוד.',
+  title: 'שירותי המרפאה | ד״ר תמר קורן',
+  description: 'סקירת כל שירותי המרפאה של ד״ר תמר קורן - רופאת עור מומחית בחיפה. אבחון מחלות עור, בדיקת שומות, נשירת שיער, אקנה, פיגמנטציה ועוד.',
   alternates: { canonical: '/services' },
   openGraph: { images: ['/assets/graphics/herb/herb.png'], locale: 'he_IL' },
   twitter: { card: 'summary_large_image', images: ['/assets/graphics/herb/herb.png'] },
+}
+
+const servicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "שירותי המרפאה של ד״ר תמר קורן",
+  itemListElement: servicesList.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "MedicalTherapy",
+      name: s.title,
+      description: s.description,
+      url: `${SITE.baseUrl}/services/${s.slug}`,
+    },
+  })),
 }
 
 export default function ServicesIndexPage() {
@@ -42,6 +59,13 @@ export default function ServicesIndexPage() {
           </ul>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(servicesListSchema),
+        }}
+      />
     </main>
   )
-} 
+}

@@ -10,6 +10,7 @@ import { generateServiceStructuredData } from '@/lib/seo/structured-data'
 import { Navigation } from '@/components/features/header/Navigation'
 import { MobileMenu } from '@/components/features/header/MobileMenu'
 import ServiceCTAButtons from '@/components/features/services/ServiceCTAButtons'
+import { Breadcrumb } from '@/components/shared/Breadcrumb'
 
 // Import all service icons
 import { Stethoscope, Video } from 'lucide-react'
@@ -106,6 +107,8 @@ export default function ServicePage({ params }: PageProps) {
 
       <main className="py-8 md:py-12">
         <div className="container mx-auto px-4 max-w-4xl">
+          <Breadcrumb serviceTitle={service.title} />
+
           <div className="flex items-center gap-4 mb-8">
             <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center">
               <IconComponent className={`${iconSizeClass} text-white`} />
@@ -117,6 +120,10 @@ export default function ServicePage({ params }: PageProps) {
               <p className="text-xl">{service.description}</p>
             </div>
           </div>
+
+          <p className="text-sm text-gray-500 mb-8">
+            תוכן רפואי מאת <span itemProp="author">{SITE.name}</span> | {SITE.specialty}
+          </p>
 
           <div className="prose prose-lg max-w-none text-right">
             {/* Enhanced structured sections for services like hyperhidrosis */}
@@ -210,6 +217,29 @@ export default function ServicePage({ params }: PageProps) {
 
               <ServiceCTAButtons />
             </section>
+
+            {service.relatedServices && service.relatedServices.length > 0 && (
+              <section className="mb-12">
+                <h2 className="text-2xl font-medium text-[#859a85] mb-6">שירותים נוספים</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {service.relatedServices.map((slug) => {
+                    const related = services.find((s) => s.slug === slug)
+                    if (!related) return null
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/services/${slug}`}
+                        prefetch={true}
+                        className="block p-4 rounded-xl bg-[#f8faf8] hover:bg-[#e8f0e8] transition-colors"
+                      >
+                        <h3 className="text-lg font-medium text-[#6b8e6b] mb-1">{related.cardTitle || related.title}</h3>
+                        <p className="text-sm text-gray-600">{related.cardDescription || related.description}</p>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </section>
+            )}
 
             <div className="text-center">
               <Link

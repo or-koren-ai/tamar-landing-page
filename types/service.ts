@@ -37,4 +37,5 @@ export type ServiceItem = {
       answer: string
     }[]
   }
+  relatedServices?: string[] // slugs of related services
 }

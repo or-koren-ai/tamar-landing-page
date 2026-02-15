@@ -1,5 +1,6 @@
 import { SITE } from '../config/site-config'
 import { services } from '../data/services'
+import { reviews } from '../data/reviews'
 
 // Enhanced business structured data for LLMs
 export const businessStructuredData = {
@@ -36,11 +37,20 @@ export const businessStructuredData = {
     "@type": "PostalAddress",
     streetAddress: SITE.address.streetAddress,
     addressLocality: SITE.address.locality,
-    addressCountry: "Israel",
+    addressCountry: "IL",
     postalCode: SITE.address.postalCode,
     addressRegion: "Haifa District"
   },
-  
+
+  // Geo coordinates for local search
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "32.7894",
+    longitude: "34.9877"
+  },
+  hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94+84+%D7%97%D7%99%D7%A4%D7%94",
+  priceRange: "₪₪",
+
   // Geographic area served
   areaServed: [
     { "@type": "City", name: "חיפה" },
@@ -83,6 +93,15 @@ export const businessStructuredData = {
     }
   ],
   
+  // Aggregate rating
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: SITE.rating.value,
+    reviewCount: SITE.rating.count,
+    bestRating: SITE.rating.bestRating,
+    worstRating: 1
+  },
+
   // Social profiles
   sameAs: [
     SITE.socials.medreviews,
@@ -131,6 +150,27 @@ export const businessStructuredData = {
     }
   ],
 
+  // Professional affiliations
+  memberOf: [
+    {
+      "@type": "MedicalOrganization",
+      name: "האיגוד הישראלי לרפואת עור ומין",
+      alternateName: "Israeli Society of Dermatology and Venereology"
+    },
+    {
+      "@type": "MedicalOrganization",
+      name: "הסתדרות הרפואית בישראל",
+      alternateName: "Israeli Medical Association"
+    }
+  ],
+
+  // Education & Training
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "הטכניון - מכון טכנולוגי לישראל, הפקולטה לרפואה",
+    alternateName: "Technion - Israel Institute of Technology, Faculty of Medicine"
+  },
+
   // Patient demographics
   audience: [
     {
@@ -151,6 +191,8 @@ export const generateServiceStructuredData = (service: any) => ({
   name: service.title,
   description: service.description,
   url: `${SITE.baseUrl}/services/${service.slug}`,
+  datePublished: "2024-12-01",
+  dateModified: "2025-06-01",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -189,6 +231,10 @@ export const generateServiceStructuredData = (service: any) => ({
     "@type": "MedicalBusiness",
     name: SITE.name,
     url: SITE.baseUrl
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "[itemprop='description']", ".faq-answer:first-of-type"]
   }
 })
 
@@ -222,4 +268,27 @@ export const faqStructuredData = {
       }
     }
   ]
+}
+
+// Individual review structured data from patient testimonials
+export const reviewsStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: SITE.name,
+  url: SITE.baseUrl,
+  review: reviews.map(review => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: review.name
+    },
+    datePublished: review.dateISO,
+    reviewBody: review.text.replace(/[״"]/g, ''),
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: review.rating,
+      bestRating: 5,
+      worstRating: 1
+    }
+  }))
 }

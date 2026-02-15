@@ -9,7 +9,7 @@ import { MobileMenu } from "@/components/features/header/MobileMenu"
 import { StickyAppointmentButton } from "@/components/features/appointments/StickyAppointmentButton"
 import { SITE } from "@/lib/config/site-config"
 import { pressItems } from "@/lib/data/press"
-import { businessStructuredData, faqStructuredData } from "@/lib/seo/structured-data"
+import { businessStructuredData, faqStructuredData, reviewsStructuredData } from "@/lib/seo/structured-data"
 import Script from 'next/script'
 
 
@@ -163,6 +163,13 @@ export default function Home() {
           __html: JSON.stringify(faqStructuredData),
         }}
       />
+      {/* Individual Review Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewsStructuredData),
+        }}
+      />
       <Script id="press-ld" type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context":"https://schema.org",
@@ -171,15 +178,17 @@ export default function Home() {
           "itemListElement": pressItems.map((it, i) => ({
             "@type":"ListItem",
             "position": i+1,
-            "item": { 
-              "@type":"NewsArticle", 
-              "headline": it.title, 
-              "mainEntityOfPage": it.href, 
-              "publisher": it.source, 
-              "datePublished": it.date 
+            "item": {
+              "@type":"NewsArticle",
+              "headline": it.title,
+              "mainEntityOfPage": it.href,
+              "image": `${SITE.baseUrl}${it.logo}`,
+              "author": { "@type": "Person", "name": "ד״ר תמר קורן" },
+              "publisher": { "@type": "Organization", "name": it.source },
+              "datePublished": `${it.date}T00:00:00+03:00`
             }
           }))
-        }) }} 
+        }) }}
       />
     </div>
   )

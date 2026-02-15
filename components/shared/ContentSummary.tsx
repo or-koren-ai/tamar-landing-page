@@ -8,9 +8,8 @@ import { services } from '@/lib/data/services'
  */
 export function ContentSummary() {
   return (
-    <div 
-      className="sr-only" 
-      aria-hidden="true"
+    <div
+      className="sr-only"
       data-ai-content="practice-summary"
       itemScope 
       itemType="https://schema.org/MedicalBusiness"
@@ -30,8 +29,10 @@ export function ContentSummary() {
         <span itemProp="streetAddress">{SITE.address.streetAddress}</span>
         <span itemProp="addressLocality">{SITE.address.locality}</span>
         <span itemProp="postalCode">{SITE.address.postalCode}</span>
-        <span itemProp="addressCountry">ישראל</span>
+        <span itemProp="addressCountry">IL</span>
       </div>
+
+      <meta itemProp="image" content="https://drkoren.skin/assets/images/doctor-photo-green-square.png" />
       
       <span itemProp="telephone">{SITE.clinicPhone.display}</span>
       <span itemProp="email">{SITE.clinicEmail}</span>
