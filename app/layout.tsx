@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/assets/images/doctor-photo-green-square.png',
+        url: '/assets/images/og-doctor-photo.jpg',
         alt: 'ד״ר תמר קורן - מומחית לרפואת עור ומין בחיפה',
         width: 1200,
         height: 1200,
@@ -96,18 +96,17 @@ export const metadata: Metadata = {
     locale: 'he_IL',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/assets/images/doctor-photo-green-square.png'],
+    images: ['/assets/images/og-doctor-photo.jpg'],
   },
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
 }
 
 export default function RootLayout({

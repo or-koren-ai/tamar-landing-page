@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: 'שירותי המרפאה | ד״ר תמר קורן',
   description: 'סקירת כל שירותי המרפאה של ד״ר תמר קורן - רופאת עור מומחית בחיפה. אבחון מחלות עור, בדיקת שומות, נשירת שיער, אקנה, פיגמנטציה ועוד.',
   alternates: { canonical: '/services' },
-  openGraph: { images: ['/assets/graphics/herb/herb.png'], locale: 'he_IL' },
-  twitter: { card: 'summary_large_image', images: ['/assets/graphics/herb/herb.png'] },
+  openGraph: { images: ['/assets/images/og-doctor-photo.jpg'], locale: 'he_IL' },
+  twitter: { card: 'summary_large_image', images: ['/assets/images/og-doctor-photo.jpg'] },
 }
 
 const servicesListSchema = {
