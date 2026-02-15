@@ -276,6 +276,13 @@ export const reviewsStructuredData = {
   "@type": "Physician",
   name: SITE.name,
   url: SITE.baseUrl,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: SITE.rating.value,
+    reviewCount: SITE.rating.count,
+    bestRating: SITE.rating.bestRating,
+    worstRating: 1
+  },
   review: reviews.map(review => ({
     "@type": "Review",
     author: {
