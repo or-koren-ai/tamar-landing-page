@@ -59,9 +59,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
       description: service.description,
       url: `https://drkoren.skin/services/${service.slug}`,
       locale: 'he_IL',
-      images: ['/assets/graphics/herb/herb.png'],
+      images: ['/assets/images/doctor-photo-green-square.png'],
     },
-    twitter: { card: 'summary_large_image', images: ['/assets/graphics/herb/herb.png'] },
+    twitter: { card: 'summary', images: ['/assets/images/doctor-photo-green-square.png'] },
   }
 }
 

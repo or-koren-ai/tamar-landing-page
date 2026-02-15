@@ -17,6 +17,15 @@ export const businessStructuredData = {
     height: 512
   },
 
+  // Doctor photo for Google Knowledge Panel / search results
+  image: {
+    "@type": "ImageObject",
+    url: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`,
+    width: 1200,
+    height: 1200,
+    caption: "ד״ר תמר קורן - מומחית לרפואת עור ומין בחיפה"
+  },
+
   // Business Info
   url: SITE.baseUrl,
   telephone: SITE.clinicPhone.e164,
@@ -173,7 +182,8 @@ export const generateServiceStructuredData = (service: any) => ({
   author: {
     "@type": "Physician",
     name: SITE.name,
-    url: SITE.baseUrl
+    url: SITE.baseUrl,
+    image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`
   },
   publisher: {
     "@type": "MedicalBusiness",

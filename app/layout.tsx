@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     'רופא עור קרית אתא',
     'רופא עור קרית מוצקין',
     'מומחית רפואת עור ומין',
-    'מומחית רפואת עור ומין',
     'בדיקת שומות חיפה', 
     'טיפול באקנה חיפה',
     'פסוריאזיס חיפה',
@@ -88,19 +87,19 @@ export const metadata: Metadata = {
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
     images: [
       {
-        url: '/assets/graphics/herb/herb.png',
-        alt: 'עלים - ד״ר תמר קורן',
-        width: 512,
-        height: 512,
+        url: '/assets/images/doctor-photo-green-square.png',
+        alt: 'ד״ר תמר קורן - מומחית לרפואת עור ומין בחיפה',
+        width: 1200,
+        height: 1200,
       },
     ],
     locale: 'he_IL',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'ד״ר תמר קורן - מומחית ברפואת עור ומין',
     description: 'טיפול אישי ומקצועי לילדים ומבוגרים, מרפאה פרטית בחיפה, זימון תור מהיר',
-    images: ['/assets/graphics/herb/herb.png'],
+    images: ['/assets/images/doctor-photo-green-square.png'],
   },
 }
 
