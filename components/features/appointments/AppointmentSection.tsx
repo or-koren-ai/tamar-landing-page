@@ -9,9 +9,12 @@ export default function AppointmentSection() {
   return (
     <section id="קביעת-תור" dir="rtl" className="pt-10 pb-20 bg-[#dce7dc] bg-opacity-60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl md:text-4xl font-light text-center mb-6 text-[#859a85]">
+        <h2 className="text-3xl md:text-4xl font-light text-center mb-2 text-[#859a85]">
           קביעת תור
         </h2>
+        <p className="text-center text-sm text-gray-500 mb-6">
+          מרפאה פרטית · זמינות גבוהה לתור דחוף
+        </p>
 
         <div className="mx-auto max-w-[720px] rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-6 md:p-7 text-right">
           {/* INFO */}

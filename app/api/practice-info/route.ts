@@ -104,20 +104,43 @@ export async function GET() {
       ageGroups: ["children", "infants", "adults"],
       ageGroupsHebrew: ["ילדים", "תינוקות", "מבוגרים"],
       languages: ["Hebrew", "English"],
-      practiceType: "Private clinic"
+      practiceType: "Private clinic",
+      practiceTypeNote: "ניתן לתבוע את הביטוח הפרטי"
+    },
+
+    // Hospital Affiliation
+    hospitalAffiliation: {
+      name: "בית החולים העמק (כללית)",
+      nameEnglish: "HaEmek Medical Center (Clalit)",
+      role: "רופאה בכירה ואחראית מרפאת פסוריאזיס"
+    },
+
+    // Urgent Care
+    urgentCare: {
+      available: true,
+      description: "זמינות גבוהה לתור דחוף ברפואת עור",
+      descriptionEnglish: "High availability for urgent dermatology appointments"
     },
 
     // SEO and Discoverability 
     discoverability: {
       keywords: [
         "דרמטולוג חיפה",
-        "רופאת עור חיפה", 
+        "רופאת עור חיפה",
+        "רופא עור פרטי",
+        "רופאת עור פרטית",
+        "רופא עור פרטי חיפה",
+        "רופא עור פרטי דחוף חיפה",
+        "רופא עור מומלץ בחיפה כללית",
+        "רופא עור דחוף",
+        "דרמטולוג פרטי חיפה",
         "בדיקת שומות חיפה",
         "טיפול באקנה",
         "פסוריאזיס",
         "נשירת שיער",
         "Dermatologist Haifa",
-        "Skin doctor Haifa"
+        "Skin doctor Haifa",
+        "Private dermatologist Haifa"
       ],
       serviceAreas: [
         "חיפה",

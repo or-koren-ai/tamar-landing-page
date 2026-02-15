@@ -7,7 +7,7 @@ export const businessStructuredData = {
   "@context": "https://schema.org",
   "@type": ["Physician", "LocalBusiness", "MedicalBusiness"],
   name: SITE.name,
-  description: "רופאת עור מומחית בחיפה - טיפול אישי ומקצועי לילדים ולמבוגרים",
+  description: "רופאת עור פרטית מומלצת בחיפה - רופאה בכירה בביה״ח העמק (כללית). טיפול אישי ומקצועי לילדים ולמבוגרים",
   medicalSpecialty: ["Dermatology", "Venereology", "רפואת עור ומין"],
   
   // Logo for google search
@@ -50,6 +50,7 @@ export const businessStructuredData = {
   },
   hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94+84+%D7%97%D7%99%D7%A4%D7%94",
   priceRange: "₪₪",
+  isAcceptingNewPatients: true,
 
   // Geographic area served
   areaServed: [
@@ -131,7 +132,12 @@ export const businessStructuredData = {
     "Psoriasis treatment",
     "Hair loss treatment",
     "Dermatology consultation",
-    "Pediatric dermatology"
+    "Pediatric dermatology",
+    "רופא עור פרטי חיפה",
+    "רופאת עור פרטית בחיפה",
+    "תור דחוף לרופא עור",
+    "מרפאה פרטית דרמטולוגיה חיפה",
+    "Private dermatology clinic Haifa"
   ],
   
   // Credentials
@@ -266,6 +272,30 @@ export const faqStructuredData = {
         "@type": "Answer",
         text: "ד״ר קורן מתמחה בטיפול באקנה, בדיקת שומות, נשירת שיער, פסוריאזיס, אקזמה, פיגמנטציה, ויטיליגו, רוזציאה ועוד. המרפאה מטפלת בילדים ומבוגרים."
       }
+    },
+    {
+      "@type": "Question",
+      name: "האם ד״ר קורן עובדת בכללית?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ד״ר קורן משמשת כרופאה בכירה ואחראית מרפאת פסוריאזיס בבית החולים העמק (כללית). בנוסף, היא מנהלת מרפאה פרטית בחיפה."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "האם ניתן לקבל תור דחוף לרופאת עור בחיפה?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "כן, המרפאה הפרטית של ד״ר קורן בחיפה מציעה זמינות גבוהה לתור דחוף ברפואת עור. ניתן לפנות בטלפון או בוואטסאפ לקביעת תור מהיר."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "מה היתרון של רופא עור פרטי?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "במרפאה פרטית ניתן ליהנות מתורים ארוכים יותר, תשומת לב אישית מהרופאה, וזמינות גבוהה לקביעת תור מהיר. ד״ר קורן מקדישה זמן לכל מטופל עם הסבר מפורט והתאמה אישית של הטיפול."
+      }
     }
   ]
 }
@@ -276,6 +306,15 @@ export const reviewsStructuredData = {
   "@type": "Physician",
   name: SITE.name,
   url: SITE.baseUrl,
+  telephone: SITE.clinicPhone.e164,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.address.streetAddress,
+    addressLocality: SITE.address.locality,
+    addressCountry: "IL",
+    postalCode: SITE.address.postalCode,
+  },
+  image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.png`,
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: SITE.rating.value,
