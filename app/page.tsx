@@ -61,7 +61,7 @@ export default function Home() {
             <div className="mx-auto max-w-4xl text-center px-4">
               <h1 className="hero-title animate-hero-title">
                 ד״ר תמר קורן
-                <span className="hero-accent">מומחית לרפואת עור ומין <span className="inline-block translate-y-[2px]">·</span> מרפאה פרטית בחיפה</span>
+                <span className="hero-accent">מומחית לרפואת עור ומין <span className="inline-block translate-y-[2px]">·</span> חיפה</span>
               </h1>
               <p className="text-base md:text-lg hero-sub animate-hero-subtitle">
                 טיפול אישי ומקצועי לילדים ולמבוגרים
