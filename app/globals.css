@@ -9,46 +9,38 @@
 /* Hero entrance animations - elegant and fast */
 @layer utilities {
   @keyframes heroFadeIn {
-    0% { 
-      opacity: 0; 
-      transform: translateY(20px) scale(0.95); 
+    0% {
+      transform: translateY(20px) scale(0.95);
     }
-    100% { 
-      opacity: 1; 
-      transform: translateY(0) scale(1); 
+    100% {
+      transform: translateY(0) scale(1);
     }
   }
 
   @keyframes heroTitleSlide {
-    0% { 
-      opacity: 0; 
-      transform: translateY(30px); 
+    0% {
+      transform: translateY(30px);
     }
-    100% { 
-      opacity: 1; 
-      transform: translateY(0); 
+    100% {
+      transform: translateY(0);
     }
   }
 
   @keyframes heroSubtitleSlide {
-    0% { 
-      opacity: 0; 
-      transform: translateY(20px); 
+    0% {
+      transform: translateY(20px);
     }
-    100% { 
-      opacity: 1; 
-      transform: translateY(0); 
+    100% {
+      transform: translateY(0);
     }
   }
 
   @keyframes headerSlide {
-    0% { 
-      opacity: 0; 
-      transform: translateY(-10px); 
+    0% {
+      transform: translateY(-10px);
     }
-    100% { 
-      opacity: 1; 
-      transform: translateY(0); 
+    100% {
+      transform: translateY(0);
     }
   }
 

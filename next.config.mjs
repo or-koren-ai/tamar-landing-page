@@ -15,7 +15,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: false,
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 768, 1024, 1280],
     imageSizes: [128, 256, 384, 512],
   },
