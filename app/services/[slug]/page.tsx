@@ -122,7 +122,7 @@ export default function ServicePage({ params }: PageProps) {
           </div>
 
           <p className="text-sm text-gray-500 mb-8">
-            תוכן רפואי מאת <span itemProp="author">{SITE.name}</span> | {SITE.specialty}
+            תוכן רפואי מאת <span itemProp="author">{SITE.name}</span> | {SITE.specialty} | עודכן לאחרונה: פברואר 2026
           </p>
 
           <div className="prose prose-lg max-w-none text-right">
@@ -138,7 +138,13 @@ export default function ServicePage({ params }: PageProps) {
                     {section.bullets && (
                       <ul className="text-lg space-y-3">
                         {section.bullets.map((bullet, bulletIndex) => (
-                          <li key={bulletIndex}>• {bullet}</li>
+                          <li key={bulletIndex}>
+                            {typeof bullet === 'string' ? (
+                              <>• {bullet}</>
+                            ) : (
+                              <>• <Link href={`/conditions/${bullet.conditionSlug}`} className="text-[var(--accent-strong)] underline underline-offset-2 hover:text-[#4a6b54] transition-colors">{bullet.text}</Link></>
+                            )}
+                          </li>
                         ))}
                       </ul>
                     )}
@@ -209,9 +215,13 @@ export default function ServicePage({ params }: PageProps) {
               </section>
             )}
 
+            <p className="text-xs text-gray-400 text-center mt-8 mb-4">
+              המידע באתר נועד למטרות מידע כללי בלבד ואינו מהווה תחליף לייעוץ רפואי מקצועי.
+            </p>
+
             <section className="bg-[#e8f0e8] bg-opacity-30 p-8 rounded-2xl mb-12">
               <h2 className="text-2xl font-medium text-[#859a85] mb-6 text-center">קבעו תור היום</h2>
-              <p className="text-lg text-center mb-8">
+              <p className="text-lg !text-center mb-8">
                 לייעוץ מקצועי ו{service.title.includes('טיפול') ? service.title : `טיפול ב${service.title}`}
               </p>
 

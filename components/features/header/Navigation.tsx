@@ -23,7 +23,7 @@ export function Navigation() {
           <li key={index}>
             <a
               href={getHref(item)}
-              className="nav-link"
+              className={item === "קביעת תור" ? "bg-[var(--accent-strong)] text-white rounded-full px-4 py-1.5 text-sm hover:opacity-90 transition-opacity" : "nav-link"}
             >
               {item}
             </a>

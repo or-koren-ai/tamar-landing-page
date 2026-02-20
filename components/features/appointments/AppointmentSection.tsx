@@ -12,7 +12,7 @@ export default function AppointmentSection() {
         <h2 className="text-3xl md:text-4xl font-light text-center mb-2 text-[#859a85]">
           קביעת תור
         </h2>
-        <p className="text-center text-sm text-gray-500 mb-6">
+        <p className="text-center text-sm text-gray-500 mb-6 max-w-[720px] mx-auto">
           מרפאה פרטית · זמינות גבוהה לתור דחוף
         </p>
 

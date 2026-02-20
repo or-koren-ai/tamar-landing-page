@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { servicesList } from '@/lib/data/services-list'
+import { conditions } from '@/lib/data/conditions'
+import { services } from '@/lib/data/services'
 import { SITE } from '@/lib/config/site-config'
 
 export const metadata: Metadata = {
@@ -59,6 +61,36 @@ export default function ServicesIndexPage() {
           </ul>
         </div>
       </section>
+
+      {conditions.length > 0 && (
+        <section className="py-10 md:py-16 bg-[#f4f8f5]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#6b8e6b] mb-2 text-right">מצבים רפואיים</h2>
+            <p className="text-base md:text-lg text-gray-600 text-right max-w-3xl ml-auto mb-8">
+              מידע מקצועי על מצבים דרמטולוגיים נפוצים, כולל אבחון וטיפול.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {conditions.map((c) => {
+                const parentService = services.find((s) => s.slug === c.parentServiceSlug)
+                return (
+                  <li key={c.slug} className="bg-white rounded-xl shadow-md p-6 text-right">
+                    <h3 className="text-xl font-semibold text-[#859a85] mb-2">{c.hebrewName}</h3>
+                    <p className="mb-3 line-clamp-3 min-h-[3.5rem]">{c.shortDescription}</p>
+                    {parentService && (
+                      <p className="text-xs text-gray-400 mb-3">
+                        שירות: {parentService.cardTitle || parentService.title}
+                      </p>
+                    )}
+                    <Link href={`/conditions/${c.slug}`} prefetch={true} className="text-sm text-[#A27B5C] hover:underline">
+                      לקריאה נוספת
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <script
         type="application/ld+json"

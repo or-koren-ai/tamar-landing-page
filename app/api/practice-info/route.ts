@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { SITE } from '@/lib/config/site-config'
 import { services } from '@/lib/data/services'
+import { conditions } from '@/lib/data/conditions'
 
 // API endpoint for AI agents to easily access practice information
 export async function GET() {
@@ -98,6 +99,14 @@ export async function GET() {
         "Pediatric dermatology"
       ]
     },
+
+    // Condition Pages
+    conditions: conditions.map(c => ({
+      name: c.hebrewName,
+      englishName: c.englishName,
+      url: `${SITE.baseUrl}/conditions/${c.slug}`,
+      parentService: c.parentServiceSlug,
+    })),
 
     // Patient Information
     patients: {

@@ -2,3 +2,4 @@
 export type { ServiceItem } from './service'
 export type { PressItem } from './press'
 export type { Review } from './review'
+export type { ConditionItem } from './condition'

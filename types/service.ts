@@ -12,7 +12,7 @@ export type ServiceItem = {
   sections?: {
     title: string
     content: string
-    bullets?: string[]
+    bullets?: (string | { text: string; conditionSlug: string })[]
   }[]
   treatmentProcess?: {
     title: string

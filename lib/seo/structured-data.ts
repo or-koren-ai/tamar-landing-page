@@ -1,6 +1,7 @@
 import { SITE } from '../config/site-config'
 import { services } from '../data/services'
 import { reviews } from '../data/reviews'
+import type { ConditionItem } from '@/types'
 
 // Enhanced business structured data for LLMs
 export const businessStructuredData = {
@@ -45,8 +46,8 @@ export const businessStructuredData = {
   // Geo coordinates for local search
   geo: {
     "@type": "GeoCoordinates",
-    latitude: "32.7894",
-    longitude: "34.9877"
+    latitude: 32.7894,
+    longitude: 34.9877
   },
   hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94+84+%D7%97%D7%99%D7%A4%D7%94",
   priceRange: "₪₪",
@@ -298,6 +299,89 @@ export const faqStructuredData = {
       }
     }
   ]
+}
+
+// Condition-specific structured data generator
+export const generateConditionStructuredData = (condition: ConditionItem) => {
+  const parentService = services.find((s) => s.slug === condition.parentServiceSlug)
+
+  const medicalWebPage = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: condition.title,
+    description: condition.metaDescription,
+    url: `${SITE.baseUrl}/conditions/${condition.slug}`,
+    datePublished: "2026-02-19",
+    dateModified: "2026-02-19",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "דף הבית",
+          item: SITE.baseUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "שירותי המרפאה",
+          item: `${SITE.baseUrl}/services`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: parentService?.title || "רפואת עור",
+          item: `${SITE.baseUrl}/services/${condition.parentServiceSlug}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: condition.hebrewName,
+          item: `${SITE.baseUrl}/conditions/${condition.slug}`,
+        },
+      ],
+    },
+    about: {
+      "@type": "MedicalCondition",
+      name: condition.hebrewName,
+      alternateName: [condition.englishName, ...(condition.hebrewAlternate ? [condition.hebrewAlternate] : [])],
+      possibleTreatment: condition.content.treatment.split('\n\n').filter(Boolean).map((t) => ({
+        "@type": "MedicalTherapy",
+        name: t.split(':')[0]?.trim(),
+      })),
+    },
+    author: {
+      "@type": "Physician",
+      name: SITE.name,
+      url: SITE.baseUrl,
+      image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.jpg`,
+    },
+    publisher: {
+      "@type": "MedicalBusiness",
+      name: SITE.name,
+      url: SITE.baseUrl,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[itemprop='description']", ".faq-answer:first-of-type"],
+    },
+  }
+
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: condition.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+
+  return [medicalWebPage, faqPage]
 }
 
 // Individual review structured data from patient testimonials

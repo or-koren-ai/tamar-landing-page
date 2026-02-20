@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE } from '@/lib/config/site-config'
 import { services } from '@/lib/data/services'
+import { conditions } from '@/lib/data/conditions'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -32,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...services.map((s) => ({
       url: `${base}/services/${s.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...conditions.map((c) => ({
+      url: `${base}/conditions/${c.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

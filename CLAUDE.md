@@ -21,7 +21,9 @@ npm run local        # Clear .next cache + dev server
 ```
 app/
 ├── (legal)/                        # Route group for legal pages
+├── conditions/[slug]/             # Dynamic condition pages (generateStaticParams)
 ├── services/[slug]/               # Dynamic service pages (generateStaticParams)
+├── services/page.tsx              # Services index page (lists services + conditions)
 ├── api/practice-info/route.ts     # JSON endpoint for AI agents
 ├── layout.tsx                     # Root layout (RTL, fonts, Umami, SpeedInsights)
 ├── page.tsx                       # Homepage
@@ -42,11 +44,15 @@ components/
 
 lib/
 ├── config/site-config.ts         # All site metadata, contact info, URLs
-├── data/                         # Static content (services, press, reviews)
-├── seo/structured-data.ts        # JSON-LD schemas (business, FAQ, service)
+├── data/                         # Static content (services, conditions, press, reviews)
+│   ├── conditions.ts             # Condition page content (ConditionItem[])
+│   └── services.ts               # Service page content (ServiceItem[])
+├── seo/structured-data.ts        # JSON-LD schemas (business, FAQ, service, condition)
 └── tracking/analytics.ts         # Umami tracking (trackWhatsAppClick, trackPhoneClick)
 
 types/
+├── condition.ts                  # ConditionItem type
+├── service.ts                    # ServiceItem type
 └── index.ts                      # Central type exports
 
 public/assets/
@@ -74,7 +80,9 @@ Three schemas injected into pages:
 2. **`faqStructuredData`** — `@type: FAQPage` with common patient questions in Hebrew
 3. **`generateServiceStructuredData(service)`** — `@type: MedicalWebPage` with breadcrumbs, MedicalCondition about, Physician author
 
-A 4th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`.
+4. **`generateConditionStructuredData(condition)`** — `@type: MedicalWebPage` with breadcrumbs, MedicalCondition about (with alternateName), Physician author, SpeakableSpecification
+
+A 5th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`.
 
 ### Sitemap & Robots
 - **`app/sitemap.ts`**: Dynamic, includes homepage (priority 1), `/services` (0.8), each service slug (0.7), legal pages (0.3)
@@ -89,6 +97,15 @@ A 4th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`
 - `generateStaticParams()` pre-renders all service slugs
 - `generateMetadata()` produces per-service title, description, canonical, OG
 - Service-specific JSON-LD via `generateServiceStructuredData(service)`
+
+### Condition Pages (`app/conditions/[slug]/page.tsx`)
+- `generateStaticParams()` pre-renders all condition slugs from `lib/data/conditions.ts`
+- `generateMetadata()` produces per-condition title, description, canonical, OG
+- Condition-specific JSON-LD via `generateConditionStructuredData(condition)` + `FAQPage`
+- Breadcrumb: Home > Services > [Parent Service] > [Condition]
+- Hub-and-spoke: links UP to parent service, cross-links to related conditions
+- Reuses `ServiceCTAButtons` for Phone + WhatsApp CTAs
+- **Architecture**: Conditions are separate from services — see `NEW_SERVICES_PLAN.md` for rationale
 
 ### SEO Rules
 - Hebrew titles under 60 chars, descriptions 140-160 chars
@@ -229,6 +246,14 @@ Both buttons: `rounded-full h-12` (48px touch target), full-width on mobile, sid
 2. Create icon in `components/icons/` if needed, add to `iconMap` in `app/services/[slug]/page.tsx`
 3. Service page auto-generates via `generateStaticParams()`
 4. Sitemap auto-includes via `services.map()` in `app/sitemap.ts`
+
+### Add New Condition
+1. Add condition object to `lib/data/conditions.ts` (with `slug`, `title`, `hebrewName`, `englishName`, `parentServiceSlug`, `content`, `faq`)
+2. Link from parent service: add `{ text, conditionSlug }` to the relevant service's `bullets` in `lib/data/services.ts`
+3. Condition page auto-generates via `generateStaticParams()`
+4. Sitemap auto-includes via `conditions.map()` in `app/sitemap.ts`
+5. `/services` index page auto-renders the condition in its conditions section
+6. Practice-info API auto-includes the condition for AI agents
 
 ### Modify Contact Info
 1. Update `lib/config/site-config.ts` (phone, WhatsApp, address, email)

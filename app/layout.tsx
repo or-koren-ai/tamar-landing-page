@@ -14,7 +14,7 @@ const assistant = Assistant({
 export const metadata: Metadata = {
   title: 'ד״ר תמר קורן - רופאת עור פרטית בחיפה | מומחית ברפואת עור ומין',
   description: `ד״ר תמר קורן - רופאת עור פרטית מומלצת בחיפה. רופאה בכירה בבית חולים העמק. טיפול אישי ומקצועי באקנה, שומות, פסוריאזיס, נשירת שיער ועוד. זמינות לתור דחוף: ${SITE.clinicPhone.display}`,
-  authors: [{ name: 'Or Koren' }],
+  authors: [{ name: 'ד״ר תמר קורן' }],
   robots: {
     index: true,
     follow: true,
