@@ -243,6 +243,10 @@ export default function ConditionPage({ params }: PageProps) {
               </section>
             )}
 
+            <p className="text-sm text-gray-500 text-center mt-8 mb-4">
+              המידע באתר נועד למטרות מידע כללי בלבד ואינו מהווה תחליף לייעוץ רפואי מקצועי.
+            </p>
+
             {/* CTA section */}
             <section className="bg-[#e8f0e8] bg-opacity-30 p-8 rounded-2xl mb-12">
               <h2 className="text-2xl font-medium text-[#859a85] mb-6 text-center">קבעו תור היום</h2>

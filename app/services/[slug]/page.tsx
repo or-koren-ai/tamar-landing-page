@@ -215,7 +215,7 @@ export default function ServicePage({ params }: PageProps) {
               </section>
             )}
 
-            <p className="text-xs text-gray-400 text-center mt-8 mb-4">
+            <p className="text-sm text-gray-500 text-center mt-8 mb-4">
               המידע באתר נועד למטרות מידע כללי בלבד ואינו מהווה תחליף לייעוץ רפואי מקצועי.
             </p>
 
