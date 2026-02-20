@@ -7,6 +7,7 @@ import AppointmentSection from "@/components/features/appointments/AppointmentSe
 import { ReviewsSection } from "@/components/features/reviews/ReviewsSection"
 import { MobileMenu } from "@/components/features/header/MobileMenu"
 import { StickyAppointmentButton } from "@/components/features/appointments/StickyAppointmentButton"
+import { ScrollRevealSection } from "@/components/shared/ScrollRevealSection"
 import { SITE } from "@/lib/config/site-config"
 import DoctorPhoto from '@/public/assets/images/doctor-photo.webp'
 import { pressItems } from "@/lib/data/press"
@@ -72,7 +73,7 @@ export default function Home() {
           </section>
 
           {/* Doctor photo — own section between hero and about */}
-          <div className="pt-6 pb-2 md:py-8 flex justify-center px-4 relative z-10">
+          <ScrollRevealSection as="div" variant="scale" className="pt-6 pb-2 md:py-8 flex justify-center px-4 relative z-10">
             <Image
               src={DoctorPhoto}
               alt={SITE.hero.title}
@@ -85,32 +86,36 @@ export default function Home() {
               priority
               fetchPriority="high"
             />
-          </div>
+          </ScrollRevealSection>
 
-          <div className="relative z-10">
+          <ScrollRevealSection as="div" className="relative z-10">
             <AboutSectionServer />
-          </div>
+          </ScrollRevealSection>
         </div>
 
-        <section id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative scroll-mt-24">
+        <ScrollRevealSection variant="children" id="שירותי-המרפאה" className="py-12 md:py-16 bg-[#dce7dc] bg-opacity-60 relative scroll-mt-24">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-light mb-10 md:mb-12 text-center text-[#859a85]">שירותי המרפאה</h2>
             <ServicesGrid />
           </div>
-        </section>
+        </ScrollRevealSection>
 
-        <ReviewsSection />
+        <ScrollRevealSection variant="children" as="div">
+          <ReviewsSection />
+        </ScrollRevealSection>
 
         <AppointmentSection />
 
-        <LazyPressCarousel />
+        <ScrollRevealSection as="div">
+          <LazyPressCarousel />
+        </ScrollRevealSection>
 
         <StickyAppointmentButton />
       </main>
 
       <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
-            <div className="footer-content opacity-100 translate-y-0 transition-all duration-700 ease-out">
+            <div>
             <div className="mb-2">
               <a
                 href={SITE.socials.instagram}
@@ -143,28 +148,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <Script id="footer-anim" strategy="afterInteractive">
-        {`
-          (function () {
-            var footer = document.querySelector('footer');
-            var footerContent = footer && footer.querySelector('.footer-content');
-            if (!footer || !footerContent || typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
-
-            var observer = new IntersectionObserver(function(entries){
-              for (var i=0;i<entries.length;i++) {
-                if (entries[i].isIntersecting) {
-                  footerContent.classList.remove('opacity-0', 'translate-y-8');
-                  footerContent.classList.add('opacity-100', 'translate-y-0');
-                  observer.disconnect();
-                  break;
-                }
-              }
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-            observer.observe(footer);
-          })();
-        `}
-      </Script>
       {/* Enhanced Business Structured Data for LLMs */}
       <script
         type="application/ld+json"

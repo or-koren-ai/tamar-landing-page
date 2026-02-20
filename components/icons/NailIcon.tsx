@@ -1,4 +1,4 @@
-export function HairIcon({ className }: { className?: string }) {
+export function NailIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,9 +11,10 @@ export function HairIcon({ className }: { className?: string }) {
       className={className}
       aria-hidden="true"
     >
-      <path d="M8 2c-1 4 1 8 0 12s1 4 0 8" />
-      <path d="M12 2c-1 4 1 8 0 12s1 4 0 8" />
-      <path d="M16 2c-1 4 1 8 0 12s1 4 0 8" />
+      <path d="M8.5 22v-7" />
+      <path d="M15.5 22v-7" />
+      <rect x="8.5" y="4" width="7" height="11" rx="3.5" />
+      <path d="M10 11.5c0-1.1.9-2 2-2s2 .9 2 2" />
     </svg>
   )
 }

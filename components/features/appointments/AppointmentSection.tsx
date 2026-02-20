@@ -4,19 +4,22 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/config/site-config";
 import MapEmbed from "@/components/shared/MapEmbed";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking/analytics";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function AppointmentSection() {
+  const { ref, isVisible } = useScrollReveal()
+
   return (
-    <section id="קביעת-תור" dir="rtl" className="pt-10 pb-20 bg-[#dce7dc] bg-opacity-60 scroll-mt-24">
+    <section ref={ref} id="קביעת-תור" dir="rtl" className={`pt-10 pb-20 bg-[#dce7dc] bg-opacity-60 scroll-mt-24 scroll-reveal-children ${isVisible ? 'is-visible' : ''}`}>
       <div className="mx-auto max-w-6xl px-4">
         <h2 className="text-3xl md:text-4xl font-light text-center mb-2 text-[#859a85]">
           קביעת תור
         </h2>
-        <p className="text-center text-sm text-gray-500 mb-6 max-w-[720px] mx-auto">
+        <p className="appointment-subtitle text-center text-sm text-gray-500 mb-6 max-w-[720px] mx-auto">
           מרפאה פרטית · זמינות גבוהה לתור דחוף
         </p>
 
-        <div className="mx-auto max-w-[720px] rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-6 md:p-7 text-right">
+        <div className="appointment-card mx-auto max-w-[720px] rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-6 md:p-7 text-right">
           {/* INFO */}
           <div className="sm:flex sm:items-start sm:gap-8 text-right">
             {/* Right column (address + hours) */}
@@ -60,11 +63,11 @@ export default function AppointmentSection() {
           {/* CTAs */}
           <hr className="mt-4 mb-5 border-black/5" />
 
-          <div className="sm:grid sm:grid-cols-2 sm:gap-3">
+          <div className="appointment-ctas sm:grid sm:grid-cols-2 sm:gap-3">
             <a
               href={SITE.clinicPhone.link}
               onClick={() => trackPhoneClick('appointment-section')}
-              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               <span className="text-base">התקשרו למרפאה</span>
             </a>
@@ -73,7 +76,7 @@ export default function AppointmentSection() {
               href={SITE.whatsapp.link}
               onClick={() => trackWhatsAppClick('appointment-section')}
               target="_blank" rel="nofollow noopener noreferrer"
-              className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-base font-medium hover:bg-[var(--bg-tint)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="h-12 w-full mt-3 sm:mt-0 inline-flex items-center justify-center rounded-full border border-[var(--accent-strong)] text-[var(--accent-strong)] text-base font-medium hover:bg-[var(--bg-tint)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               <span className="text-base">קביעת תור ב-WhatsApp</span>
             </a>

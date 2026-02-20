@@ -1,24 +1,20 @@
 import React from "react"
 import { servicesList, type ServiceListItem } from "@/lib/data/services-list"
-import { Stethoscope, Video } from "lucide-react"
+import { Stethoscope, Video, ScanSearch, CircleDot, Sparkles, Droplets } from "lucide-react"
 import { HairIcon } from "@/components/icons/HairIcon"
-import { AcneIcon } from "@/components/icons/AcneIcon"
-import { MolesIcon } from "@/components/icons/MolesIcon"
-import { FingernailIcon } from "@/components/icons/FingernailIcon"
-import { SparklesIcon } from "@/components/icons/SparklesIcon"
-import { HyperhidrosisIcon } from "@/components/icons/HyperhidrosisIcon"
+import { NailIcon } from "@/components/icons/NailIcon"
 import Link from "next/link"
 
 type IconComponent = React.ComponentType<{ className?: string }>
 
 const iconMap: Record<ServiceListItem["iconKey"], IconComponent> = {
   stethoscope: Stethoscope,
-  hand: FingernailIcon,
+  hand: NailIcon,
   hair: HairIcon,
-  search: MolesIcon,
-  acne: AcneIcon,
-  palette: SparklesIcon,
-  hyperhidrosis: HyperhidrosisIcon,
+  search: ScanSearch,
+  acne: CircleDot,
+  palette: Sparkles,
+  hyperhidrosis: Droplets,
   video: Video,
 }
 
@@ -29,7 +25,6 @@ export default function ServicesGrid() {
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
         {servicesList.map((s) => {
           const Icon = iconMap[s.iconKey]
-          const iconSizeClass = s.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'
 
           return (
             <Link
@@ -44,12 +39,12 @@ export default function ServicesGrid() {
               `}
             >
               <div className="flex flex-col items-center text-center gap-2 h-full">
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#A27B5C] flex items-center justify-center
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#e8f0e8] flex items-center justify-center
                   transition-all duration-300 ease-out
-                  group-hover:rotate-3 group-hover:bg-[#859a85]
+                  group-hover:rotate-3 group-hover:bg-[#dce7dc]
                   group-active:rotate-6
                 `}>
-                  <Icon className={`${iconSizeClass} shrink-0 text-white transition-transform duration-200 group-hover:scale-105`} />
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-[#5e7f69] transition-transform duration-200 group-hover:scale-105" />
                 </div>
                 <h3 className="service-title text-[#859a85] text-balance line-clamp-3 min-h-[3.2rem] transition-colors duration-300 group-hover:text-[#6b8e6b]">
                   {s.title}

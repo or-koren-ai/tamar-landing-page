@@ -92,9 +92,9 @@ export default function PressCarousel() {
                   href={it.href}
                   target="_blank"
                   rel="noopener nofollow"
-                  className={`flex flex-col h-full rounded-2xl bg-white p-5 shadow-sm transition
+                  className={`flex flex-col h-full rounded-2xl bg-white p-5 shadow-sm transition-all duration-300
                     ${i === active
-                      ? "ring-1 ring-black/5 shadow-[inset_0_0_0_2px_rgba(94,127,105,0.45)]"
+                      ? "ring-1 ring-black/5 shadow-[inset_0_0_0_2px_rgba(94,127,105,0.45)] opacity-100"
                       : "ring-1 ring-black/5 opacity-60 hover:opacity-80"}`}
                 >
                   <div className="flex items-center justify-between mb-4">

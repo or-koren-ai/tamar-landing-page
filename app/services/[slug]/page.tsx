@@ -13,22 +13,18 @@ import ServiceCTAButtons from '@/components/features/services/ServiceCTAButtons'
 import { Breadcrumb } from '@/components/shared/Breadcrumb'
 
 // Import all service icons
-import { Stethoscope, Video } from 'lucide-react'
+import { Stethoscope, Video, ScanSearch, CircleDot, Sparkles, Droplets } from 'lucide-react'
 import { HairIcon } from '@/components/icons/HairIcon'
-import { AcneIcon } from '@/components/icons/AcneIcon'
-import { MolesIcon } from '@/components/icons/MolesIcon'
-import { FingernailIcon } from '@/components/icons/FingernailIcon'
-import { SparklesIcon } from '@/components/icons/SparklesIcon'
-import { HyperhidrosisIcon } from '@/components/icons/HyperhidrosisIcon'
+import { NailIcon } from '@/components/icons/NailIcon'
 
 const iconMap = {
   stethoscope: Stethoscope,
-  hand: FingernailIcon,
+  hand: NailIcon,
   hair: HairIcon,
-  search: MolesIcon,
-  acne: AcneIcon,
-  palette: SparklesIcon,
-  hyperhidrosis: HyperhidrosisIcon,
+  search: ScanSearch,
+  acne: CircleDot,
+  palette: Sparkles,
+  hyperhidrosis: Droplets,
   video: Video,
 }
 
@@ -74,7 +70,6 @@ export default function ServicePage({ params }: PageProps) {
   }
 
   const IconComponent = iconMap[service.iconKey]
-  const iconSizeClass = service.iconKey === 'acne' ? 'w-16 h-16' : 'w-10 h-10'
 
   // Split long description into paragraphs and process
   const paragraphs = service.longDescription.split('\\n').filter(Boolean)
@@ -110,8 +105,8 @@ export default function ServicePage({ params }: PageProps) {
           <Breadcrumb serviceTitle={service.title} />
 
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-16 h-16 rounded-full bg-[#A27B5C] flex items-center justify-center">
-              <IconComponent className={`${iconSizeClass} text-white`} />
+            <div className="group w-16 h-16 rounded-full bg-[#e8f0e8] flex items-center justify-center transition-all duration-300 ease-out hover:rotate-6 hover:bg-[#c8dcc8] hover:shadow-lg hover:scale-110">
+              <IconComponent className="w-8 h-8 text-[#5e7f69] transition-transform duration-300 group-hover:scale-125" />
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-semibold text-[#6b8e6b] mb-2">
