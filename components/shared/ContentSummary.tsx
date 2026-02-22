@@ -15,9 +15,9 @@ export function ContentSummary() {
       itemType="https://schema.org/MedicalBusiness"
     >
       {/* Practice Overview */}
-      <h1 itemProp="name">
+      <span itemProp="name" role="heading" aria-level={2}>
         {SITE.name} - {SITE.specialty}
-      </h1>
+      </span>
       
       <div itemProp="description">
         ד״ר תמר קורן היא רופאת עור פרטית בחיפה, מומחית לרפואת עור ומין. רופאה בכירה בבית החולים העמק (כללית).

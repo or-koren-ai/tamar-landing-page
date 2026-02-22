@@ -84,6 +84,8 @@ export default function PressCarousel() {
           <div className="pointer-events-none absolute inset-y-0 left-0  w-12 bg-gradient-to-r from-[var(--bg-tint)]/40 to-transparent" />
 
           <ul className="flex gap-4 items-stretch">
+            {/* Spacer so first/last slides can scroll to center */}
+            <li className="shrink-0 w-[7.5%] sm:w-[15%] md:w-[22.5%] lg:w-[27.5%]" aria-hidden="true" />
             {pressItems.map((it, i) => (
               <li key={it.href} data-slide
                   className={`snap-center shrink-0 basis-[85%] sm:basis-[70%] md:basis-[55%] lg:basis-[45%] transition-transform duration-300 ease-out
@@ -130,6 +132,7 @@ export default function PressCarousel() {
                 </a>
               </li>
             ))}
+            <li className="shrink-0 w-[7.5%] sm:w-[15%] md:w-[22.5%] lg:w-[27.5%]" aria-hidden="true" />
           </ul>
         </div>
 

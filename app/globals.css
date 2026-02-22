@@ -650,6 +650,11 @@ a:focus-visible, button:focus-visible{
   transition-delay: 350ms;
 }
 
+/* ---- Photo slideshow: instant transition for reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .photo-crossfade { transition: none !important; }
+}
+
 /* ---- Respect reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal,
@@ -671,6 +676,26 @@ a:focus-visible, button:focus-visible{
   .scroll-reveal-children.is-visible .service-tile,
   .scroll-reveal-children.is-visible .review-card {
     transition-delay: 0ms !important;
+  }
+}
+
+/* ---- Print: show all scroll-reveal content ---- */
+@media print {
+  .scroll-reveal,
+  .scroll-reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
+  .scroll-reveal-children h2,
+  .scroll-reveal-children .service-tile,
+  .scroll-reveal-children .review-card,
+  .scroll-reveal-children .appointment-subtitle,
+  .scroll-reveal-children .appointment-card,
+  .scroll-reveal-children .appointment-ctas {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
   }
 }
 

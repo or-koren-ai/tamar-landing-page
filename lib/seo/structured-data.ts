@@ -185,10 +185,27 @@ export const businessStructuredData = {
       audienceType: "ילדים ותינוקות"
     },
     {
-      "@type": "PeopleAudience", 
+      "@type": "PeopleAudience",
       audienceType: "מבוגרים"
     }
-  ]
+  ],
+
+  // Individual patient reviews
+  review: reviews.map(review => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: review.name
+    },
+    datePublished: review.dateISO,
+    reviewBody: review.text.replace(/[״"]/g, ''),
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: review.rating,
+      bestRating: 5,
+      worstRating: 1
+    }
+  }))
 }
 
 // Service-specific structured data generator
@@ -384,41 +401,3 @@ export const generateConditionStructuredData = (condition: ConditionItem) => {
   return [medicalWebPage, faqPage]
 }
 
-// Individual review structured data from patient testimonials
-export const reviewsStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  name: SITE.name,
-  url: SITE.baseUrl,
-  telephone: SITE.clinicPhone.e164,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE.address.streetAddress,
-    addressLocality: SITE.address.locality,
-    addressCountry: "IL",
-    postalCode: SITE.address.postalCode,
-  },
-  image: `${SITE.baseUrl}/assets/images/doctor-photo-green-square.jpg`,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: SITE.rating.value,
-    reviewCount: SITE.rating.count,
-    bestRating: SITE.rating.bestRating,
-    worstRating: 1
-  },
-  review: reviews.map(review => ({
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.name
-    },
-    datePublished: review.dateISO,
-    reviewBody: review.text.replace(/[״"]/g, ''),
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating,
-      bestRating: 5,
-      worstRating: 1
-    }
-  }))
-}

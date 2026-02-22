@@ -9,9 +9,8 @@ import { MobileMenu } from "@/components/features/header/MobileMenu"
 import { StickyAppointmentButton } from "@/components/features/appointments/StickyAppointmentButton"
 import { ScrollRevealSection } from "@/components/shared/ScrollRevealSection"
 import { SITE } from "@/lib/config/site-config"
-import DoctorPhoto from '@/public/assets/images/doctor-photo.webp'
 import { pressItems } from "@/lib/data/press"
-import { businessStructuredData, faqStructuredData, reviewsStructuredData } from "@/lib/seo/structured-data"
+import { businessStructuredData, faqStructuredData } from "@/lib/seo/structured-data"
 import Script from 'next/script'
 
 
@@ -71,22 +70,6 @@ export default function Home() {
               </p>
             </div>
           </section>
-
-          {/* Doctor photo — own section between hero and about */}
-          <ScrollRevealSection as="div" variant="scale" className="pt-6 pb-2 md:py-8 flex justify-center px-4 relative z-10">
-            <Image
-              src={DoctorPhoto}
-              alt={SITE.hero.title}
-              width={400}
-              height={600}
-              placeholder="blur"
-              quality={80}
-              sizes="(min-width: 768px) 464px, 290px"
-              className="rounded-3xl shadow-lg w-full max-w-[290px] md:max-w-[464px]"
-              priority
-              fetchPriority="high"
-            />
-          </ScrollRevealSection>
 
           <ScrollRevealSection as="div" className="relative z-10">
             <AboutSectionServer />
@@ -161,13 +144,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqStructuredData),
-        }}
-      />
-      {/* Individual Review Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(reviewsStructuredData),
         }}
       />
       <Script id="press-ld" type="application/ld+json"
