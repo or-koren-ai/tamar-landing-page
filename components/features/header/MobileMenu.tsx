@@ -5,12 +5,17 @@ import { SITE } from "@/lib/config/site-config"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils"
-import { services } from "@/lib/data/services"
+import { servicesWithConditions } from "@/lib/data/conditions-by-service"
 
 export function MobileMenu() {
   const pathname = usePathname()
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [expandedServices, setExpandedServices] = useState<Record<string, boolean>>({})
   const getHref = (anchor: string) => (pathname !== '/' ? `/#${anchor}` : `#${anchor}`)
+
+  const toggleServiceConditions = (slug: string) => {
+    setExpandedServices((prev) => ({ ...prev, [slug]: !prev[slug] }))
+  }
 
   return (
     <Sheet>
@@ -81,21 +86,71 @@ export function MobileMenu() {
               <div
                 className={cn(
                   "overflow-hidden transition-all duration-300 ease-in-out",
-                  servicesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                  servicesOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
                 )}
               >
                 <ul className="bg-[#f9faf9]">
-                  {services.map((service, idx) => (
+                  {servicesWithConditions.map((service, idx) => (
                     <li key={service.slug}>
                       {idx !== 0 && <div className="mx-6 border-t border-gray-100" />}
-                      <SheetClose asChild>
-                        <a
-                          href={`/services/${service.slug}`}
-                          className="block w-full pe-8 ps-4 py-2 text-sm text-[#7a8a7a] hover:bg-[#f3f6f3] transition-colors text-right"
-                        >
-                          {service.cardTitle}
-                        </a>
-                      </SheetClose>
+
+                      {service.conditions.length > 0 ? (
+                        <>
+                          <div className="flex items-center">
+                            <button
+                              onClick={() => toggleServiceConditions(service.slug)}
+                              className="px-2 py-2 text-[#7a8a7a] hover:text-[#859a85] transition-colors"
+                              aria-expanded={!!expandedServices[service.slug]}
+                              aria-label={`הצג/הסתר מצבים תחת ${service.cardTitle}`}
+                            >
+                              <span className={cn(
+                                "inline-block transition-transform duration-300 text-[10px]",
+                                expandedServices[service.slug] ? "rotate-90" : "rotate-0"
+                              )}>◄</span>
+                            </button>
+                            <SheetClose asChild>
+                              <a
+                                href={`/services/${service.slug}`}
+                                className="flex-1 pe-6 py-2 text-sm text-[#7a8a7a] hover:bg-[#f3f6f3] transition-colors text-right"
+                              >
+                                {service.cardTitle}
+                              </a>
+                            </SheetClose>
+                          </div>
+
+                          <div
+                            className={cn(
+                              "overflow-hidden transition-all duration-300 ease-in-out",
+                              expandedServices[service.slug] ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+                            )}
+                          >
+                            <ul className="bg-[#f5f7f5]">
+                              {service.conditions.map((condition, cIdx) => (
+                                <li key={condition.slug}>
+                                  {cIdx !== 0 && <div className="mx-8 border-t border-gray-100/80" />}
+                                  <SheetClose asChild>
+                                    <a
+                                      href={`/conditions/${condition.slug}`}
+                                      className="block w-full pe-10 ps-4 py-1.5 text-xs text-[#8a968a] hover:bg-[#eef2ee] transition-colors text-right"
+                                    >
+                                      {condition.hebrewName}
+                                    </a>
+                                  </SheetClose>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      ) : (
+                        <SheetClose asChild>
+                          <a
+                            href={`/services/${service.slug}`}
+                            className="block w-full pe-8 ps-4 py-2 text-sm text-[#7a8a7a] hover:bg-[#f3f6f3] transition-colors text-right"
+                          >
+                            {service.cardTitle}
+                          </a>
+                        </SheetClose>
+                      )}
                     </li>
                   ))}
                 </ul>

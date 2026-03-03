@@ -5,11 +5,11 @@ export function AboutSectionServer() {
   return (
     <section
       id="אודות"
-      className="pt-4 pb-12 md:py-16 scroll-mt-24"
+      className="pt-2 pb-12 md:py-14 scroll-mt-24"
       aria-labelledby="about-title"
     >
       <div className="container mx-auto px-4">
-        <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-6 md:mb-10 text-[#6b8e6b] text-center">אודות</h2>
+        <h2 id="about-title" className="text-3xl md:text-4xl font-light mb-4 md:mb-8 text-[#6b8e6b] text-center">אודות</h2>
 
         <div className="max-w-3xl mx-auto md:max-w-5xl md:flex md:flex-row-reverse md:gap-12 md:items-start">
           {/* Doctor Photo + Clinic Slideshow */}

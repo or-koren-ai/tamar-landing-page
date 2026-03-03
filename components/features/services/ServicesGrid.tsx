@@ -1,22 +1,7 @@
 import React from "react"
 import { servicesList, type ServiceListItem } from "@/lib/data/services-list"
-import { Stethoscope, Video, ScanSearch, CircleDot, Sparkles, Droplets } from "lucide-react"
-import { HairIcon } from "@/components/icons/HairIcon"
-import { NailIcon } from "@/components/icons/NailIcon"
+import { serviceIconMap } from "./service-icons"
 import Link from "next/link"
-
-type IconComponent = React.ComponentType<{ className?: string }>
-
-const iconMap: Record<ServiceListItem["iconKey"], IconComponent> = {
-  stethoscope: Stethoscope,
-  hand: NailIcon,
-  hair: HairIcon,
-  search: ScanSearch,
-  acne: CircleDot,
-  palette: Sparkles,
-  hyperhidrosis: Droplets,
-  video: Video,
-}
 
 export default function ServicesGrid() {
   return (
@@ -24,7 +9,7 @@ export default function ServicesGrid() {
       {/* Services Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
         {servicesList.map((s) => {
-          const Icon = iconMap[s.iconKey]
+          const Icon = serviceIconMap[s.iconKey]
 
           return (
             <Link

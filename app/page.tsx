@@ -59,13 +59,13 @@ export default function Home() {
             />
           </div>
 
-          <section className="py-7 md:py-12 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
+          <section className="py-7 md:py-14 text-center bg-[#e8f0e8] bg-opacity-30 animate-hero-fade-in relative z-10">
             <div className="mx-auto max-w-4xl text-center px-4">
               <h1 className="hero-title animate-hero-title">
-                ד״ר תמר קורן
+                <span className="shine-on-hover">ד״ר תמר קורן</span>
                 <span className="hero-accent">מומחית לרפואת עור ומין <span className="inline-block translate-y-[2px]">·</span> חיפה</span>
               </h1>
-              <p className="text-base md:text-lg hero-sub animate-hero-subtitle">
+              <p className="hero-sub animate-hero-subtitle">
                 טיפול אישי ומקצועי לילדים ולמבוגרים
               </p>
             </div>

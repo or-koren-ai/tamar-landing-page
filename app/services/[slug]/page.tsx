@@ -12,21 +12,7 @@ import { MobileMenu } from '@/components/features/header/MobileMenu'
 import ServiceCTAButtons from '@/components/features/services/ServiceCTAButtons'
 import { Breadcrumb } from '@/components/shared/Breadcrumb'
 
-// Import all service icons
-import { Stethoscope, Video, ScanSearch, CircleDot, Sparkles, Droplets } from 'lucide-react'
-import { HairIcon } from '@/components/icons/HairIcon'
-import { NailIcon } from '@/components/icons/NailIcon'
-
-const iconMap = {
-  stethoscope: Stethoscope,
-  hand: NailIcon,
-  hair: HairIcon,
-  search: ScanSearch,
-  acne: CircleDot,
-  palette: Sparkles,
-  hyperhidrosis: Droplets,
-  video: Video,
-}
+import { serviceIconMap } from '@/components/features/services/service-icons'
 
 interface PageProps {
   params: { slug: string }
@@ -69,7 +55,7 @@ export default function ServicePage({ params }: PageProps) {
     notFound()
   }
 
-  const IconComponent = iconMap[service.iconKey]
+  const IconComponent = serviceIconMap[service.iconKey]
 
   // Split long description into paragraphs and process
   const paragraphs = service.longDescription.split('\\n').filter(Boolean)
