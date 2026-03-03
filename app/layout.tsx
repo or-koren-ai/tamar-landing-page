@@ -4,6 +4,7 @@ import './globals.css'
 import { SITE } from '@/lib/config/site-config'
 import { Assistant } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 
 const assistant = Assistant({
   subsets: ['hebrew'],
@@ -158,6 +159,7 @@ export default function RootLayout({
           </>
         )}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
