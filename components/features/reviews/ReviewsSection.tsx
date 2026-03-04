@@ -1,5 +1,7 @@
 import React from "react"
+import Link from "next/link"
 import { reviews } from "@/lib/data/reviews"
+import { tagLinkMap } from "@/lib/data/tag-links"
 import { SITE } from "@/lib/config/site-config"
 
 // Star rating component
@@ -34,9 +36,14 @@ const ReviewCard: React.FC<{ review: any }> = ({ review }) => {
 
       {review.tags?.length ? (
         <footer className="flex flex-wrap gap-1.5">
-          {review.tags.map(tag => (
-            <span key={tag} className="review-chip">{tag}</span>
-          ))}
+          {review.tags.map(tag => {
+            const href = tagLinkMap[tag]
+            return href ? (
+              <Link key={tag} href={href} className="review-chip review-chip-link" aria-label={`קראו עוד על ${tag}`}>{tag}</Link>
+            ) : (
+              <span key={tag} className="review-chip">{tag}</span>
+            )
+          })}
         </footer>
       ) : null}
     </article>

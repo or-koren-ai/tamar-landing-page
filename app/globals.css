@@ -299,6 +299,24 @@
   .review-date { @apply text-xs text-gray-400 whitespace-nowrap; }
   .review-text { @apply text-right italic leading-8 text-gray-700; }
   .review-chip { @apply inline-flex items-center gap-2 rounded-full bg-[#f3f6f3] text-[#6b8e6b] px-3 py-1 text-xs ring-1 ring-black/5; }
+  .review-chip-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out;
+  }
+  .review-chip-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(107, 142, 107, 0.18);
+    background-color: #e8f0e8;
+    color: #5e7f69;
+  }
+  .review-chip-link:active {
+    transform: translateY(0);
+  }
+  .review-chip-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
   .review-source { @apply text-xs text-gray-500 underline; }
   .review-more { @apply text-xs text-[#6b8e6b] underline hover:no-underline; }
 }
@@ -719,6 +737,13 @@ a:focus-visible, button:focus-visible{
   .scroll-reveal-children.is-visible .service-tile,
   .scroll-reveal-children.is-visible .review-card {
     transition-delay: 0ms !important;
+  }
+  .review-chip-link {
+    transition: none;
+  }
+  .review-chip-link:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 
