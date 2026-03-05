@@ -62,7 +62,7 @@ export function ReviewsSection() {
         </div>
         <div className="mt-8 flex justify-center">
           <p className="text-sm text-center">
-            לעוד ביקורות — <a href={SITE.socials.medreviews} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">MedReviews</a>
+            לעוד ביקורות — <a href={SITE.directories.medreviews} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">MedReviews</a>
           </p>
         </div>
       </div>

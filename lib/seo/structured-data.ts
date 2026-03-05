@@ -104,10 +104,18 @@ export const businessStructuredData = {
     worstRating: 1
   },
 
-  // Social profiles
+  // External profiles & listings
   sameAs: [
-    SITE.socials.medreviews,
-    SITE.socials.instagram
+    // Social media
+    SITE.socials.instagram,
+    // Medical directories
+    SITE.directories.medreviews,
+    SITE.directories.infomed,
+    SITE.directories.medpage,
+    // Health system profiles
+    SITE.directories.clalit,
+    // Local business directories
+    SITE.directories.haifakrayot,
   ],
   
   // Expertise areas - Critical for LLM understanding
@@ -313,6 +321,30 @@ export const faqStructuredData = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "במרפאה פרטית ניתן ליהנות מתורים ארוכים יותר, תשומת לב אישית מהרופאה, וזמינות גבוהה לקביעת תור מהיר. ד״ר קורן מקדישה זמן לכל מטופל עם הסבר מפורט והתאמה אישית של הטיפול."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "האם צריך הפניה לרופא עור פרטי?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "לא, לא נדרשת הפניה לביקור במרפאה הפרטית. ניתן לפנות ישירות לקביעת תור בטלפון או בוואטסאפ. במידה ויש הפניה מקופת חולים, מומלץ להביא אותה לביקור."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "האם ד״ר קורן מטפלת גם בילדים?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "כן, ד״ר קורן מטפלת בילדים ותינוקות במגוון מצבי עור כולל אקזמה, יבלות, פטרת, מולוסקום ובדיקת שומות. הטיפול מותאם לגיל הילד ונעשה באווירה מקצועית ורגישה."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "מה צריך להביא לביקור הראשון אצל רופאת עור?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "מומלץ להביא תוצאות בדיקות דם או ביופסיות קודמות אם יש, רשימת תרופות ותכשירים שאת/ה משתמש/ת בהם, ותמונות של הנגע אם חל שינוי לאורך זמן. אין צורך בהכנה מיוחדת."
       }
     }
   ]
