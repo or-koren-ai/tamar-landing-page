@@ -99,7 +99,6 @@ export function Navigation() {
                       ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
                       : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
                   )}
-                  role="menu"
                 >
                   <div className="py-2 px-3 flex flex-col" dir="rtl">
                     {servicesWithConditions.map((service, idx) => (
@@ -108,7 +107,6 @@ export function Navigation() {
                         <a
                           href={`/services/${service.slug}`}
                           className="block text-sm font-semibold text-[#5e7f69] hover:text-[#4a6b55] hover:bg-[#f6f8f6] rounded px-2 py-1.5 transition-colors"
-                          role="menuitem"
                         >
                           {service.cardTitle}
                         </a>
@@ -119,7 +117,6 @@ export function Navigation() {
                                 <a
                                   href={`/conditions/${condition.slug}`}
                                   className="block text-sm text-[#7a8a7a] hover:text-[#5e7f69] hover:bg-[#f6f8f6] rounded px-4 py-1 transition-colors"
-                                  role="menuitem"
                                 >
                                   {condition.hebrewName}
                                 </a>
@@ -135,7 +132,6 @@ export function Navigation() {
                     <a
                       href={getHref("שירותי-המרפאה")}
                       className="block text-center text-sm text-[#5e7f69] hover:text-[#4a6b55] font-medium transition-colors"
-                      role="menuitem"
                     >
                       כל שירותי המרפאה ←
                     </a>
