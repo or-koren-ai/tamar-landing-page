@@ -116,6 +116,11 @@ export const businessStructuredData = {
     SITE.directories.clalit,
     // Local business directories
     SITE.directories.haifakrayot,
+    SITE.directories.easy,
+    SITE.directories.dapeiZahav,
+    SITE.directories.doctors,
+    // Google Business Profile
+    SITE.directories.google,
   ],
   
   // Expertise areas - Critical for LLM understanding
