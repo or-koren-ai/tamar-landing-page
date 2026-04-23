@@ -45,7 +45,7 @@ export const SITE = {
   // Rating data from MedReviews — auto-updated daily via GitHub Action
   rating: {
     value: 4.9,
-    count: 170,
+    count: 174,
     bestRating: 5,
     source: "MedReviews",
     sourceUrl: "https://www.medreviews.co.il/provider/dr-koren-tamar",
