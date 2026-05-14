@@ -104,19 +104,22 @@ export const businessStructuredData = {
     worstRating: 1
   },
 
-  // External profiles & listings
+  // External profiles & listings — same entity, different platforms
   sameAs: [
     // Social media
     SITE.socials.instagram,
-    // Medical directories
+    // Medical directories & doctor review sites
     SITE.directories.medreviews,
     SITE.directories.infomed,
     SITE.directories.medpage,
+    SITE.directories.doctorita,
     // Health system profiles
     SITE.directories.clalit,
+    SITE.directories.emekHospital,
     // Local business directories
     SITE.directories.haifakrayot,
     SITE.directories.easy,
+    SITE.directories.topIsrael,
     SITE.directories.dapeiZahav,
     SITE.directories.doctors,
     // Google Business Profile

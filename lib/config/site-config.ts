@@ -55,16 +55,19 @@ export const SITE = {
     instagram: "https://www.instagram.com/dr.tamar_koren",
   },
 
-  // Doctor directories & professional listings
+  // Doctor directories & professional listings (used in JSON-LD sameAs)
   directories: {
     medreviews: "https://www.medreviews.co.il/provider/dr-koren-tamar",
     infomed: "https://www.infomed.co.il/experts/153933/",
-    medpage: "https://medpage.co.il/doctors/21598-%D7%AA%D7%9E%D7%A8-%D7%A7%D7%95%D7%A8%D7%9F-24908/",
+    medpage: "https://medpage.co.il/doctors/62354-%D7%AA%D7%9E%D7%A8-%D7%A7%D7%95%D7%A8%D7%9F-18543/",
+    doctorita: "https://www.doctorita.co.il/experts/127158",
     clalit: "https://www.clalit.co.il/he/sefersherut/pages/doctordetails.aspx?edeptcode=53108&eservicecode=31&employeeid=FCE0AC163790F05B90816C3057A7E9A6",
-    haifakrayot: "https://haifakrayot.co.il/business/biz/%D7%93%D7%B4%D7%A8-%D7%AA%D7%9E%D7%A8-%D7%A7%D7%95%D7%A8%D7%9F-%D7%9E%D7%95%D7%9E%D7%97%D7%99%D7%AA-%D7%91%D7%A8%D7%A4%D7%95%D7%90%D7%AA-%D7%A2%D7%95%D7%A8-%D7%95%D7%9E%D7%99%D7%9F",
+    emekHospital: "https://hospitals.clalit.co.il/emek/he/departmentsandclinics/internal_departments/Pages/skin.aspx",
+    haifakrayot: "https://hkn.co.il/business/biz/%D7%93%D7%B4%D7%A8-%D7%AA%D7%9E%D7%A8-%D7%A7%D7%95%D7%A8%D7%9F-%D7%9E%D7%95%D7%9E%D7%97%D7%99%D7%AA-%D7%91%D7%A8%D7%A4%D7%95%D7%90%D7%AA-%D7%A2%D7%95%D7%A8-%D7%95%D7%9E%D7%99%D7%9F",
     easy: "https://easy.co.il/page/10161117",
-    dapeiZahav: "https://www.d.co.il/80388045/46530/",
-    doctors: "https://www.doctors.co.il/expert/dermatologists-venereologists/80388045/",
+    topIsrael: "https://topisrael.co.il/en/business/dr-tamar-koren-dermatologist-haifa",
+    dapeiZahav: "https://www.d.co.il/80390454/46530/",
+    doctors: "https://www.doctors.co.il/expert/dermatologists-venereologists/80390454/",
     google: "https://www.google.com/maps/place/%D7%93%D7%B4%D7%A8+%D7%AA%D7%9E%D7%A8+%D7%A7%D7%95%D7%A8%D7%9F+-+%D7%9E%D7%95%D7%9E%D7%97%D7%99%D7%AA+%D7%91%D7%A8%D7%A4%D7%95%D7%90%D7%AA+%D7%A2%D7%95%D7%A8+%D7%95%D7%9E%D7%99%D7%9F%E2%80%AD/data=!4m2!3m1!1s0x151dbbabf4fcb5b9:0x4bf99a4cb88796bb",
   },
-} as const; 
+} as const;
