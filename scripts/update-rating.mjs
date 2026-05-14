@@ -18,16 +18,21 @@ async function fetchRating() {
   const ldMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i)
   if (!ldMatch) throw new Error('No JSON-LD found on MedReviews page')
 
-  let ld = JSON.parse(ldMatch[1])
-  // JSON-LD can be an array — find the entry with aggregateRating
-  if (Array.isArray(ld)) {
-    ld = ld.find(item => item.aggregateRating) || ld[0]
-  }
-  const rating = ld.aggregateRating
+  const ld = JSON.parse(ldMatch[1])
+
+  // JSON-LD shapes seen in the wild:
+  //   1. Top-level object with `aggregateRating` field
+  //   2. Array of entries, one with `aggregateRating`
+  //   3. `@graph` array containing a top-level `AggregateRating` entry
+  // Find an AggregateRating object regardless of which shape is used.
+  const candidates = Array.isArray(ld) ? ld : (Array.isArray(ld['@graph']) ? ld['@graph'] : [ld])
+  const rating =
+    candidates.find(item => item && item['@type'] === 'AggregateRating') ||
+    candidates.map(item => item && item.aggregateRating).find(Boolean)
   if (!rating) throw new Error('No aggregateRating in JSON-LD')
 
   const value = Math.round(rating.ratingValue * 10) / 10 // round to 1 decimal
-  const count = parseInt(rating.reviewCount, 10)
+  const count = parseInt(rating.reviewCount ?? rating.ratingCount, 10)
 
   if (isNaN(value) || isNaN(count)) throw new Error(`Invalid rating data: ${value}, ${count}`)
 
