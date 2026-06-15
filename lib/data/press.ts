@@ -2,20 +2,28 @@ import type { PressItem } from '@/types'
 
 export const pressItems: PressItem[] = [
   {
-    title: "ד\"ר תמר קורן: \"למרוח קרם הגנה בכל שנה ובכל עונות השנה\"",
-    href: "https://haipo.co.il/item/562953",
-    source: "חי פה – חדשות חיפה",
-    date: "2025-03-18",
-    logo: "/logos/press/haipo-logo.png",
-    logoAlt: "חי פה לוגו"
-  },
-  {
     title: "דילמה: האם להוציא מאות שקלים לשיחת ייעוץ עם רופא עור או להתייעץ עם הצ'אט בחינם?",
     href: "https://www.ynet.co.il/laisha/article/skvxm11jbee",
     source: "Ynet – לאשה",
     date: "2025-05-25",
     logo: "/logos/press/ynet-laisha-logo.png",
     logoAlt: "Ynet לאשה לוגו"
+  },
+  {
+    title: "ד\"ר תמר קורן, רופאת עור בכללית – מה חשוב לדעת כשהטיפוח הופך למסוכן • טרנד הסקין־קר של הילדים",
+    href: "https://haipo.co.il/item/631267",
+    source: "חי פה – חדשות חיפה",
+    date: "2026-06-14",
+    logo: "/logos/press/haipo-logo.png",
+    logoAlt: "חי פה לוגו"
+  },
+  {
+    title: "ד\"ר תמר קורן: \"למרוח קרם הגנה בכל שנה ובכל עונות השנה\"",
+    href: "https://haipo.co.il/item/562953",
+    source: "חי פה – חדשות חיפה",
+    date: "2025-03-18",
+    logo: "/logos/press/haipo-logo.png",
+    logoAlt: "חי פה לוגו"
   },
   {
     title: "עור, שיער, ציפורניים ומה שביניהם -  מה משתנה בהם בזמן ההריון?",
