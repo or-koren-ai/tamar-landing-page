@@ -53,7 +53,7 @@ export function StickyAppointmentButton() {
       <div className="container mx-auto px-4 py-3">
         <button
           onClick={handleClick}
-          className="w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#859a85] to-[#6b8e6b] text-white text-lg py-3 px-5 font-medium shadow-lg hover:shadow-xl ring-1 ring-black/5 active:scale-[0.98] transition"
+          className="sticky-cta-glow cta-sheen w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#859a85] to-[#6b8e6b] text-white text-lg py-3 px-5 font-medium shadow-lg ring-1 ring-black/5 active:scale-[0.98] transition"
         >
           <span>לקביעת תור</span>
         </button>

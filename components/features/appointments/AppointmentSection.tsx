@@ -39,20 +39,20 @@ export default function AppointmentSection() {
 
             {/* Left column (phone/WA/mail) */}
             <ul className="mt-4 sm:mt-0 space-y-3 sm:flex-1">
-              <li className="flex items-center gap-2 text-base">
-                <Phone className="size-5 text-[var(--accent-strong)]" aria-hidden />
+              <li className="group flex items-center gap-2 text-base">
+                <Phone className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                 <a href={SITE.clinicPhone.link} onClick={() => trackPhoneClick('appointment-section')} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.clinicPhone.display}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-base">
-                <MessageCircle className="size-5 text-[var(--accent-strong)]" aria-hidden />
+              <li className="group flex items-center gap-2 text-base">
+                <MessageCircle className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                 <a href={SITE.whatsapp.link} onClick={() => trackWhatsAppClick('appointment-section')} target="_blank" rel="nofollow noopener noreferrer" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.whatsapp.display}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-base">
-                <Mail className="size-5 text-[var(--accent-strong)]" aria-hidden />
+              <li className="group flex items-center gap-2 text-base">
+                <Mail className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                 <a href={`mailto:${SITE.clinicEmail}`} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
                   {SITE.clinicEmail}
                 </a>
@@ -67,7 +67,7 @@ export default function AppointmentSection() {
             <a
               href={SITE.clinicPhone.link}
               onClick={() => trackPhoneClick('appointment-section')}
-              className="h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
+              className="cta-sheen h-12 w-full inline-flex items-center justify-center rounded-full bg-[var(--accent-strong)] text-white hover:text-white text-base font-medium hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] whitespace-nowrap"
             >
               <span className="text-base">התקשרו למרפאה</span>
             </a>

@@ -104,11 +104,11 @@ export default function Home() {
                 href={SITE.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white hover:opacity-80 transition-opacity duration-300 text-lg"
+                className="group inline-flex items-center gap-2 text-white hover:opacity-80 transition-opacity duration-300 text-lg"
                 aria-label="עקבו אחרינו באינסטגרם"
               >
-                <span>Instagram</span>
-                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                <span className="transition-transform duration-300 group-hover:-translate-y-0.5">Instagram</span>
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transform-none" viewBox="0 0 24 24">
                   <defs>
                     <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#833ab4" />
