@@ -9,7 +9,7 @@ export function AboutExpandableText() {
     <div>
       {!isExpanded && (
         <button
-          className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
+          className="text-[#54755e] hover:text-[#587a63] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
           onClick={() => setIsExpanded(true)}
         >
           קרא עוד
@@ -32,7 +32,7 @@ export function AboutExpandableText() {
             ד״ר קורן מאמינה באבחון מדויק והתאמת טיפול אישי לכל מטופל/ת, תוך הקפדה על מקצועיות, מתן הסבר מפורט בגובה העיניים וגישה אנושית ואמפתית.
           </p>
           <button
-            className="text-[#6b8e6b] hover:text-[#859a85] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
+            className="text-[#54755e] hover:text-[#587a63] transition-colors duration-200 underline text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-[#859a85] rounded"
             onClick={() => setIsExpanded(false)}
           >
             הראה פחות

@@ -65,7 +65,7 @@ export function ReviewsSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-gray-700 no-underline hover:underline"
-            aria-label={`דירוג ${SITE.rating.value} מתוך 5 על סמך מעל ${roundedReviewCount} ביקורות ב-MedReviews`}
+            aria-label={`דירוג ${SITE.rating.value} מתוך ${SITE.rating.bestRating} · מעל ${roundedReviewCount} ביקורות ב-MedReviews`}
           >
             <Stars value={SITE.rating.value} />
             <span className="text-sm md:text-base">

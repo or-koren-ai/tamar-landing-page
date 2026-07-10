@@ -96,7 +96,7 @@ export default function Home() {
         <StickyAppointmentButton />
       </main>
 
-      <footer className="bg-[#859a85] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
+      <footer className="bg-[#587662] text-white pt-6 pb-28 md:py-8 text-center font-normal overflow-hidden relative z-30">
         <div className="container mx-auto px-4">
             <div>
             <div className="mb-2">
@@ -105,7 +105,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-white hover:opacity-80 transition-opacity duration-300 text-lg"
-                aria-label="עקבו אחרינו באינסטגרם"
+                aria-label="עקבו אחרינו ב-Instagram"
               >
                 <span className="transition-transform duration-300 group-hover:-translate-y-0.5">Instagram</span>
                 <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transform-none" viewBox="0 0 24 24">
