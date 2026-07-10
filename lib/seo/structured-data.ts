@@ -1,4 +1,5 @@
 import { SITE } from '../config/site-config'
+import { CONTENT_DATES } from '../config/content-dates'
 import { services } from '../data/services'
 import { reviews } from '../data/reviews'
 import type { ConditionItem } from '@/types'
@@ -206,6 +207,33 @@ export const businessStructuredData = {
     }
   ],
 
+  // Machine-actionable appointment booking for AI agents
+  potentialAction: {
+    "@type": "ReserveAction",
+    name: "קביעת תור",
+    target: [
+      {
+        "@type": "EntryPoint",
+        urlTemplate: SITE.whatsapp.link,
+        actionPlatform: [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ],
+        inLanguage: "he"
+      },
+      {
+        "@type": "EntryPoint",
+        urlTemplate: SITE.clinicPhone.link,
+        actionPlatform: "https://schema.org/MobileWebPlatform",
+        inLanguage: "he"
+      }
+    ],
+    result: {
+      "@type": "Reservation",
+      name: "תור לרפואת עור"
+    }
+  },
+
   // Individual patient reviews
   review: reviews.map(review => ({
     "@type": "Review",
@@ -232,7 +260,7 @@ export const generateServiceStructuredData = (service: any) => ({
   description: service.description,
   url: `${SITE.baseUrl}/services/${service.slug}`,
   datePublished: "2024-12-01",
-  dateModified: "2026-02-15",
+  dateModified: CONTENT_DATES.services,
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -369,7 +397,7 @@ export const generateConditionStructuredData = (condition: ConditionItem) => {
     description: condition.metaDescription,
     url: `${SITE.baseUrl}/conditions/${condition.slug}`,
     datePublished: "2026-02-19",
-    dateModified: "2026-02-19",
+    dateModified: CONTENT_DATES.conditions,
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [

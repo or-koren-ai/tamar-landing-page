@@ -89,9 +89,11 @@ A 5th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`
 - **`app/robots.ts`**: `userAgent: "*", allow: "/"`, includes sitemap URL and host
 
 ### AI/LLM Discoverability
-- **`ContentSummary.tsx`**: Hidden (`sr-only`) Schema.org `MedicalBusiness` markup with practice info, specialties, FAQ, credentials — lazy-loaded via `dynamic()` with `ssr: false`
-- **`/api/practice-info`** (GET): Full practice JSON for AI agents — cached 1hr (`max-age=3600`), stale-while-revalidate 24hr, CORS enabled
+- **`ContentSummary.tsx`**: Hidden (`sr-only`) Schema.org `MedicalBusiness` markup with practice info, specialties, FAQ, credentials — lazy-loaded via `dynamic()` with `ssr: true` (server-rendered so non-JS AI crawlers see it)
+- **`/api/practice-info`** (GET): Full practice JSON for AI agents — cached 1hr (`max-age=3600`), stale-while-revalidate 24hr, CORS enabled; linked via `<link rel="alternate">` in layout head and from `llms.txt`
+- **`/llms.txt`** (`app/llms.txt/route.ts`): Markdown site guide for AI agents — generated from `lib/data/` (services + conditions), links key pages and the practice-info API
 - **`ai-content-description`** meta tag in layout metadata `other` field
+- **`lib/config/content-dates.ts`**: Real content-modification dates for sitemap `lastmod` and JSON-LD `dateModified` — update when service/condition/legal content changes
 
 ### Service Pages (`app/services/[slug]/page.tsx`)
 - `generateStaticParams()` pre-renders all service slugs
@@ -137,7 +139,7 @@ A 5th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`
 
 ### Code Splitting (`components/shared/LazyComponents.tsx`)
 - `LazyPressCarousel` — `dynamic()` + `ssr: false`, skeleton loader
-- `LazyContentSummary` — `dynamic()` + `ssr: false`, null loader (hidden content)
+- `LazyContentSummary` — `dynamic()` + `ssr: true`, null loader (hidden content, server-rendered for AI crawlers)
 - `LazyServicesGrid` — `dynamic()` + `ssr: false`, grid skeleton with animated pulse
 
 ### Lazy Loading Triggers
