@@ -17,6 +17,12 @@ export const SITE = {
     postalCode: "3461312",
   },
 
+  // Coordinates for שדרות מוריה 84, חיפה (per Google Maps)
+  geo: {
+    latitude: 32.7936,
+    longitude: 34.9855,
+  },
+
   whatsapp: {
     e164: "+972559620827",
     display: "055-962-0827",
@@ -38,7 +44,7 @@ export const SITE = {
   map: {
     embedSrc:
       "https://maps.google.com/maps?width=520&height=400&hl=he&q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94+(%D7%9E%D7%A8%D7%A4%D7%90%D7%AA%20%D7%9E%D7%95%D7%9E%D7%97%D7%99%D7%9D%20%D7%93״ר%20%D7%AA%D7%9E%D7%A8%20%D7%A7%D7%95%D7%A8%D7%9F)&t=m&z=15&ie=UTF8&iwloc=B&output=embed",
-    url: "https://≈com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94%2084%20%D7%97%D7%99%D7%A4%D7%94",
+    url: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94+84+%D7%97%D7%99%D7%A4%D7%94",
     staticImage: "/assets/images/map-clinic-location.png",
   },
 

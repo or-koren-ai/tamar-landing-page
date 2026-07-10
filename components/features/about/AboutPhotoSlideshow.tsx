@@ -161,6 +161,7 @@ export function AboutPhotoSlideshow() {
 
       {/* Noscript fallback */}
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element -- next/image can't render inside noscript */}
         <img
           src="/assets/images/doctor-photo.webp"
           alt="ד״ר תמר קורן - רופאת עור בחיפה"

@@ -47,10 +47,10 @@ export const businessStructuredData = {
   // Geo coordinates for local search
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 32.7894,
-    longitude: 34.9877
+    latitude: SITE.geo.latitude,
+    longitude: SITE.geo.longitude
   },
-  hasMap: "https://maps.google.com/?q=%D7%9E%D7%95%D7%A8%D7%99%D7%94+84+%D7%97%D7%99%D7%A4%D7%94",
+  hasMap: SITE.map.url,
   priceRange: "₪₪",
   isAcceptingNewPatients: true,
 

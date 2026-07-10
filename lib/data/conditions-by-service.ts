@@ -11,7 +11,7 @@ export type ServiceWithConditions = {
 /** Services list with their child conditions grouped by parentServiceSlug */
 export const servicesWithConditions: ServiceWithConditions[] = services.map((s) => ({
   slug: s.slug,
-  cardTitle: s.cardTitle,
+  cardTitle: s.cardTitle ?? s.title,
   conditions: conditions
     .filter((c) => c.parentServiceSlug === s.slug)
     .map((c) => ({ slug: c.slug, hebrewName: c.hebrewName })),

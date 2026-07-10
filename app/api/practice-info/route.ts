@@ -36,9 +36,8 @@ export async function GET() {
       country: "Israel",
       postalCode: SITE.address.postalCode,
       coordinates: {
-        // Approximate coordinates for Moriya 84, Haifa
-        latitude: 32.7942,
-        longitude: 34.9885
+        latitude: SITE.geo.latitude,
+        longitude: SITE.geo.longitude
       }
     },
 
@@ -58,7 +57,7 @@ export async function GET() {
       totalServices: services.length,
       categories: services.map(service => ({
         name: service.title,
-        nameEnglish: service.titleEn || service.title,
+        nameEnglish: service.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
         description: service.description,
         slug: service.slug,
         url: `${SITE.baseUrl}/services/${service.slug}`,

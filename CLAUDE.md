@@ -140,7 +140,6 @@ A 5th schema for press (`ItemList` of `NewsArticle`) is inline in `app/page.tsx`
 ### Code Splitting (`components/shared/LazyComponents.tsx`)
 - `LazyPressCarousel` — `dynamic()` + `ssr: false`, skeleton loader
 - `LazyContentSummary` — `dynamic()` + `ssr: true`, null loader (hidden content, server-rendered for AI crawlers)
-- `LazyServicesGrid` — `dynamic()` + `ssr: false`, grid skeleton with animated pulse
 
 ### Lazy Loading Triggers
 - **MapEmbed**: IntersectionObserver on reviews section with `rootMargin: '200px'` — preloads before user scrolls to map

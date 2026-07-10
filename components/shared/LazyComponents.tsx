@@ -2,17 +2,6 @@
 
 import dynamic from 'next/dynamic'
 
-export const LazyServicesGrid = dynamic(() => import('@/components/features/services/ServicesGrid'), {
-  loading: () => (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div key={i} className="bg-gray-100 rounded-xl animate-pulse h-[180px]"></div>
-      ))}
-    </div>
-  ),
-  ssr: false
-})
-
 export const LazyPressCarousel = dynamic(() => import('@/components/features/press/PressCarousel'), {
   loading: () => (
     <div className="py-12 md:py-16 bg-[#f8faf8]">
