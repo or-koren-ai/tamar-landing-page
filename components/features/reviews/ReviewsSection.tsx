@@ -3,6 +3,7 @@ import Link from "next/link"
 import { reviews } from "@/lib/data/reviews"
 import { tagLinkMap } from "@/lib/data/tag-links"
 import { SITE } from "@/lib/config/site-config"
+import type { Review } from "@/types/review"
 
 // Star rating component
 const Stars = ({ value = 5 }: { value: number }) => (
@@ -18,8 +19,11 @@ const Stars = ({ value = 5 }: { value: number }) => (
 // Helper function for initials
 const initials = (name: string) => name.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('');
 
+// Rounded down to nearest 10 so "מעל X" stays accurate as the count grows
+const roundedReviewCount = Math.floor(SITE.rating.count / 10) * 10;
+
 // Review card component
-const ReviewCard: React.FC<{ review: any }> = ({ review }) => {
+const ReviewCard: React.FC<{ review: Review }> = ({ review }) => {
   return (
     <article className="review-card" dir="rtl">
       <header className="review-header">
@@ -54,16 +58,25 @@ export function ReviewsSection() {
   return (
     <section id="ביקורות" className="py-12 md:py-16 scroll-mt-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-light mb-6 text-center text-[#859a85]">ביקורות מטופלים</h2>
+        <h2 className="text-3xl md:text-4xl font-light mb-4 text-center text-[#859a85]">ביקורות מטופלים</h2>
+        <div className="mb-8 flex justify-center">
+          <a
+            href={SITE.rating.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-gray-700 no-underline hover:underline"
+            aria-label={`דירוג ${SITE.rating.value} מתוך 5 על סמך מעל ${roundedReviewCount} ביקורות ב-MedReviews`}
+          >
+            <Stars value={SITE.rating.value} />
+            <span className="text-sm md:text-base">
+              <strong className="font-semibold">{SITE.rating.value}</strong> מתוך {SITE.rating.bestRating} · מעל {roundedReviewCount} ביקורות ב-MedReviews
+            </span>
+          </a>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
           {reviews.map(review => (
             <ReviewCard key={review.id} review={review} />
           ))}
-        </div>
-        <div className="mt-8 flex justify-center">
-          <p className="text-sm text-center">
-            לעוד ביקורות — <a href={SITE.directories.medreviews} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">MedReviews</a>
-          </p>
         </div>
       </div>
     </section>
