@@ -39,21 +39,21 @@ export default function AppointmentSection() {
 
             {/* Left column (phone/WA/mail) */}
             <ul className="mt-4 sm:mt-0 space-y-3 sm:flex-1">
-              <li className="group flex items-center gap-2 text-base">
-                <Phone className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
-                <a href={SITE.clinicPhone.link} onClick={() => trackPhoneClick('appointment-section')} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+              <li className="text-base">
+                <a href={SITE.clinicPhone.link} onClick={() => trackPhoneClick('appointment-section')} className="group flex items-center gap-2 -my-2 py-2 underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                  <Phone className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                   {SITE.clinicPhone.display}
                 </a>
               </li>
-              <li className="group flex items-center gap-2 text-base">
-                <MessageCircle className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
-                <a href={SITE.whatsapp.link} onClick={() => trackWhatsAppClick('appointment-section')} target="_blank" rel="nofollow noopener noreferrer" className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+              <li className="text-base">
+                <a href={SITE.whatsapp.link} onClick={() => trackWhatsAppClick('appointment-section')} target="_blank" rel="nofollow noopener noreferrer" className="group flex items-center gap-2 -my-2 py-2 underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                  <MessageCircle className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                   {SITE.whatsapp.display}
                 </a>
               </li>
-              <li className="group flex items-center gap-2 text-base">
-                <Mail className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
-                <a href={`mailto:${SITE.clinicEmail}`} className="underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+              <li className="text-base">
+                <a href={`mailto:${SITE.clinicEmail}`} className="group flex items-center gap-2 -my-2 py-2 underline-offset-2 hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                  <Mail className="size-5 text-[var(--accent-strong)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transform-none" aria-hidden />
                   {SITE.clinicEmail}
                 </a>
               </li>
