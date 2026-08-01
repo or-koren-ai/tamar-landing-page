@@ -3,7 +3,13 @@ import Link from "next/link"
 import { reviews } from "@/lib/data/reviews"
 import { tagLinkMap } from "@/lib/data/tag-links"
 import { SITE } from "@/lib/config/site-config"
+import { ReviewsMoreExpander } from "./ReviewsMoreExpander"
 import type { Review } from "@/types/review"
+
+// Reviews shown before the "עוד ביקורות" expander, per breakpoint.
+// Desktop count should fill whole grid rows (2–3 columns).
+const VISIBLE_MOBILE = 4
+const VISIBLE_DESKTOP = 6
 
 // Star rating component
 const Stars = ({ value = 5 }: { value: number }) => (
@@ -60,24 +66,23 @@ export function ReviewsSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-light mb-4 text-center text-[#859a85]">ביקורות מטופלים</h2>
         <div className="mb-8 flex justify-center">
-          <a
-            href={SITE.rating.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-gray-700 no-underline hover:underline"
-            aria-label={`דירוג ${SITE.rating.value} מתוך ${SITE.rating.bestRating} · מעל ${roundedReviewCount} ביקורות ב-MedReviews`}
-          >
+          <span className="inline-flex items-center gap-2 text-gray-700">
             <Stars value={SITE.rating.value} />
             <span className="text-sm md:text-base">
-              <strong className="font-semibold">{SITE.rating.value}</strong> מתוך {SITE.rating.bestRating} · מעל {roundedReviewCount} ביקורות ב-MedReviews
+              <strong className="font-semibold">{SITE.rating.value}</strong> מתוך {SITE.rating.bestRating} · מעל {roundedReviewCount} ביקורות ב-{SITE.rating.source}
             </span>
-          </a>
+          </span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
+        <ReviewsMoreExpander
+          mobileVisible={VISIBLE_MOBILE}
+          desktopVisible={VISIBLE_DESKTOP}
+          sourceUrl={SITE.rating.sourceUrl}
+          sourceLabel={`לכל חוות הדעת ב-${SITE.rating.source}`}
+        >
           {reviews.map(review => (
             <ReviewCard key={review.id} review={review} />
           ))}
-        </div>
+        </ReviewsMoreExpander>
       </div>
     </section>
   )
