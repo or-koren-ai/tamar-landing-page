@@ -84,8 +84,10 @@ export default function AppointmentSection() {
         </div>
       </div>
 
-      {/* Full-width map below */}
-      <div className="mt-10 relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+      {/* Full-width map below — section is already full-bleed, so a plain block
+          spans the viewport without the 100vw trick (100vw includes the scrollbar
+          on some platforms and causes horizontal overflow) */}
+      <div className="mt-10">
         <div className="h-[330px] md:h-[400px] xl:h-[470px] w-full">
           <MapEmbed />
         </div>
